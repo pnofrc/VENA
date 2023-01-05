@@ -212,6 +212,11 @@ img {
     gap: 30px;
 }
 
+#logo{
+  position: relative;
+  z-index: -3;
+}
+
 /* FORM */
 
 @keyframes article {
