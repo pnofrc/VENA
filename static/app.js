@@ -1,4 +1,4 @@
-var scene = document.querySelector('.pics')
+var scene = document.querySelector('#title')
 var parallaxInstance = new Parallax(scene);
 
 function toggleDiv(bool,button,div){

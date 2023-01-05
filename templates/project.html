@@ -21,7 +21,7 @@
 
     <div class="title" id="title">
         <h1>{{project.title}}</h1>
-        <!-- <img id="vene" src="/static/assets/vena.svg" alt=""> -->
+        <img id="vene" data-depth="0.8"  src="/static/assets/vena.svg" alt="">
     </div>
 
 <!-- <h2>{{project.metadata.description}}</h2> -->
@@ -54,7 +54,7 @@
 
                 <div class="pics">
                     {%for pic in range(0, 3)%}
-                        <img data-depth="0.8" src='{{project.contents[pic].image.large.url}}'>
+                        <img src='{{project.contents[pic].image.large.url}}'>
                     {%endfor%}
                 </div>     
             </div>
