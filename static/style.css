@@ -205,6 +205,13 @@ img {
   background-color: var(--secondary);
 }
 
+.pics{
+  display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 30px;
+}
+
 /* FORM */
 
 @keyframes article {

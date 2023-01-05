@@ -1,3 +1,6 @@
+var scene = document.querySelector('.content')
+var parallaxInstance = new Parallax(scene);
+
 function toggleDiv(bool,button,div){
     let toOpen = document.getElementById(div)
     document.getElementById(button).addEventListener('click', function(){

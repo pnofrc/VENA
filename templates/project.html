@@ -13,6 +13,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script async src="/static/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <title>{{project.title}}</title>
 </head>
 
@@ -51,7 +52,7 @@
                     <span>MENU  ⟶</span>
                 </div>
 
-                <div class="pics">
+                <div class="pics" data-depth="0.2">
                     {%for pic in range(0, 3)%}
                         <img src='{{project.contents[pic].image.large.url}}'>
                     {%endfor%}
