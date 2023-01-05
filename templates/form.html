@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/style.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <script async  src="/static/app.js"></script>
+    </head>
+    <body>
+
+        <div class="title" id="title">
+            <h1>Modulo di iscrizione</h1>
+        <!-- <img id="vene" src="/static/assets/vena.svg" alt=""> -->
+        </div>
+
+    <button id="infoButton">INFO</button>
+        <div id="info" class="animate__animated">
+           
+            Alla sottoscrizione del form <span class="article2">il</span><span class="article">il</span> sottoscritt<span clasas="article2">o</span><span clasas="article">a</span> dichiara:
+            <ul>
+                <li> di chiedere l'iscrizione all'associazione culturale Vena;</li>
+                <li>di aver visionato ed accettato lo statuto e l'atto costitutivo dell'associazione: <a href="https://drive.google.com/file/d/1H45PEodI75XEoZj3Y9HkJuQqrxSoj3hi/view" target="_blank">visualizza qui</a>;</li>
+                <li>di aver letto l'informativa sul trattamento dati personali ai sensi dell'art. 13 del D.Lgs 198/03 e autorizza il
+                trattamento stesso;</li>
+            </ul>
+            
+            <u>L'iscrizione verrà finalizzata dopo la prima donazione.</u>
+            <br><br><br>
+            <b>Trattamento dati</b>
+            <p>La informiamo che presso la nostra associazione è effettuato il trattamento dei suoi dati personali nel pieno rispetto
+            dell’art. 13 del Regolamento UE 2016/679 (di seguito “GDPR 2016/679”). recante disposizioni a tutela delle persone e di
+            altri soggetti rispetto al trattamento dei dati personali, desidero informarLa che i dati personali da Lei forniti
+            formeranno oggetto di trattamento nel rispetto della normativa sopra richiamata e degli obblighi di riservatezza cui
+            sono tenuto. 
+            La informiamo che: 
+            <ol>
+                <li>I dati raccolti al fine dell’attuazione di obblighi di natura istituzionale, di
+            obblighi di legge, adempimenti contabili, assicurativi su Sua documentazione e saranno comunicati a consulenti esterni
+            in quanto persone responsabili ed incaricate dal trattameto e non diffusi. Per l’attuazione di quanto fino ora
+            comunicato, tutti i dati si possono comunicare nell’area di accoglimento. Il trattamento avviene nel seguente modo: manuale e con supporto informatico. </li>
+            <li>Il conferimento dei dati ha natura obbligatoria. In caso di rifiuto di conferire i dati le conseguenze saranno di non poter ottenere degli adempimenti di cui al punto 1;</li>
+            <li>Al titolare e al responsabile del trattamento, Lei potrà rivolgersi per far valere i suoi diritti così come previsti dall’art.7 del
+            D.Lgs. 196/3, cioè la conferma di dati che La riguardano: la cancellazione, la trasformazione, il blocco del dati
+            trattati, l’aggiornamento, la ratificazione e l’integrazione dei dati;
+            <li>Il titolare del trattamento è l’associazione scrivente: Associazione Vena; </li>
+            <li>Il responsabile del trattamento nel territorio dello stato ai sensi dell’art. 5 e 7
+            D.Lgs. 196/3 è il presidente <b>Cancelli Gianluca</b>.</li>
+            </ol></p>
+        </div>
+       
+           
+<div class="form">
+    <form action="/allGood" method="POST">
+        <div>
+        <label for="fname">Nome:</label>
+        <input type="text" id="fname" name="fname" placeholder="Abigal">
+        </div>
+        <div>
+        <label for="lname">Cognome:</label>
+        <input type="text" id="lname" name="lname" placeholder="Lupemburx">
+        </div>
+        <div>
+        <label for="birthplace">Luogo di nascita:</label>
+        <input type="text" id="birthplace" name="birthplace" placeholder="Iceland">
+        </div>
+        <div>
+        <label for="birthday">Data di nascita:</label>
+        <input type="date" id="birthday" name="birthday"  placeholder="12-12-1999" min="1930-1-1" max="2004-1-1">
+        </div>
+        <div>
+        <label for="addressCity">Comune di residenza:</label>
+        <input type="text" id="addressCity" name="addressCity" placeholder="Tangeri">
+        </div>
+        <div>
+        <label for="addressStreet">Indirizzo e civico di residenza:</label>
+        <input type="text" id="addressStreet" name="addressStreet" placeholder="Boulevard Corazòn">
+        </div>
+        <div>
+        <label for="zip">CAP di residenza:</label>
+        <input type="text" id="zip" name="zip" placeholder="42666">
+        </div>
+        <div>
+        <label for="domicile">Città di domicilio:</label>
+        <input type="text" id="domicile" name="domicile" placeholder="Milano">
+        </div>
+        <div>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" placeholder="abi_lupe@vena.org">
+        </div>
+        <div>
+        <input type="submit" value="Submit">
+    </div>
+    </form>
+    </div>
+        
+        <script >
+        
+        </script>
+    </body>
+</html>
