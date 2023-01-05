@@ -215,6 +215,7 @@ img {
 #logo{
   position: relative;
   z-index: -3;
+  max-width: 100%;
 }
 
 /* FORM */
