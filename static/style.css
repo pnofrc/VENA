@@ -73,3 +73,76 @@ body {
         padding: 2rem;
 }
 
+#info,
+form {
+  margin: 30px;
+}
+
+#info {
+  display: none;
+}
+
+#infoButton {
+  margin-left: 30%;
+  margin-top: 4%;
+}
+
+#info a{
+    color: white;
+}
+
+form {
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+form div {
+  line-height: 1.5;
+}
+
+form input {
+  width: 300px;
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+label,
+input {
+  text-transform: capitalize;
+  color: white;
+}
+h1{
+    text-transform: uppercase;
+}
+#title h1{
+    text-align: center;
+}
+#birthday {
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.429)
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.429)
+}
+
+#birthday::placeholder {
+  color: white;
+}
+
+
+button {
+  border-radius: 10px;
+  border: solid 3px white;
+  background: transparent;
+  height: 30px;
+  width: 40%;
+  color: white;
+}
+
+#submit{
+    color:white
+}
