@@ -53,7 +53,7 @@ for x in range(len(data['contents'])):
   project = json.loads(Jresponse)
   menu = f'<a href=#'+str(project['id'])+'>'+project['title']+'</a>'
   projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html']}
-  projectsDiv.append(f'<div class="project" id="{str(id)}" style="top:{r(10,400)}%;left:{r(10,400)}%">')
+  projectsDiv.append(f'<div class="project" id="{str(id)}" style="top:{r(10,800)}%;left:{r(10,600)}%">')
   # print(project['contents'][-1]['content_html'])
   # print(project['metadata'])
   # print(project['title'])
