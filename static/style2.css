@@ -1,0 +1,307 @@
+:root {
+  --background: rgb(34, 36, 36);
+  --text: rgb(248, 220, 201);
+  --secondary: rgb(175, 43, 43);
+  --third: rgba(210, 67, 31, 0.471);
+  --pure: red;
+}
+
+@font-face {
+  font-family: "O_block";
+  src: url("outward-block-webfont.woff2");
+}
+@font-face {
+  font-family: "O_round";
+  src: url("outward-round-webfont.woff2");
+}
+@font-face {
+  font-family: "O_borders";
+  src: url("outward-borders-webfont.woff2");
+}
+
+@keyframes beat {
+  0% {
+    background: red;
+  }
+  5% {
+    background: rgb(79, 25, 25);
+  }
+  10% {
+    background: red;
+  }
+  15% {
+    background: rgb(219, 202, 172);
+  }
+  50% {
+    background: red;
+  }
+  100% {
+    background: red;
+  }
+}
+
+@keyframes article {
+  0% {
+    color: red;
+  }
+  100% {
+    color: blue;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
+
+a,
+a:visited {
+  color: var(--secondary);
+}
+
+button {
+  border-radius: 10px;
+  border: solid 3px var(--secondary);
+  background: transparent;
+  height: 30px;
+  width: 40%;
+  color: var(--text);
+}
+
+/* FORM STUFF */
+
+.title {
+  width: calc(100%-14px);
+  min-height: 100vh;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 7px rgb(190, 61, 61);
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+}
+
+.title h1 {
+  font-size: 7.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  color: white;
+  line-break: anywhere;
+  justify-content: space-around;
+  background-image: url(https://media.giphy.com/media/l46CuKmWZMFirpzTW/giphy.gif);
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+img {
+  max-width: 80%;
+}
+
+#vene {
+  position: absolute;
+  z-index: -1;
+  left: -12%;
+  min-height: 50% !important;
+  max-width: 140%;
+}
+
+#vene path {
+  fill: red;
+}
+
+#logo{
+  position: relative;
+  z-index: -3;
+  max-width: 100%;
+}
+
+#logo img{
+    transform: rotate(306deg);
+}
+
+#dark {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+
+
+
+/* PROJECTS */
+
+.contentsMenu{
+    height: 100vh;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contentsMenu li a{
+  color: var(--text);
+}
+
+.menu-button{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 7px;
+  cursor: e-resize;
+  transition: 0.3s;
+  background-color: var(--pure);
+  height: 100%;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  }
+
+  .back{
+    background: var(--secondary);
+    padding: 7px;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+      writing-mode: vertical-rl;
+  text-orientation: upright;
+    cursor: ew-resize
+
+  }
+
+  .titleMenu{
+    font-size: 25vw;
+  }
+
+.swiper-slide.menu{
+    background-image: linear-gradient(to bottom right, red, rgba(247, 3, 3, 0.173));
+}
+
+#menuProjectsButton {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+#menuProjects {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 75%;
+  z-index: 2;
+  display: none;
+  background-color: var(--secondary);
+}
+
+.pics{
+  display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+
+
+/* FORM */
+
+@keyframes article {
+  0% {
+    display: none;
+  }
+  50% {
+    display: block;
+  }
+  100% {
+    display: none;
+  }
+}
+
+@keyframes article2 {
+  0% {
+    display: block;
+  }
+  50% {
+    display: none;
+  }
+  100% {
+    display: block;
+  }
+}
+
+.article {
+  animation: article 4.3s infinite;
+  content: "caetefgbgtrfd";
+}
+.article2 {
+  animation: article2 0.3s infinite;
+}
+
+#info,
+form {
+  margin: 30px;
+}
+
+#info {
+  display: none;
+}
+
+#infoButton {
+  margin-left: 30%;
+  margin-top: 4%;
+}
+
+form {
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+form div {
+  line-height: 1.5;
+}
+
+form input {
+  width: 300px;
+  background-color: transparent;
+  color: var(--pure);
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+label,
+input {
+  text-transform: capitalize;
+}
+#birthday {
+  text-transform: none;
+}
+
+::placeholder {
+  color: var(--third);
+}
+
+#birthday::placeholder {
+  color: white;
+}
