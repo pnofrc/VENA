@@ -1,4 +1,5 @@
 
+
 document.querySelector('#logo').addEventListener('click',function(){
     document.querySelector('#logo').classList.add('animate__heartBeat')
     setInterval(() => {
@@ -6,8 +7,8 @@ document.querySelector('#logo').addEventListener('click',function(){
     }, 800);
 })
 
-var scene = document.querySelector('#logo')
-var parallaxInstance = new Parallax(scene);
+// var scene = document.querySelector('#logo')
+// var parallaxInstance = new Parallax(scene);
 
 
 

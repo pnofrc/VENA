@@ -8,7 +8,7 @@
         <script async src="/static/app.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1">
         <link rel="stylesheet" href="/static/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
         <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     </head>
@@ -19,12 +19,13 @@
         </div>
 
         <div class="menu">
-            {%for i in range(0, len)%} 
+            <a href="#">HOME</a><br>
+            {%for i in range(0, lenP)%} 
                 {{projects[i]['menu'] | safe}}<br>
             {%endfor%} 
         </div>
 
-        {%for i in range(0, len)%} 
+        {%for i in range(0, lenP)%} 
         {{projectsDiv[i] |safe}}
             <h1>{{projects[i]['title'] | safe}}</h1>
             <h2>{{projects[i]['description'] | safe}}</h2>
@@ -33,6 +34,8 @@
         {%endfor%} 
 
 
+
+<img id="megaVena" src="/static/assets/veneTot.svg">
 
         <script>
   

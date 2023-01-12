@@ -28,14 +28,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: black;
 }
 
-#logo{
+#logo,.vene{
     width: 90vw;
    filter: invert();
      --animate-duration: 0.5s;
 }
+.vene{
+    width: 1440vw;
+    position: absolute;
+    opacity: .3;
+}
 
+#megaVena{
+    width: 1000%;
+    opacity: .3;
+       filter: invert();
+       position: relative;
+       top: 0;
+       left: 0;
+
+}
 .menu{
     z-index: 100;
     width: 100%;
@@ -45,6 +60,11 @@ body {
     -webkit-backface-visibility: hidden;
 }
 
+.menu a{
+    color: white;
+    text-decoration: none;
+}
+
 .project{
     position: absolute;
         width: 100vw;
@@ -52,3 +72,4 @@ body {
         overflow-y: scroll;
         padding: 2rem;
 }
+

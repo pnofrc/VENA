@@ -6,16 +6,28 @@ import os
 
 import requests
 
+
+
+
+
 baseURL = 'http://api.are.na/v2/channels/'
 
 
 db = {} # database x form
 projects = {}
 projectsDiv = []
+vene = []
 
-def r(): # random values x position
-   return random.randint(100,900)
+def r(first,second): # random values x position
+   return random.randint(first,second)
 
+
+for v in os.listdir("./static/assets/vene/"):
+  vene.append(f'<img class="vene" src="/static/assets/vene/{v}" style="top:{r(10,60)}%;left:{r(0,70)}%">')
+
+        # {%for v in range(0, lenV)%} 
+        #     {{vene[v] |safe}}
+        # {%endfor%} 
 
 
 extension = 'website-assets-dkje44dpzvc'
@@ -40,14 +52,16 @@ for x in range(len(data['contents'])):
   Jresponse = uResponse.text
   project = json.loads(Jresponse)
   menu = f'<a href=#'+str(project['id'])+'>'+project['title']+'</a>'
-  print(menu)
   projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html']}
-  projectsDiv.append(f'<div class="project" id="{str(id)}" style="top:{r()}%;left:{r()}%">')
+  projectsDiv.append(f'<div class="project" id="{str(id)}" style="top:{r(10,400)}%;left:{r(10,400)}%">')
   # print(project['contents'][-1]['content_html'])
   # print(project['metadata'])
   # print(project['title'])
 
-len=len(projects)
+
+lenP=len(projects)
+lenV=len(vene)
+
 
 
 with open('projects.json', 'w') as f:
@@ -58,7 +72,7 @@ app = Flask('app')
 # HOMEPAGE
 @app.route('/')
 def index():
-  return render_template('index.html',len=len,projects=projects,projectsDiv=projectsDiv)
+  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV)
 
 
 # FORM
