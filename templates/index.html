@@ -1,29 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <script async src="/static/app.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    </head>
+    <body>
 
-    <title>VENA</title>
-</head>
+        <div class="logo">
+            <img id="logo" class="animate__animated" src = "/static/assets/vena_new.svg" alt="My Happy SVG"/>
+        </div>
 
-<body>
-    <div class="title" id="title">
-        <img id="vene" src="/static/assets/vena.svg" alt="">
-    </div>
-    <!-- {{ids}} -->
+        <div class="menu">
+            {%for i in range(0, len)%} 
+                {{projects[i]['menu'] | safe}}<br>
+            {%endfor%} 
+        </div>
 
-    <br><br>
-    <span>{{projects}} </span>
+        {%for i in range(0, len)%} 
+        {{projectsDiv[i] |safe}}
+            <h1>{{projects[i]['title'] | safe}}</h1>
+            <h2>{{projects[i]['description'] | safe}}</h2>
+            {{projects[i]['text'] | safe}}
+        </div>
+        {%endfor%} 
 
 
-    <script>
-      
-    </script>
-</body>
 
+        <script>
+  
+        </script>
+    </body>
 </html>

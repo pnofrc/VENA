@@ -6,10 +6,16 @@ import os
 
 import requests
 
-db = {}
 baseURL = 'http://api.are.na/v2/channels/'
-pages = []
-ids = []
+
+
+db = {} # database x form
+projects = {}
+projectsDiv = []
+
+def r(): # random values x position
+   return random.randint(100,900)
+
 
 
 extension = 'website-assets-dkje44dpzvc'
@@ -24,39 +30,41 @@ Jresponse = uResponse.text
 data = json.loads(Jresponse)
 
 
-# GET IDS OF CHANNEL'S PROJECTS
 for x in range(len(data['contents'])):
-  pages.append(data['contents'][x]['title'])
-  ids.append(data['contents'][x]['id'])
+  id = data['contents'][x]['id']
+  uri = baseURL + str(id)
+  try:
+    uResponse = requests.get(uri)
+  except requests.ConnectionError:
+    print('error')
+  Jresponse = uResponse.text
+  project = json.loads(Jresponse)
+  menu = f'<a href=#'+str(project['id'])+'>'+project['title']+'</a>'
+  print(menu)
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html']}
+  projectsDiv.append(f'<div class="project" id="{str(id)}" style="top:{r()}%;left:{r()}%">')
+  # print(project['contents'][-1]['content_html'])
+  # print(project['metadata'])
+  # print(project['title'])
+
+len=len(projects)
 
 
-
-# GET DATA FOR PROJECTS
-project = str(ids[2])
-uri = baseURL + project
-try:
-  uResponse = requests.get(uri)
-except requests.ConnectionError:
-  print('error')
-
-Jresponse = uResponse.text
-project = json.loads(Jresponse)
-
-
-
+with open('projects.json', 'w') as f:
+    json.dump(projects, f)
 
 app = Flask('app')
 
 # HOMEPAGE
 @app.route('/')
 def index():
-  return render_template('index.html', )
+  return render_template('index.html',len=len,projects=projects,projectsDiv=projectsDiv)
 
 
 # FORM
 @app.route('/form', methods=['POST', 'GET'])
 def form():
-  return render_template('form.html', project=project, ids=ids)
+  return render_template('form.html')
 
 # OUTPUT FORM
 @app.route('/allGood', methods=['POST', 'GET'])
@@ -73,11 +81,9 @@ def formDone():
   return render_template('success.html', name,birth,address,email,city)
 
 
-
-
-# PROJECTS PAGES DYNAMICALLY CREATED
-@app.route('/first')
-def proj():
-  return render_template('project.html', project=project, ids=ids)
+# # PROJECTS PAGES DYNAMICALLY CREATED
+# @app.route('/first')
+# def proj():
+#   return render_template('project.html', project=project, ids=ids)
 
 app.run(host='0.0.0.0', port=8080, debug=True)
