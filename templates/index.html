@@ -303,6 +303,11 @@
             document.querySelector('#capillari').style.filter = 'invert()'
         })
 
+                window.addEventListener('touchstart', (event) =>{
+            event.preventDefault();
+            document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+            document.querySelector('#capillari').style.filter = 'invert()'
+        })
     
 
         let menu = document.getElementById('menu')
