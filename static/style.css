@@ -1,4 +1,7 @@
-
+@font-face {
+  font-family: 'inter';
+  src: url('./Inter-Thin.otf');
+}
 *,
 *:before,
 *:after {
@@ -18,7 +21,7 @@ body {
   background-color: black;
   color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+  font-family: 'inter';
 }
 
 svg{
