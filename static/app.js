@@ -1,78 +1,63 @@
 
+        window.location.hash = "HOME";
 
-function toggleDiv(bool,button,div){
-    let toOpen = document.getElementById(div)
-    document.getElementById(button).addEventListener('click', function(){
-        
-              if (bool == 0) {
-                toOpen.classList.remove("animate__slideOutUp");
-                toOpen.classList.add("animate__slideInDown");
-                toOpen.style.display = 'block'
-                bool++
-                console.log(bool)
+        function getOffset(el) {
+        const rect = el.getBoundingClientRect();
+        return {
+            left: rect.left + window.scrollX + 'px',
+            top: rect.top + window.scrollY+ 'px'
+        };
+        }
+
+        document.querySelector('#HOME').style.filter = 'invert()'
+        document.querySelector('#VENA').style.filter = 'invert()'
+
+        window.addEventListener('wheel', (event) =>{
+            event.preventDefault();
+            document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+            document.querySelector('#capillari').style.filter = 'invert()'
+        })
+
+                window.addEventListener('touchstart', (event) =>{
+            event.preventDefault();
+            document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+            document.querySelector('#capillari').style.filter = 'invert()'
+        })
+    
+
+        let menu = document.getElementById('menu')
+        let menuButton = document.getElementById('menuButton')
+
+        menuButton.addEventListener('click', function(){
+            if(menu.style.display === 'block'){
+                menu.style.display = 'none'
             } else {
-                toOpen.classList.remove("animate__slideInDown");
-                 toOpen.classList.add("animate__slideOutUp");
-                setTimeout(() => {
-                     toOpen.style.display = 'none'
-                }, 1200);
-                bool--
-                console.log(bool)
-               }
-
-      })
-}
+                menu.style.display = 'block'
+            }
+        })
 
 
-let viewportHeight = window.innerHeight;
-document.querySelector('.title').addEventListener('click', function(){
-    window.scrollBy(0,viewportHeight)
-})
+        let positions = []
 
+        let spacePoints = document.querySelectorAll('rect')
+        spacePoints.forEach(point => {
+            positions.push(getOffset(point))
+        });
 
- 
+        let projects = document.querySelectorAll('.project')
 
-
-
-
-
-
-let toggleInfo = 0
-toggleDiv(toggleInfo,'infoButton','info')
-
-document.querySelector('#logo').addEventListener('click',function(){
-    document.querySelector('#logo').classList.add('animate__heartBeat')
-    setInterval(() => {
-    document.querySelector('#logo').classList.remove('animate__heartBeat')
-    }, 800);
-})
-
-// var scene = document.querySelector('#logo')
-// var parallaxInstance = new Parallax(scene);
+        let i = 0
+        projects.forEach(project =>{
+            project.style.top = positions[i].top
+                project.style.left = positions[i].left
+                i++
+        })
 
 
 
 
 
 
-
-
-
-//   document.getElementById('two').addEventListener('click',function(){
-            
-       
-// let motion_path = anime.path('#path');
-// anime({
-//     targets: 'body',
-//     translateX: motion_path('x'),
-//     translateY: motion_path('y'),
-//     rotate: motion_path('angle'),
-//     easing: 'linear',
-//     duration: 5000,
-//     loop: false,
-// });
-//  document.querySelector('.test').scrollIntoView({behavior: "smooth"});
-//   })
-
-
-
+        var scene = document.querySelector('#logo')
+        var parallaxInstance = new Parallax(scene);
+        

@@ -37,6 +37,8 @@ data = json.loads(Jresponse)
 
 for x in range(len(data['contents'])):
   id = data['contents'][x]['id']
+  title = data['contents'][x]['title']
+  title = title.replace(' ','_')
   uri = baseURL + str(id)
   try:
     uResponse = requests.get(uri)
@@ -44,13 +46,20 @@ for x in range(len(data['contents'])):
     print('error')
   Jresponse = uResponse.text
   project = json.loads(Jresponse)
-  menu = f'<a href=#'+str(project['id'])+'>'+project['title']+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html']}
-  projectsDiv.append(f'<div class="project" id="{str(id)}">')
 
-  # print(project['contents'][-1]['content_html'])
-  # print(project['metadata'])
-  # print(project['title'])
+  pics = []
+  for pic in range(len(project['contents'])):
+    try:
+      pics.append(project['contents'][pic]['image']['original']['url'])   
+    except:
+      print('')
+
+
+  menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title+'</a>'
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics}
+  projectsDiv.append(f'<div class="project" id="{str(title)}">')
+
+
 
 
 lenP=len(projects)

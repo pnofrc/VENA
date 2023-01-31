@@ -9,7 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/static/style.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <script async  src="/static/app.js"></script>
+        <!-- <script async  src="/static/app.js"></script> -->
+        <style>
+            body{
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
 
@@ -18,7 +23,9 @@
         <!-- <img id="vene" src="/static/assets/vena.svg" alt=""> -->
         </div>
 
-    <button id="infoButton">INFO</button>
+    <div id="head"><span id="infoButton">ᗒ INFO</span>
+    <span id="infoButton"><a href="../">BACK HOME <span2 class="bigger">⋊</span2></a></span>
+</div>
         <div id="info" class="animate__animated">
            
             Alla sottoscrizione del form <span class="article2">il</span><span class="article">il</span> sottoscritt<span clasas="article2">o</span><span clasas="article">a</span> dichiara:
@@ -57,39 +64,39 @@
 <div class="form">
     <form action="/allGood" method="POST">
         <div>
-        <label for="fname">Nome:</label>
+        <label for="fname">Nome:</label><br>
         <input type="text" id="fname" name="fname" placeholder="Abigal">
         </div>
         <div>
-        <label for="lname">Cognome:</label>
+        <label for="lname">Cognome:</label><br>
         <input type="text" id="lname" name="lname" placeholder="Lupemburx">
         </div>
         <div>
-        <label for="birthplace">Luogo di nascita:</label>
+        <label for="birthplace">Luogo di nascita:</label><br>
         <input type="text" id="birthplace" name="birthplace" placeholder="Iceland">
         </div>
         <div>
-        <label for="birthday">Data di nascita:</label>
+        <label for="birthday">Data di nascita:</label><br>
         <input type="date" id="birthday" name="birthday"  placeholder="12-12-1999" min="1930-1-1" max="2004-1-1">
         </div>
         <div>
-        <label for="addressCity">Comune di residenza:</label>
+        <label for="addressCity">Comune di residenza:</label><br>
         <input type="text" id="addressCity" name="addressCity" placeholder="Tangeri">
         </div>
         <div>
-        <label for="addressStreet">Indirizzo e civico di residenza:</label>
+        <label for="addressStreet">Indirizzo e civico di residenza:</label><br>
         <input type="text" id="addressStreet" name="addressStreet" placeholder="Boulevard Corazòn">
         </div>
         <div>
-        <label for="zip">CAP di residenza:</label>
+        <label for="zip">CAP di residenza:</label><br>
         <input type="text" id="zip" name="zip" placeholder="42666">
         </div>
         <div>
-        <label for="domicile">Città di domicilio:</label>
+        <label for="domicile">Città di domicilio:</label><br>
         <input type="text" id="domicile" name="domicile" placeholder="Milano">
         </div>
         <div>
-        <label for="email">email:</label>
+        <label for="email">email:</label><br>
         <input type="text" id="email" name="email" placeholder="abi_lupe@vena.org">
         </div>
         <div>
@@ -100,6 +107,47 @@
         
         <script >
         
+function toggleDiv(bool,button,div){
+    let toOpen = document.getElementById(div)
+    document.getElementById(button).addEventListener('click', function(){
+        
+              if (bool == 0) {
+                toOpen.classList.remove("animate__slideOutUp");
+                toOpen.classList.add("animate__slideInDown");
+                toOpen.style.display = 'block'
+                document.getElementById('infoButton').innerHTML='ᗐ CLOSE INFO'
+                bool++
+            } else {
+                toOpen.classList.remove("animate__slideInDown");
+                 toOpen.classList.add("animate__slideOutUp");
+                setTimeout(() => {
+                     toOpen.style.display = 'none'
+                }, 1200);
+                 document.getElementById('infoButton').innerHTML='ᗒ INFO'
+                bool--
+               }
+
+      })
+}
+
+
+let viewportHeight = window.innerHeight;
+document.querySelector('.title').addEventListener('click', function(){
+    window.scrollBy(0,viewportHeight)
+})
+
+
+ 
+
+
+
+
+
+
+let toggleInfo = 0
+toggleDiv(toggleInfo,'infoButton','info')
+
+
         </script>
     </body>
 </html>

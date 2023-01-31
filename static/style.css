@@ -2,6 +2,7 @@
   font-family: 'inter';
   src: url('./Inter-Thin.otf');
 }
+
 *,
 *:before,
 *:after {
@@ -15,74 +16,91 @@ html {
 }
 
 body {
-  /* width: 1000%; */
   margin: 0;
   padding: 0;
   background-color: black;
   color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-family: 'inter';
 }
 
-svg{
-  left: 10vw;
-  /* filter: invert(); */
-      width: 2000px;
-    display: block;
+button {
+  border: .3px solid;
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+  color: white;
+  font-size: 30px;
 }
 
 
+svg{
+  left: 10vw;
+  width: 2500px;
+  display: block;
+}
 
-.logo{
-    /* border: solid; */
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
+#logo{
+  width: 1000vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 #megaVena{
-    width: 1000%;
-    opacity: .3;
-       filter: invert();
-       position: relative;
-       top: 0;
-       left: 0;
-
+  width: 1000%;
+  opacity: .3;
+  filter: invert();
+  position: relative;
+  top: -15rem;
+  left: 0;
+  z-index: -5;
 }
 
-#menuButton{
+
+#menuButton,#up{
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 99099;
+  z-index: 999;
+  font-size: 35px;
+  opacity: 0;
 }
+
+#up{
+  right: 0;
+}
+
 #menu{
   display: none;
-    z-index: 100;
-    width: 100%;
-    position: fixed;
-    bottom: 35px;
-    left: 0;
-    -webkit-backface-visibility: hidden;
+  z-index: 100;
+  width: 100%;
+  position: fixed;
+  bottom: 45px;
+  left: 8px;
+  -webkit-backface-visibility: hidden;
 }
 
 #menu a{
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .project{
-    position: absolute;
-        width: 100vw;
-        height: 100vh;
-        overflow-y: scroll;
-        padding: 2rem;
-
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 2rem;
 }
+
+
+
+/* FORM */
+
+  label{
+    break-after: always;
+  }
 
 #info,
 form {
@@ -93,10 +111,6 @@ form {
   display: none;
 }
 
-#infoButton {
-  margin-left: 30%;
-  margin-top: 4%;
-}
 
 #info a{
     color: white;
@@ -106,7 +120,7 @@ form {
   justify-content: space-around;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 form div {
@@ -114,10 +128,12 @@ form div {
 }
 
 form input {
-  width: 300px;
+  width: 90%;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 10px;
+  padding: 2px;
+  margin: 5% 0;
 }
 
 label,
@@ -144,16 +160,100 @@ h1{
   color: white;
 }
 
-
-button {
-  border: .3px solid;
-  border: none;
-  border-radius: 3px;
-  background: transparent;
-  color: white;
-  font-size: 30px;
-}
-
 #submit{
     color:white
 }
+
+#head{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#head span{
+    font-size: 20px;
+}
+
+#head a{
+  text-decoration: none;
+  color: white
+}
+
+.bigger{
+  font-size: 25px;
+  
+}
+
+
+@media (min-width:641px)  { 
+  #menu{
+    font-size: 55px;
+  }
+   .project{
+    width: 70%;
+  }
+  p{
+      font-size: 20px;
+  }
+ }
+
+@media (min-width:1000px) { 
+
+  .project{
+    width: 50%;
+  }
+  #megaVena{
+    position: absolute;
+    width: 4000px;
+    top: 40vh;
+    left: 10vw
+  }
+
+  form{
+    width: 50%;
+    margin-left: 25%;
+    gap: 0;
+  }
+
+ }
+
+
+
+
+
+
+ .swiper {
+      /* width: 100%; */
+      height: 50%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      /* width: 100%; */
+      height: 100%;
+      object-fit: cover
+    }
+
+    .swiper-pagination-bullet{
+      background-color: black !important;
+    }
+     .swiper-pagination-bullet-active{background-color: white !important;}
