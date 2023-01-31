@@ -40,16 +40,6 @@ svg{
     background-color: black;
 }
 
-#logo,.vene{
-    width: 90vw;
-   filter: invert();
-     --animate-duration: 0.5s;
-}
-.vene{
-    width: 1440vw;
-    position: absolute;
-    opacity: .3;
-}
 
 #megaVena{
     width: 1000%;
