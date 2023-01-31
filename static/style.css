@@ -21,8 +21,17 @@ body {
   
 }
 
+svg{
+  left: 10vw;
+  /* filter: invert(); */
+      width: 2000px;
+    display: block;
+}
+
+
+
 .logo{
-    border: solid;
+    /* border: solid; */
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -51,16 +60,24 @@ body {
        left: 0;
 
 }
-.menu{
+
+#menuButton{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99099;
+}
+#menu{
+  display: none;
     z-index: 100;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 35px;
     left: 0;
     -webkit-backface-visibility: hidden;
 }
 
-.menu a{
+#menu a{
     color: white;
     text-decoration: none;
 }
@@ -71,6 +88,7 @@ body {
         height: 100vh;
         overflow-y: scroll;
         padding: 2rem;
+
 }
 
 #info,
@@ -135,12 +153,12 @@ h1{
 
 
 button {
-  border-radius: 10px;
-  border: solid 3px white;
+  border: .3px solid;
+  border: none;
+  border-radius: 3px;
   background: transparent;
-  height: 30px;
-  width: 40%;
   color: white;
+  font-size: 30px;
 }
 
 #submit{

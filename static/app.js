@@ -1,4 +1,5 @@
 
+
 function toggleDiv(bool,button,div){
     let toOpen = document.getElementById(div)
     document.getElementById(button).addEventListener('click', function(){
@@ -72,3 +73,6 @@ document.querySelector('#logo').addEventListener('click',function(){
 // });
 //  document.querySelector('.test').scrollIntoView({behavior: "smooth"});
 //   })
+
+
+

@@ -22,13 +22,6 @@ def r(first,second): # random values x position
    return random.randint(first,second)
 
 
-for v in os.listdir("./static/assets/vene/"):
-  vene.append(f'<img class="vene" src="/static/assets/vene/{v}" style="top:{r(10,60)}%;left:{r(0,70)}%">')
-
-        # {%for v in range(0, lenV)%} 
-        #     {{vene[v] |safe}}
-        # {%endfor%} 
-
 
 extension = 'website-assets-dkje44dpzvc'
 
@@ -53,7 +46,8 @@ for x in range(len(data['contents'])):
   project = json.loads(Jresponse)
   menu = f'<a href=#'+str(project['id'])+'>'+project['title']+'</a>'
   projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html']}
-  projectsDiv.append(f'<div class="project" id="{str(id)}" style="top:{r(10,800)}%;left:{r(10,600)}%">')
+  projectsDiv.append(f'<div class="project" id="{str(id)}">')
+
   # print(project['contents'][-1]['content_html'])
   # print(project['metadata'])
   # print(project['title'])
@@ -95,9 +89,5 @@ def formDone():
   return render_template('success.html', name,birth,address,email,city)
 
 
-# # PROJECTS PAGES DYNAMICALLY CREATED
-# @app.route('/first')
-# def proj():
-#   return render_template('project.html', project=project, ids=ids)
 
 app.run(host='0.0.0.0', port=8080, debug=True)
