@@ -3,6 +3,10 @@
   src: url('./Inter-Thin.otf');
 }
 
+:root{
+  --size: 4000px
+}
+
 *,
 *:before,
 *:after {
@@ -21,40 +25,52 @@ body {
   background-color: black;
   color: white;
   font-family: 'inter';
-
-  width: 2000px;
-  height: 2000px;
+  width: var(--size);
+  height: var(--size);
 }
 
 #container{
   display: flex;
   align-items: center;
   justify-content: center;
-width: 2000px;
-    height: 2000px;
-  position: absolute ;
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  z-index: 0;
 }
-
-#vene{  filter: invert();
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
-width: 2000px;
-    height: 2000px;}
-
-#vene svg{
-width: 2000px;
-    height: 2000px;
-  border: solid;
-}
-
 
 #animatedLogo{
   width: 100vw;
+  filter: grayscale(100%);
+}
+
+#vene{  
+  opacity: 0;
+  filter: invert();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  z-index: 0;
+}
+
+#vene svg{
+  width: var(--size);
+  height: var(--size);
+  border: solid;
+}
+
+circle{
+  visibility: hidden;
 }
 
 
+
+::-webkit-scrollbar {
+  opacity: 0;
+}
 
 button {
   border: .3px solid;
@@ -65,42 +81,27 @@ button {
   font-size: 30px;
 }
 
-
-#zero{
-  width: 10%;
-}
-/* svg{
-  left: 10vw;
-  width: 2500px;
-  display: block;
-} */
-
-#logo{
-  width: 1000vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
 #megaVena{
-  width: 1000%;
-  opacity: .3;
+  width:4000px;
   filter: invert();
-  position: relative;
-  top: -15rem;
-  left: 0;
+ position: absolute;
+    top: 40vh;
+    left: 10vw;
   z-index: -5;
+     opacity: .2;
+
+     display: none;
 }
+
 
 
 #menuButton,#up{
-  position: fixed;
+  position: fixed !important;
   bottom: 0;
   left: 0;
-  z-index: 999;
   font-size: 35px;
   opacity: 0;
+  z-index: 3;
 }
 
 #up{
@@ -128,6 +129,7 @@ button {
   height: 100vh;
   overflow-y: scroll;
   padding: 2rem;
+  z-index: 1;
 }
 
 
@@ -221,7 +223,7 @@ h1{
 
 
 @media (min-width:641px)  { 
-  #menu{
+  #menu a{
     font-size: 55px;
   }
    .project{
@@ -234,15 +236,19 @@ h1{
 
 @media (min-width:1000px) { 
 
+  #animatedLogo{
+    width: 60vw;
+  }
+  
+
+  #menu a{
+    font-size: 55px;
+  }
+
   .project{
     width: 50%;
   }
-  #megaVena{
-    position: absolute;
-    width: 4000px;
-    top: 40vh;
-    left: 10vw
-  }
+
 
   form{
     width: 50%;
@@ -283,10 +289,14 @@ h1{
     }
 
     .swiper-slide img {
-      display: block;
-      /* width: 100%; */
-      height: 100%;
-      object-fit: cover
+      display: block !important;
+      height: 100% !important;
+      object-fit: cover !important;
+
+  max-width:230px !important;
+  max-height:95px !important;
+  width: auto !important;
+  height: auto !important;
     }
 
     .swiper-pagination-bullet{
