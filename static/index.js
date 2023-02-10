@@ -88,8 +88,7 @@ history.replaceState({},'',location.pathname);
 
 
 
-    var scene = document.querySelector('#container')
-    var parallaxInstance = new Parallax(scene);
+
     // var deco = document.querySelector('#deco')
     // var parallaxDeco = new Parallax(deco)
     

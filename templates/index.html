@@ -4,23 +4,37 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>VENA</title>
-
-<!-- https://stackoverflow.com/questions/8994465/positionfixed-not-working-on-mobile-works-on-desktop -->
-
-<!-- TODO: add SEO stuff -->
+        <link rel="canonical" href="https://www.">
+        <meta property="og:locale" content="en_IT">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:url" content="https://www.">
+        <meta property="og:site_name" content="VENA">
+        <meta property="og:image" content="">
+        <meta property="og:image:secure_url" content="https://">
+        <meta property="og:image:width" content="400">
+        <meta property="og:image:height" content="400">
 
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+        <meta name="keywords" content="">
+        <meta name="author" content="Federico Poni">
+
+        <meta name=”robots” content=”index, follow, max-snippet:-1, max-image-preview:large>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;  user-scalable=0;"/>
         <link rel="stylesheet" href="/static/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+         <link rel="icon" type="image/x-icon" href="/static/assets/fav">
     </head>
     <body>
 
         <div id="container">
-            <img id="animatedLogo"  src="../static/assets/animation.gif" alt="">
+            <img id="animatedLogo" data-depth="0.05" src="../static/assets/animation.gif" alt="">
             <!-- <video id="animatedLogo" playsinline autoplay muted>
                 <source src="../static/assets/animation.mp4" preload="auto" type="video/mp4" >
             </video>  -->
@@ -119,10 +133,15 @@
 
 
         <div id="deco">
-            <img id="megaVena" data-depth="0.003" src="/static/assets/deco.svg">
+            <img id="megaVena"  src="/static/assets/deco.svg">
         </div>
 
 
     <script defer src="../static/index.js"></script>
+    <script>
+            var scene = document.querySelector('#container')
+        var parallaxInstance = new Parallax(scene);
+        parallaxInstance.friction(0.8,0.8);
+    </script>
 </body>
 </html>
