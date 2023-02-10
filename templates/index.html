@@ -96,20 +96,20 @@
 
 
 		 {%for i in range(0, lenP)%} 
-            {{projectsDiv[i] |safe}}
-                <h1>{{projects[i]['title'] | safe}}</h1>
-                <h2>{{projects[i]['description'] | safe}}</h2>
+        {{projectsDiv[i] |safe}}
+            <h1>{{projects[i]['title'] | safe}}</h1>
+            <h2>{{projects[i]['description'] | safe}}</h2>
             
-                <div class="pictures swiper mySwiper">
-                    <div class="swiper-wrapper">
-                    {%for p in projects[i]['pics']%} 
-                        <div class="swiper-slide"><img  src="{{p}}"></div>
-                    {%endfor%} 
-                    </div>
-                <div class="swiper-pagination"></div>
-           </div>
+            <div class="pictures swiper mySwiper">
+                 <div class="swiper-wrapper">
+                 {%for p in projects[i]['pics']%} 
+                    <div class="swiper-slide"><img  src="{{p}}"></div>
+                  {%endfor%} 
+                  </div>
+             <div class="swiper-pagination"></div>
 
-           
+             
+            </div>
 
             {{projects[i]['text'] | safe}}
             
