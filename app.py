@@ -15,10 +15,8 @@ projects = {}
 projectsDiv = []
 vene = []
 
-def r(first,second): # random values x position
-   return random.randint(first,second)
-
-
+# def r(first,second): # random values x position
+#    return random.randint(first,second)
 
 extension = 'website-assets-dkje44dpzvc'
 
@@ -51,9 +49,35 @@ for x in range(len(data['contents'])):
     except:
       print('')
 
+  vid = {}
+  aud = {}
+
+  for mediaN in range(len(project['contents'])):
+    description = project['contents'][mediaN]['description_html']
+    asset = project['contents'][mediaN]['attachment']
+    # print(asset)
+    try:
+      if(description != ''):
+        if asset['extension'] == 'mp4':
+          vid = [asset['url'],description]
+          print(vid)
+        elif asset['extension'] == 'mp3':
+          aud = [asset['url'],description]
+          print(aud)
+
+      #   media['description'] = description
+      # # if ( asset != None):
+      # media['extension'] = asset['extension']
+      # media['file']= asset['url']
+    except:
+      print('')
+
+    print(vid)
+    print(aud)
+
 
   menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics}
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'aud': aud,'vid':vid}
   projectsDiv.append(f'<div class="project" id="{str(title)}">')
 
 
@@ -97,3 +121,6 @@ def formDone():
 
 
 app.run(host='0.0.0.0', port=8080, debug=True)
+
+# export FLASK_APP=app
+# export FLASK_ENV=development 

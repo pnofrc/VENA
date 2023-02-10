@@ -1,4 +1,6 @@
-  window.onload = maxWindow;
+location.hash = ''
+
+ window.onload = maxWindow;
   
   function maxWindow() {
         window.moveTo(0, 0);
@@ -89,7 +91,7 @@
 
 
           var swiper = new Swiper(".mySwiper", {
-      direction: "vertical",
+    //   direction: "vertical",
       slidesPerView: 1,
       spaceBetween: 30,
       mousewheel: true,

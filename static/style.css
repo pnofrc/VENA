@@ -42,6 +42,8 @@ body {
 #animatedLogo{
   width: 100vw;
   filter: grayscale(100%);
+  position: relative;
+  z-index: 10;
 }
 
 #vene{  
@@ -67,7 +69,6 @@ circle{
 }
 
 
-
 ::-webkit-scrollbar {
   opacity: 0;
 }
@@ -84,13 +85,12 @@ button {
 #megaVena{
   width:4000px;
   filter: invert();
- position: absolute;
-    top: 40vh;
-    left: 10vw;
+  position: absolute;
+  top: 40vh;
+  left: 10vw;
   z-index: -5;
-     opacity: .2;
-
-     display: none;
+  opacity: .2;
+  display: none;
 }
 
 
@@ -105,7 +105,7 @@ button {
 }
 
 #up{
-  right: 0;
+  left: 50vw !important;
 }
 
 #menu{
@@ -130,6 +130,38 @@ button {
   overflow-y: scroll;
   padding: 2rem;
   z-index: 1;
+}
+
+
+
+.mediaDescription{
+  color: white
+}
+
+/* Slide Show  */
+
+.swiper {
+  background-color: black;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+
+.swiper-slide img {
+  display: block !important;
+  object-fit: cover !important;
+  width: 100%;
+}
+
+.swiper-pagination-bullet{
+  background-color: black !important;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: white !important;
 }
 
 
@@ -258,48 +290,4 @@ h1{
 
  }
 
-
-
-
-
-
- .swiper {
-      /* width: 100%; */
-      height: 50%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      display: block !important;
-      height: 100% !important;
-      object-fit: cover !important;
-
-  max-width:230px !important;
-  max-height:95px !important;
-  width: auto !important;
-  height: auto !important;
-    }
-
-    .swiper-pagination-bullet{
-      background-color: black !important;
-    }
-     .swiper-pagination-bullet-active{background-color: white !important;}
+   

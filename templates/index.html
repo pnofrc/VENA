@@ -20,9 +20,10 @@
     <body>
 
         <div id="container">
-            <video id="animatedLogo" playsinline autoplay muted>
-                <source src="../static/assets/animation.ogg" preload="auto" type="video/ogg" >
-            </video> 
+            <img id="animatedLogo"  src="../static/assets/animation.gif" alt="">
+            <!-- <video id="animatedLogo" playsinline autoplay muted>
+                <source src="../static/assets/animation.mp4" preload="auto" type="video/mp4" >
+            </video>  -->
         </div>
 
         <div id="vene"  class="animate__animated">
@@ -95,18 +96,20 @@
 
 
 		 {%for i in range(0, lenP)%} 
-        {{projectsDiv[i] |safe}}
-            <h1>{{projects[i]['title'] | safe}}</h1>
-            <h2>{{projects[i]['description'] | safe}}</h2>
+            {{projectsDiv[i] |safe}}
+                <h1>{{projects[i]['title'] | safe}}</h1>
+                <h2>{{projects[i]['description'] | safe}}</h2>
             
-            <div class="pictures swiper mySwiper">
-                 <div class="swiper-wrapper">
-                 {%for p in projects[i]['pics']%} 
-                <img class="swiper-slide" src="{{p}}">
-                  {%endfor%} 
-                  </div>
-             <div class="swiper-pagination"></div>
-            </div>
+                <div class="pictures swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    {%for p in projects[i]['pics']%} 
+                        <div class="swiper-slide"><img  src="{{p}}"></div>
+                    {%endfor%} 
+                    </div>
+                <div class="swiper-pagination"></div>
+           </div>
+
+           
 
             {{projects[i]['text'] | safe}}
             
