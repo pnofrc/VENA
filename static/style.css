@@ -21,7 +21,40 @@ body {
   background-color: black;
   color: white;
   font-family: 'inter';
+
+  width: 2000px;
+  height: 2000px;
 }
+
+#container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+width: 2000px;
+    height: 2000px;
+  position: absolute ;
+}
+
+#vene{  filter: invert();
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+width: 2000px;
+    height: 2000px;}
+
+#vene svg{
+width: 2000px;
+    height: 2000px;
+  border: solid;
+}
+
+
+#animatedLogo{
+  width: 100vw;
+}
+
+
 
 button {
   border: .3px solid;
@@ -33,11 +66,14 @@ button {
 }
 
 
-svg{
+#zero{
+  width: 10%;
+}
+/* svg{
   left: 10vw;
   width: 2500px;
   display: block;
-}
+} */
 
 #logo{
   width: 1000vw;

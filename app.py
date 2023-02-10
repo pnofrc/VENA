@@ -1,9 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 import random
-from datetime import datetime
 import json
-import os
-
 import requests
 
 

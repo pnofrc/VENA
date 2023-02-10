@@ -1,6 +1,0 @@
-db = {}
-
-
-db[0] = {'name':'sesso','email':'do#sfv'}
-
-print(len(db))
