@@ -3,6 +3,11 @@
   src: url('./Inter-Thin.otf');
 }
 
+@font-face {
+  font-family: 'futura';
+  src: url('./Futura.ttc');
+}
+
 :root{
   --size: 4000px
 }
@@ -103,11 +108,8 @@ button {
   display: none;
 }
 
-#menuButton{
-  filter: invert();
-  width: 120px;
-}
 
+/* TODO: mettere in display flex  */
 #menuButton,#up{
   position: fixed !important;
 
@@ -117,27 +119,33 @@ button {
   text-shadow: 1px 1px black;
 }
 
+/* TODO: menu aperto, immagine piu grande */
 #menuButton{
   filter: invert();
-  width: 80px;
-    top: 0;
-  left: 0;
+  width: 75px;
+  bottom: 0;
+  right: 0;
 }
 
 #up{
-  /* left: 50vw !important; */
-  left: 0;
-  bottom: 0;
+    left: 7px;
+    bottom: 19px;
+    font-size: 23px;
+}
+
+#up span{
+  font-family: 'futura';
 }
 
 #menu{
   display: none;
   z-index: 100;
-  width: 100%;
+  width: 30%;
   position: fixed;
-  bottom: 45px;
-  left: 8px;
+  bottom: 75px;
+  right: 27px;
   -webkit-backface-visibility: hidden;
+  text-align: right;
 }
 
 #menu a{
@@ -236,6 +244,8 @@ input {
 }
 h1{
     text-transform: uppercase;
+      font-family: 'futura';
+
 }
 #title h1{
     text-align: center;

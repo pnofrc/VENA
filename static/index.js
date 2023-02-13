@@ -1,3 +1,6 @@
+// TODO: follow svg path ?? oppure zoom out
+
+
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
 let menu = document.getElementById('menu')
