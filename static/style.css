@@ -19,10 +19,12 @@ html{
   padding: 0;
   width: var(--size);
   height: var(--size);
+
 }
 
 body {
   scroll-behavior: smooth;
+  scrollbar-width: none;
   margin: 0;
   padding: 0;
   background-color: black;
@@ -80,6 +82,7 @@ circle{
   opacity: 0;
 }
 
+
 button {
   border: .3px solid;
   border: none;
@@ -100,21 +103,31 @@ button {
   display: none;
 }
 
-
+#menuButton{
+  filter: invert();
+  width: 120px;
+}
 
 #menuButton,#up{
   position: fixed !important;
-  bottom: 0;
-  left: 0;
+
   font-size: 35px;
   opacity: 0;
   z-index: 10;
   text-shadow: 1px 1px black;
+}
 
+#menuButton{
+  filter: invert();
+  width: 80px;
+    top: 0;
+  left: 0;
 }
 
 #up{
-  left: 50vw !important;
+  /* left: 50vw !important; */
+  left: 0;
+  bottom: 0;
 }
 
 #menu{

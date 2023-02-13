@@ -49,10 +49,10 @@ window.addEventListener('touchstart', () =>{
 function closeMenu(){
     if(menu.style.display === 'block'){
         menu.style.display = 'none'
-        menuButton.innerHTML = '⦔⦔⦔'
+        menuButton.src = "/static/assets/hamburger.svg"
     } else {
         menu.style.display = 'block'
-        menuButton.innerHTML = '⪪⪪⪪'
+        menuButton.src = "/static/assets/deburger.svg"
     }
 }
 
