@@ -1,81 +1,78 @@
-history.replaceState({},'',location.pathname); 
+history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
+let menu = document.getElementById('menu')
+let menuButton = document.getElementById('menuButton')
 
-    
-    let menu = document.getElementById('menu')
-    let menuButton = document.getElementById('menuButton')
-
-    function getOffset(el) {
+function getOffset(el) { // get bounbdaries svg
     const rect = el.getBoundingClientRect();
     return {
         left: rect.left + window.scrollX + 'px',
         top: rect.top + window.scrollY+ 'px'
     };
+}
+
+// map position contents
+let positions = []
+
+let spacePoints = document.querySelectorAll('circle')
+spacePoints.forEach(point => {
+    positions.push(getOffset(point))
+});
+
+let projects = document.querySelectorAll('.project')
+
+let i = 0
+projects.forEach(project =>{
+    project.style.top = positions[i].top
+        project.style.left = positions[i].left
+        i++
+})
+
+
+
+// when move the mouse/touch the screen, appear contents
+window.addEventListener('wheel', () =>{ 
+    menuButton.classList.add('animate__fadeIn')
+    menuButton.style.opacity = '100%'
+    document.querySelector('#up').style.opacity = '100%'
+    document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+})
+
+window.addEventListener('touchstart', () =>{
+    menuButton.classList.add('animate__fadeIn')
+    menuButton.style.opacity = '100%'
+    document.querySelector('#up').style.opacity = '100%'
+    document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+})
+
+// toggle menu
+function closeMenu(){
+    if(menu.style.display === 'block'){
+        menu.style.display = 'none'
+        menuButton.innerHTML = '⦔⦔⦔'
+    } else {
+        menu.style.display = 'block'
+        menuButton.innerHTML = '⪪⪪⪪'
     }
+}
 
-    window.addEventListener('wheel', () =>{
-        menuButton.classList.add('animate__fadeIn')
-        menuButton.style.opacity = '100%'
-        document.querySelector('#up').style.opacity = '100%'
-        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-    })
+menuButton.addEventListener('click', function(){
+    closeMenu()
+})
 
-    window.addEventListener('touchstart', () =>{
-        menuButton.classList.add('animate__fadeIn')
-        menuButton.style.opacity = '100%'
-        document.querySelector('#up').style.opacity = '100%'
-        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-    })
+// center page, focus on logo
+function callLogo(){
+    document.querySelector('#animatedLogo').scrollIntoView({behavior: 'auto',block: 'center'})
+}
+callLogo()
 
-    function closeMenu(){
-        if(menu.style.display === 'block'){
-            //menu.classList.add('animate__slideInDown')
-            // setInterval(() => {
-                menu.style.display = 'none'
-            //}, 1000);
-            menuButton.innerHTML = '⦔⦔⦔'
-        } else {
-            //menu.classList.add('animate__slideInUp')
-            menu.style.display = 'block'
-            menuButton.innerHTML = '⪪⪪⪪'
-        }
-    }
-
-    menuButton.addEventListener('click', function(){
-        closeMenu()
-    })
-
-
-    let positions = []
-
-    let spacePoints = document.querySelectorAll('circle')
-    spacePoints.forEach(point => {
-        positions.push(getOffset(point))
-    });
-
-    console.log(positions)
-
-    let projects = document.querySelectorAll('.project')
-
-    let i = 0
-    projects.forEach(project =>{
-        project.style.top = positions[i].top
-            project.style.left = positions[i].left
-            i++
-    })
-
-    function callLogo(){
-        document.querySelector('#animatedLogo').scrollIntoView({behavior: 'auto',block: 'center'})
-    }
-
+document.querySelector('#up').addEventListener('click', () =>{
     callLogo()
-
-    document.querySelector('#up').addEventListener('click', () =>{
-        callLogo()
-    })
+})
 
 
-        var swiper = new Swiper(".mySwiper", {
+// gallery
+var swiper = new Swiper(".mySwiper", {
 //   direction: "vertical",
     slidesPerView: 1,
     spaceBetween: 30,
@@ -86,13 +83,5 @@ history.replaceState({},'',location.pathname);
     },
 });
 
-
-
-
-    // var deco = document.querySelector('#deco')
-    // var parallaxDeco = new Parallax(deco)
-    
-    //TODO: change parameters depth in responsive
-    //document.getElementById('logoTotale').setAttribute('data-depth', '0.001');
 
     
