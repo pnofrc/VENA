@@ -36,7 +36,7 @@ body {
   width: var(--size);
   height: var(--size);
   position: absolute;
-  z-index: 0;
+  z-index: 5;
 }
 
 #animatedLogo{
@@ -256,7 +256,7 @@ h1{
 
 @media (min-width:641px)  { 
   #menu a{
-    font-size: 55px;
+    font-size: 30px;
   }
    .project{
     width: 70%;
@@ -270,11 +270,14 @@ h1{
 
   #animatedLogo{
     width: 60vw;
+
+    clip-path: circle(30%);
+    border: solid;
   }
   
 
   #menu a{
-    font-size: 55px;
+    font-size: 35px;
   }
 
   .project{
