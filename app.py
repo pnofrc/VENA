@@ -3,7 +3,9 @@ import random
 import json
 import requests
 
-
+# export FLASK_APP=app
+# export FLASK_ENV=development
+# flask run
 
 
 
@@ -80,7 +82,7 @@ for x in range(len(data['contents'])):
   projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'aud': aud,'vid':vid}
   projectsDiv.append(f'<div class="project" id="{str(title)}">')
 
-
+#TODO: edit menu titles
 
 
 lenP=len(projects)
