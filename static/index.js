@@ -3,18 +3,20 @@ history.replaceState({},'',location.pathname); // at refresh/enter clean the url
 window.addEventListener('load', 
   function() { 
 
-    // check theme
-    if (localStorage.length == 0) {
-        localStorage.setItem("dark", "y")
-    }
-    dark()
-
     let menu = document.getElementById('menu')
     let menuButton = document.getElementById('menuButton')
     let changeTheme = document.getElementById('changeTheme')
     let logo = document.getElementById("animatedLogo")
     let cssRoot = document.querySelector(':root');
     let projects = document.querySelectorAll('.project')
+
+     // check theme
+    if (localStorage.length == 0) {
+        localStorage.setItem("dark", "y")
+    }
+
+    dark()
+    
 
     function zoom(){
 
