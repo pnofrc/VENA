@@ -149,7 +149,9 @@ window.addEventListener('load',
     function callLogo(){
         document.querySelector('#animatedLogo').scrollIntoView({block: "center", inline: "nearest"})
     }
-    callLogo()
+    setTimeout(() => {
+        callLogo()
+    }, 100);
 
     document.querySelector('#up').addEventListener('click', () =>{
         callLogo()
