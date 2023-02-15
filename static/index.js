@@ -147,7 +147,7 @@ window.addEventListener('load',
 
     // center page, focus on logo
     function callLogo(){
-        document.querySelector('#animatedLogo').scrollIntoView({block: "center", inline: "nearest"})
+        document.querySelector('#animatedLogo').scrollIntoView({block: "center", inline: "center"})
     }
     setTimeout(() => {
         callLogo()
