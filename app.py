@@ -101,6 +101,12 @@ def index():
   return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV)
 
 
+# INFO CONTACTS
+@app.route('/info')
+def info():
+  return render_template('infi.html')
+
+
 # FORM
 @app.route('/form', methods=['POST', 'GET'])
 def form():
