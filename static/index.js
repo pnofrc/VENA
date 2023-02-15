@@ -1,22 +1,51 @@
+let menu = document.getElementById('menu')
+let menuButton = document.getElementById('menuButton')
+let changeTheme = document.getElementById('changeTheme')
+let cssRoot = document.querySelector(':root');
+let projects = document.querySelectorAll('.project')
+
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
+
+let logo = document.getElementById("animatedLogo")
+// check theme
+if (localStorage.length == 0) {
+    localStorage.setItem("dark", "y")
+}
+
+dark()
+
+
+
+// change theme
+
+function changeThemeFunction(){
+    if (localStorage.getItem("dark")) {
+        localStorage.removeItem("dark")
+        localStorage.setItem("lig", 'y')
+    }else {
+        localStorage.removeItem("lig")
+        localStorage.setItem("dark", "y")
+    }
+    dark()
+}
+
+function dark(){
+    if (localStorage.getItem("dark")) {
+            logo.src="../static/assets/whiteLogo.gif"
+            cssRoot.style.setProperty('--text','white')
+            cssRoot.style.setProperty('--background','black')
+            document.getElementById('menuButton').style.filter="invert()"
+    } else {
+            logo.src="../static/assets/blackLogo.gif"
+            document.getElementById('menuButton').style.filter="none"
+            cssRoot.style.setProperty('--text','black')
+            cssRoot.style.setProperty('--background','white')
+    }
+}
+
 
 window.addEventListener('load', 
   function() { 
-
-    let menu = document.getElementById('menu')
-    let menuButton = document.getElementById('menuButton')
-    let changeTheme = document.getElementById('changeTheme')
-    let logo = document.getElementById("animatedLogo")
-    let cssRoot = document.querySelector(':root');
-    let projects = document.querySelectorAll('.project')
-
-     // check theme
-    if (localStorage.length == 0) {
-        localStorage.setItem("dark", "y")
-    }
-
-    dark()
-    
 
     function zoom(){
 
@@ -137,34 +166,6 @@ window.addEventListener('load',
         },
     });
 
-
-
-    // change theme
-
-    function changeThemeFunction(){
-        if (localStorage.getItem("dark")) {
-            localStorage.removeItem("dark")
-            localStorage.setItem("lig", 'y')
-        }else {
-            localStorage.removeItem("lig")
-            localStorage.setItem("dark", "y")
-        }
-        dark()
-    }
-
-    function dark(){
-        if (localStorage.getItem("dark")) {
-                logo.src="../static/assets/whiteLogo.gif"
-                cssRoot.style.setProperty('--text','white')
-                cssRoot.style.setProperty('--background','black')
-                document.getElementById('menuButton').style.filter="invert()"
-        } else {
-                logo.src="../static/assets/blackLogo.gif"
-                document.getElementById('menuButton').style.filter="none"
-                cssRoot.style.setProperty('--text','black')
-                cssRoot.style.setProperty('--background','white')
-        }
-    }
 
     changeTheme.addEventListener('click', () =>{
         changeThemeFunction()
