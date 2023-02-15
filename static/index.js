@@ -101,41 +101,40 @@ window.addEventListener('load',
         }
 
     window.addEventListener('click',()=>{
+          menuButton.classList.add('animate__fadeIn')
+        menuButton.style.opacity = '100%'
+        document.querySelector('#up').style.opacity = '100%'
+        document.querySelector('#changeTheme').style.opacity = '100%'
+        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+        document.getElementById("contents").classList.add('animate__fadeIn')
+        if (window.matchMedia("only screen and (max-width: 760px)").matches){
+        fullscreen()
+        }
+    })
+
+
+    // when move the mouse/touch the screen, appear contents
+    window.addEventListener('wheel', () =>{ 
         menuButton.classList.add('animate__fadeIn')
         menuButton.style.opacity = '100%'
         document.querySelector('#up').style.opacity = '100%'
         document.querySelector('#changeTheme').style.opacity = '100%'
         document.querySelector('.animate__animated').classList.add('animate__fadeIn')
         document.getElementById("contents").classList.add('animate__fadeIn')
-        
-        if (window.matchMedia("only screen and (max-width: 760px)").matches){
-            fullscreen()
-        }
     })
 
 
-    // // when move the mouse/touch the screen, appear contents
-    // window.addEventListener('wheel', () =>{ 
-    //     menuButton.classList.add('animate__fadeIn')
-    //     menuButton.style.opacity = '100%'
-    //     document.querySelector('#up').style.opacity = '100%'
-    //     document.querySelector('#changeTheme').style.opacity = '100%'
-    //     document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-    //     document.getElementById("contents").classList.add('animate__fadeIn')
-    // })
 
+    window.addEventListener('touchstart', () =>{
+        menuButton.classList.add('animate__fadeIn')
+        menuButton.style.opacity = '100%'
+        document.querySelector('#up').style.opacity = '100%'
+            document.querySelector('#changeTheme').style.opacity = '100%'
 
+        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+        document.getElementById("contents").style.visibility = 'visible'
 
-    // window.addEventListener('touchstart', () =>{
-    //     menuButton.classList.add('animate__fadeIn')
-    //     menuButton.style.opacity = '100%'
-    //     document.querySelector('#up').style.opacity = '100%'
-    //         document.querySelector('#changeTheme').style.opacity = '100%'
-
-    //     document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-    //     document.getElementById("contents").style.visibility = 'visible'
-
-    // })
+    })
 
     // toggle menu
     function closeMenu(){
