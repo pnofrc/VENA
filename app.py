@@ -104,7 +104,7 @@ def index():
 # INFO CONTACTS
 @app.route('/info')
 def info():
-  return render_template('infi.html')
+  return render_template('info.html')
 
 
 # FORM
