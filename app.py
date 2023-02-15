@@ -47,7 +47,7 @@ for x in range(len(data['contents'])):
   pics = []
   for pic in range(len(project['contents'])):
     try:
-      pics.append(project['contents'][pic]['image']['original']['url'])   
+      pics.append(project['contents'][pic]['image']['display']['url'])   
     except:
       print('')
 
@@ -111,6 +111,14 @@ def info():
 @app.route('/form', methods=['POST', 'GET'])
 def form():
   return render_template('form.html')
+
+@app.route('/submitSubscription', methods=['POST','GET'])
+def out():
+  if request.method == 'GET':
+    return f'nope, go back to home'
+  if request.method == 'POST':
+    form_data = request.form.getlist('setForm')
+    return render_template('out.html',form_data=form_data)
 
 # OUTPUT FORM
 @app.route('/allGood', methods=['POST', 'GET'])

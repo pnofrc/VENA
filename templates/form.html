@@ -66,39 +66,39 @@
     <form action="/submitSubscription" method="POST">
         <div>
         <label for="fname">Nome:</label><br>
-        <input type="text" id="fname" name="fname" placeholder="Abigal">
+        <input type="text" id="fname" name="setForm" value="{{ request.form['fname'] }}" placeholder="Abigal">
         </div>
         <div>
         <label for="lname">Cognome:</label><br>
-        <input type="text" id="lname" name="lname" placeholder="Lupemburx">
+        <input type="text" id="lname" name="setForm" value="{{ request.form['lname'] }}" placeholder="Lupemburx">
         </div>
         <div>
         <label for="birthplace">Luogo di nascita:</label><br>
-        <input type="text" id="birthplace" name="birthplace" placeholder="Iceland">
+        <input type="text" id="birthplace" name="setForm" value="{{ request.form['birthplace'] }}" placeholder="Iceland">
         </div>
         <div>
         <label for="birthday">Data di nascita:</label><br>
-        <input type="date" id="birthday" name="birthday"  placeholder="12-12-1999" min="1930-1-1" max="2004-1-1">
+        <input type="date" id="birthday" name="setForm"  value="{{ request.form['birthday'] }}" placeholder="12-12-1999" min="1930-1-1" max="2004-1-1">
         </div>
         <div>
         <label for="addressCity">Comune di residenza:</label><br>
-        <input type="text" id="addressCity" name="addressCity" placeholder="Tangeri">
+        <input type="text" id="addressCity" name="setForm" value="{{ request.form['title'] }}" placeholder="Tangeri">
         </div>
         <div>
         <label for="addressStreet">Indirizzo e civico di residenza:</label><br>
-        <input type="text" id="addressStreet" name="addressStreet" placeholder="Boulevard Corazòn">
+        <input type="text" id="addressStreet" name="setForm" value="{{ request.form['address'] }}" placeholder="Boulevard Corazòn">
         </div>
         <div>
         <label for="zip">CAP di residenza:</label><br>
-        <input type="text" id="zip" name="zip" placeholder="42666">
+        <input type="text" id="zip" name="setForm" value="{{ request.form['zip'] }}" placeholder="42666">
         </div>
         <div>
         <label for="domicile">Città di domicilio:</label><br>
-        <input type="text" id="domicile" name="domicile" placeholder="Milano">
+        <input type="text" id="domicile" name="setForm" value="{{ request.form['domicile'] }}" placeholder="Milano">
         </div>
         <div>
         <label for="email">email:</label><br>
-        <input type="text" id="email" name="email" placeholder="abi_lupe@vena.org">
+        <input type="text" id="email" name="setForm" value="{{ request.form['email'] }}" placeholder="abi_lupe@vena.org">
         </div>
         <div>
         <input id="submit" type="submit" value="Submit">
