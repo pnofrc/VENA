@@ -309,9 +309,7 @@ h1{
 
   #animatedLogo{
     width: 60vw;
-
-    /* clip-path: circle(35%); */
-    border: solid;
+    border: solid 1px red;
   }
   
 

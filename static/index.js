@@ -101,7 +101,9 @@ window.addEventListener('load',
         }
 
     window.addEventListener('click',()=>{
+        if (window.matchMedia("only screen and (max-width: 760px)").matches){
         fullscreen()
+        }
     })
 
 
@@ -113,7 +115,6 @@ window.addEventListener('load',
         document.querySelector('#changeTheme').style.opacity = '100%'
         document.querySelector('.animate__animated').classList.add('animate__fadeIn')
         document.getElementById("contents").classList.add('animate__fadeIn')
-
     })
 
 
@@ -146,7 +147,7 @@ window.addEventListener('load',
 
     // center page, focus on logo
     function callLogo(){
-        document.querySelector('#animatedLogo').scrollIntoView({behavior: 'auto',block: 'center'})
+        document.querySelector('#animatedLogo').scrollIntoView({block: "center", inline: "nearest"})
     }
     callLogo()
 
