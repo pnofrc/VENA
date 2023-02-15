@@ -147,11 +147,12 @@ window.addEventListener('load',
 
     // center page, focus on logo
     function callLogo(){
-        document.querySelector('#animatedLogo').scrollIntoView({block: "center", inline: "center"})
+        document.getElementById("simulate").click
+        document.getElementById("animatedLogo").scrollIntoView({block: "center", inline: "center"})
     }
     setTimeout(() => {
         callLogo()
-    }, 100);
+    }, 10);
 
     document.querySelector('#up').addEventListener('click', () =>{
         callLogo()
