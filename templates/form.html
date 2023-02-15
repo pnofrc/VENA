@@ -11,7 +11,7 @@
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <!-- <script async  src="/static/app.js"></script> -->
         <style>
-             body{
+             body,html{
                 width: 100% !important;
                 height: 100% !important;
             }
@@ -24,8 +24,8 @@
         <!-- <img id="vene" src="/static/assets/vena.svg" alt=""> -->
         </div>
 
-    <div id="head"><span id="infoButton">ᗒ INFO</span>
-    <span id="infoButton"><a href="../">BACK HOME <span2 class="bigger">⋊</span2></a></span>
+    <div id="head"><span class="infoButton"><a>INFO</a></span>
+    <span class="infoButton"><a href="../">BACK HOME</a></span>
 </div>
         <div id="info" class="animate__animated">
            
@@ -63,7 +63,7 @@
        
            
 <div class="form">
-    <form action="/allGood" method="POST">
+    <form action="/submitSubscription" method="POST">
         <div>
         <label for="fname">Nome:</label><br>
         <input type="text" id="fname" name="fname" placeholder="Abigal">

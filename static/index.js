@@ -149,6 +149,8 @@ window.addEventListener('load',
 
     menuButton.addEventListener('click', function(){
         closeMenu()
+        fullscreen()
+
     })
 
     // center page, focus on logo

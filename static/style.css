@@ -214,6 +214,7 @@ form {
   margin: 30px;
 }
 
+
 #info {
   display: none;
 }
@@ -283,8 +284,8 @@ h1{
 }
 
 #head a{
-  text-decoration: none;
-  color: var(--text)
+  color: var(--text);
+  text-decoration-line: overline;
 }
 
 .bigger{
