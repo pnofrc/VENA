@@ -15,7 +15,6 @@ if (localStorage.length == 0) {
 dark()
 
 
-
 // change theme
 
 function changeThemeFunction(){
@@ -47,19 +46,8 @@ function dark(){
 window.addEventListener('load', 
   function() { 
 
-    function zoom(){
 
-        for (let index = 0; index < 30; index++) {
-            cssRoot.style.setProperty('--zoom','.3')
-        
-        }
-
-    //     setTimeout(() => {
-    //         cssRoot.style.setProperty('--text','1')
-    // }, 1500);
-    }
-
-
+   
 
     function getOffset(el) { // get bounbdaries svg
         const rect = el.getBoundingClientRect();
@@ -108,7 +96,7 @@ window.addEventListener('load',
         document.querySelector('.animate__animated').classList.add('animate__fadeIn')
         document.getElementById("contents").classList.add('animate__fadeIn')
         if (window.matchMedia("only screen and (max-width: 760px)").matches){
-        // fullscreen()
+        fullscreen()
         }
     })
 
@@ -164,20 +152,10 @@ window.addEventListener('load',
     })
 
 
-    // gallery
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        mousewheel: true,
-        pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        },
-    });
-
-
     changeTheme.addEventListener('click', () =>{
         changeThemeFunction()
+        callLogo()
+ 
     })
 
 
@@ -186,9 +164,6 @@ window.addEventListener('load',
     var parallaxInstance = new Parallax(scene);
     parallaxInstance.friction(0.8,0.8);
 
-    //  var scene = document.querySelector('svg')
-    // var parallaxInstance = new Parallax(scene);
-    // parallaxInstance.friction(1,1);
 
 
   }, false);

@@ -7,18 +7,12 @@ import requests
 # export FLASK_ENV=development
 # flask run
 
-
-
 baseURL = 'http://api.are.na/v2/channels/'
-
 
 db = {} # database x form
 projects = {}
 projectsDiv = []
 vene = []
-
-# def r(first,second): # random values x position
-#    return random.randint(first,second)
 
 extension = 'website-assets-dkje44dpzvc'
 
@@ -44,49 +38,45 @@ for x in range(len(data['contents'])):
   Jresponse = uResponse.text
   project = json.loads(Jresponse)
 
-  pics = []
+
+  picsHigh = []
+  picsLow = []
+
   for pic in range(len(project['contents'])):
     try:
-      pics.append(project['contents'][pic]['image']['display']['url'])   
+      picsHigh.append(project['contents'][pic]['image']['display']['url'])   
+      picsLow.append(project['contents'][pic]['image']['thumb']['url'])   
     except:
-      print('')
-
-  # vids = {}
-  # auds = {}
-  v = 0
-  a = 0
-  # for media in range(len(project['contents'])):
-  #   description = project['contents'][media]['description_html']
-  #   asset = project['contents'][media]['attachment']
-
-  #   try:
-  #     if asset['extension'] == 'mp4' or asset['extension'] == 'mov':
-  #       vids[v] = {'description':description},{'asset':asset}
-  #       v=v+1
-  #     elif asset['extension'] == 'mp3' or asset['extension'] == 'ogg' :
-  #       auds[a] = {'description':description},{'asset':asset}
-  #       a=a+1
-  #   except:
-  #     print()
+      print('SBATTIMENTO')
+  
+  picsTemp = list(zip(picsLow,picsHigh))
+  pics = [list(p) for p in picsTemp]
+  print(len(picsHigh))
+  print(len(picsLow))
 
   audioDescription = []
   audioURL = []
+  audioTitle = []
   videoDescription = []
   videoURL = []
+  videoTitle = []
 
   for media in range(len(project['contents'])):
     description = project['contents'][media]['description_html']
     asset = project['contents'][media]['attachment']
+    tempTitle = project['contents'][media]['title']
 
     try:
       if asset['extension'] == 'mp3' or asset['extension'] == 'wav':
         audioURL.append(asset['url'])
+        audioTitle.append(tempTitle)
         if(description == ''):
           audioDescription.append('')
         else:
           audioDescription.append(description)
       if asset['extension'] == 'mp4' or asset['extension'] == 'mov':
         videoURL.append(asset['url'])
+        videoTitle.append(tempTitle)
         if(description == ''):
           videoDescription.append('')
         else:
@@ -94,15 +84,17 @@ for x in range(len(data['contents'])):
     except:
       print()
 
-  audioTemp = list(zip(audioURL, audioDescription))
-  videoTemp = list(zip(videoURL, videoDescription))
-  audio= [list(aa) for aa in audioTemp]
-  video= [list(vv) for vv in videoTemp]
+    
 
+  audioTemp = list(zip(audioURL, audioDescription, audioTitle))
+  videoTemp = list(zip(videoURL, videoDescription, videoTitle))
+  audio= [[*aa] for aa in audioTemp]
+  video= [[*vv] for vv in videoTemp]
+ 
 
   menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
   projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio}
-  projectsDiv.append(f'<div class="project" id="{str(title)}">')
+  projectsDiv.append(f'<div class="zoomSystem project"  id="{str(title)}">')
 
 lenVideo = len(video)
 lenAudio = len(audio)
@@ -146,5 +138,3 @@ def out():
 
 app.run(host='0.0.0.0', port=8080, debug=True)
 
-# export FLASK_APP=app
-# export FLASK_ENV=development 

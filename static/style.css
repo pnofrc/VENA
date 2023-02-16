@@ -27,6 +27,7 @@
   box-sizing: border-box;
 }
 
+
 html{
   scroll-behavior: smooth;
   margin: 0;
@@ -67,14 +68,9 @@ b{
   width: 100vw;
   position: relative;
   z-index: 5;
-  /* clip-path: circle(35%); */
-  /* color: var(--background); */
-  /* clip-path: circle(35% at 50% 50%); */
-    /* width: 15%; */
 }
 
 #vene{  
-  /* filter: invert(); */
   stroke: var(--text);
   display: flex;
   justify-content: center;
@@ -125,12 +121,16 @@ button {
 
 
 
-#menuButton,#up,#changeTheme{
+#menuButton,#up,#changeTheme,#zooming{
   position: fixed !important;
   /* font-size: 35px; */
   opacity: 0;
   z-index: 10;
   text-shadow: 1px 1px var(--background);
+}
+
+#zooming{
+  opacity: 1;
 }
 
 #changeTheme{
@@ -174,10 +174,6 @@ button {
   text-align: right;
 }
 
-/* #menu hr{
-  width: 90%;
-  margin-right: 0;
-} */
 
 #menu a{
   color: var(--text);
@@ -192,8 +188,8 @@ button {
   overflow-y: scroll;
   padding: 2rem;
   z-index: 1;
-}
 
+}
 
 /* Slide Show  */
 
@@ -230,8 +226,6 @@ button {
 }
 
 
-
-
 /* FORM */
 
   label{
@@ -244,8 +238,7 @@ form {
 }
 
 .title{
-      /* padding: 2rem 0; */
-          z-index: 99;
+    z-index: 99;
     position: relative;
 }
 
@@ -263,7 +256,6 @@ form {
   justify-content: space-around;
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
 }
 
 form div {
@@ -316,9 +308,6 @@ h1{
   justify-content: space-around;;
 }
 
-/* #head span{
-    font-size: 20px;
-} */
 
 .infoButton a{
   color: var(--text);
@@ -329,7 +318,6 @@ h1{
     text-decoration-line: overline !important;
 
 }
-
 
 .bigger{
   font-size: 25px;
@@ -381,7 +369,6 @@ a{text-underline-offset: 3px;}
 
   #animatedLogo{
     width: 60vw;
-    /* border: solid 1px red; */
   }
   
 #head{
@@ -392,9 +379,6 @@ a{text-underline-offset: 3px;}
     font-size: 20px;
   }
 
-  /* #menu hr{
-  width: 30vw;
-} */
 
   .project{
     width: 50%;
@@ -410,22 +394,6 @@ a{text-underline-offset: 3px;}
  }
 
    
-
-/* 
-
- <div class="video swiper mySwiper">
-                            <div class="swiper-wrapper">                            
-                                {%for v in projects[i]['videoURL']%} 
-                                    <video controls>
-                                        <source src="{{v}}">
-                                    </video>
-                                {%endfor%} 
-                            </div>
-                        <div class="swiper-pagination"></div>
-                    </div> */
-
-
-
 
                      
                          

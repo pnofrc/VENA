@@ -35,6 +35,7 @@
 
         <a id="simulate" href="#animatedLogo"></a>
 
+
         <!-- Logo Animato -->
         <div id="container"> 
             <img id="animatedLogo" data-depth="0.05" src="../static/assets/blackLogo.gif"  alt="">
@@ -43,7 +44,7 @@
        <div id="contents" class="animate__animated">
 
             <!-- Reticolato -->
-            <div  id="vene">
+            <div id="vene">
     <?xml version="1.0" encoding="utf-8"?>
     <svg data-depth="0.6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 6000.4 5999.3" style="enable-background:new 0 0 6000.4 5999.3;" xml:space="preserve">
@@ -92,7 +93,14 @@
                     <div class="pictures swiper mySwiper">
                         <div class="swiper-wrapper">
                             {%for p in projects[i]['pics']%} 
-                                <div class="swiper-slide"><img  src="{{p}}"></div>
+                                <div class="swiper-slide" >
+                                    <img src="{{p[1]}}" loading="lazy">
+                                     <!-- <img class="lozad" data-src="{{p[1]}}"> -->
+                                     <!-- TODO: add description in json? -->
+
+                                    <!-- <img src="{{p[0]}}" srcset="{{p[1]}} 2x" loading="lazy"> -->
+                                    <!-- <div class="swiper-lazy-preloader"></div> -->
+                                </div>
                             {%endfor%} 
                          </div>
                         <div class="swiper-pagination"></div>
@@ -102,7 +110,8 @@
                         <div class="swiper-wrapper">
                             {%for audio in projects[i]['audio']%}   
                                 <div class="swiper-slide">  
-                                    <audio controls>
+                                    <h2>{{audio[2] | safe}}</h2>
+                                    <audio controls loading="lazy">
                                         <source src="{{audio[0]}}">
                                     </audio> 
                                     {{audio[1] | safe}}
@@ -116,7 +125,8 @@
                         <div class="swiper-wrapper">
                             {%for video in projects[i]['video']%}   
                                 <div class="swiper-slide">  
-                                    <video controls>
+                                    <h2>{{video[2] | safe}}</h2>
+                                    <video controls loading="lazy">
                                         <source src="{{video[0]}}">
                                     </video> 
                                     {{video[1] | safe}}
@@ -134,7 +144,34 @@
             {%endfor%} 
 
         </div>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/lozad@1.14.0/dist/lozad.min.js"></script> -->
     <script>
+
+    //const observer = lozad(); // initialize the observer
+    //observer.observe(); // start observing
+
+
+        // gallery
+    var swiper = new Swiper(".mySwiper", {
+        preloadImages: false,
+         lazy: true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        slidesPerView: 1,
+        spaceBetween: 30,
+        mousewheel: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+         
+    });
+
+
         function closeMenu(){
             if(menu.style.display === 'block'){
                 menu.style.display = 'none'
