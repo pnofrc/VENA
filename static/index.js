@@ -166,4 +166,8 @@ window.addEventListener('load',
 
 
 
+
+    document.body.addEventListener("touchend",() =>{
+        alert()
+    })
   }, false);
