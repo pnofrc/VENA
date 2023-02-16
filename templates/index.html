@@ -154,11 +154,10 @@
         var pinch = new Hammer.Pinch();
 
    // listen to events...
-    mc.on("pinchout", function(ev) {
+    mc.on("press", function(ev) {
        alert()
     });
 
-    hammertime.get('pinchout').set({ enable: true });
 
 
         // gallery
