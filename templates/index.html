@@ -29,6 +29,7 @@
         <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+        <script src="/static/hammer.min.js"></script>
          <link rel="icon" type="image/x-icon" href="/static/assets/ico.png">
     </head>
     <body>
@@ -146,11 +147,18 @@
         </div>
 
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/lozad@1.14.0/dist/lozad.min.js"></script> -->
     <script>
 
-    //const observer = lozad(); // initialize the observer
-    //observer.observe(); // start observing
+        var myElement = document.getElementById('animatedLogo');
+        var mc = new Hammer.Manager(myElement);
+        var pinch = new Hammer.Pinch();
+
+   // listen to events...
+    mc.on("pinchout", function(ev) {
+       alert()
+    });
+
+    hammertime.get('pinchout').set({ enable: true });
 
 
         // gallery
