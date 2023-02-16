@@ -167,7 +167,7 @@ window.addEventListener('load',
 
 
 
-    document.body.addEventListener("touchend",() =>{
-        alert()
+    document.body.addEventListener("wheel",() =>{
+        // alert()
     })
   }, false);
