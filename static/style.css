@@ -396,4 +396,9 @@ a{text-underline-offset: 3px;}
    
 
                      
-                         
+@media only screen and (max-width: 720px) {
+#menuButton,#up,#changeTheme,#zooming{
+  position: absolute;
+ 
+}
+}
