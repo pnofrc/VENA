@@ -25,11 +25,14 @@ function dark(){
             cssRoot.style.setProperty('--text','white')
             cssRoot.style.setProperty('--background','black')
             cssRoot.style.setProperty('--input','rgba(255, 255, 255, 0.429)')
+            cssRoot.style.setProperty('--scheme','dark')
+
 
     } else {
             cssRoot.style.setProperty('--text','black')
             cssRoot.style.setProperty('--background','white')
             cssRoot.style.setProperty('--input','rgba(42, 40, 40, 0.429)')
+            cssRoot.style.setProperty('--scheme','light')
 
     }
 }

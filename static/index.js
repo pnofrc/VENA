@@ -139,19 +139,14 @@ window.addEventListener('load',
     // toggle menu
 
     menuButton.addEventListener('click', function(){
-        // closeMenu()
-        // fullscreen()
-
-    // function closeMenu(){
-        if(menu.style.display === 'block'){
-            menu.style.display = 'none'
-            menuButton.src = "/static/assets/hamburger.svg"
-        } else {
-            menu.style.display = 'block'
-            menuButton.src = "/static/assets/deburger.svg"
-        }
-    // }
-
+            // fullscreen()
+            if(menu.style.display === 'block'){
+                menu.style.display = 'none'
+                menuButton.src = "/static/assets/hamburger.svg"
+            } else {
+                menu.style.display = 'block'
+                menuButton.src = "/static/assets/deburger.svg"
+            }
         })
 
 

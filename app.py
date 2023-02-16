@@ -73,6 +73,7 @@ for x in range(len(data['contents'])):
   audioURL = []
   videoDescription = []
   videoURL = []
+
   for media in range(len(project['contents'])):
     description = project['contents'][media]['description_html']
     asset = project['contents'][media]['attachment']
@@ -93,12 +94,18 @@ for x in range(len(data['contents'])):
     except:
       print()
 
+  audioTemp = list(zip(audioURL, audioDescription))
+  videoTemp = list(zip(videoURL, videoDescription))
+  audio= [list(aa) for aa in audioTemp]
+  video= [list(vv) for vv in videoTemp]
+
+
   menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'videoURL': videoURL,'videoDescription':videoDescription,'audioURL':audioURL,'audioDescription':audioDescription}
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio}
   projectsDiv.append(f'<div class="project" id="{str(title)}">')
 
-lenVideo = len(videoURL)
-lenAudio = len(audioURL)
+lenVideo = len(video)
+lenAudio = len(audio)
 lenP=len(projects)
 lenV=len(vene)
 

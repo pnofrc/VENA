@@ -99,28 +99,34 @@
                     </div>
 
                     <div class="audio swiper mySwiper">
-                         <div class="swiper-wrapper">
-                        {%for a in range(lenAudio)%} 
-                        <div class="swiper-slide">
-                             <audio controls>
-                                <source src="{{projects[i]['audioURL'][a]}}">
-                             </audio> 
-                             {{projects[i]['audioDescription'][a] | safe}}
-                             </div>
-                        {%endfor%} 
+                        <div class="swiper-wrapper">
+                            {%for audio in projects[i]['audio']%}   
+                                <div class="swiper-slide">  
+                                    <audio controls>
+                                        <source src="{{audio[0]}}">
+                                    </audio> 
+                                    {{audio[1] | safe}}
+                                </div>
+                            {%endfor%}
                         </div>
-                        <div class="swiper-pagination"></div>
-
+                         <div class="swiper-pagination"></div>
                     </div>
 
-                    <div class="video">
-                        {%for a in range(lenVideo)%} 
-                             <video controls>
-                                <source src="{{projects[i]['videoURL'][a]}}">
-                             </video>
-                             {{projects[i]['videoDescription'][a] | safe}}
-                        {%endfor%} 
+                    <div class="video swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            {%for video in projects[i]['video']%}   
+                                <div class="swiper-slide">  
+                                    <video controls>
+                                        <source src="{{video[0]}}">
+                                    </video> 
+                                    {{video[1] | safe}}
+                                </div>
+                            {%endfor%}
+                        </div>
+                         <div class="swiper-pagination"></div>
                     </div>
+
+                    
 
                 {{projects[i]['text'] | safe}}
             
