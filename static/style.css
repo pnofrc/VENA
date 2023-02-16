@@ -131,6 +131,8 @@ button {
   opacity: 0;
   z-index: 10;
   text-shadow: 1px 1px var(--background);
+
+  touch-action: none;
 }
 
 #zooming{
