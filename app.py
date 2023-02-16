@@ -51,40 +51,54 @@ for x in range(len(data['contents'])):
     except:
       print('')
 
-  vid = {}
-  aud = {}
+  # vids = {}
+  # auds = {}
+  v = 0
+  a = 0
+  # for media in range(len(project['contents'])):
+  #   description = project['contents'][media]['description_html']
+  #   asset = project['contents'][media]['attachment']
 
-  for mediaN in range(len(project['contents'])):
-    description = project['contents'][mediaN]['description_html']
-    asset = project['contents'][mediaN]['attachment']
-    # print(asset)
+  #   try:
+  #     if asset['extension'] == 'mp4' or asset['extension'] == 'mov':
+  #       vids[v] = {'description':description},{'asset':asset}
+  #       v=v+1
+  #     elif asset['extension'] == 'mp3' or asset['extension'] == 'ogg' :
+  #       auds[a] = {'description':description},{'asset':asset}
+  #       a=a+1
+  #   except:
+  #     print()
+
+  audioDescription = []
+  audioURL = []
+  videoDescription = []
+  videoURL = []
+  for media in range(len(project['contents'])):
+    description = project['contents'][media]['description_html']
+    asset = project['contents'][media]['attachment']
+
     try:
-      if(description != ''):
-        if asset['extension'] == 'mp4':
-          vid = [asset['url'],description]
-          print(vid)
-        elif asset['extension'] == 'mp3':
-          aud = [asset['url'],description]
-          print(aud)
-
-      #   media['description'] = description
-      # # if ( asset != None):
-      # media['extension'] = asset['extension']
-      # media['file']= asset['url']
+      if asset['extension'] == 'mp3' or asset['extension'] == 'wav':
+        audioURL.append(asset['url'])
+        if(description == ''):
+          audioDescription.append('')
+        else:
+          audioDescription.append(description)
+      if asset['extension'] == 'mp4' or asset['extension'] == 'mov':
+        videoURL.append(asset['url'])
+        if(description == ''):
+          videoDescription.append('')
+        else:
+          videoDescription.append(description)
     except:
-      print('')
+      print()
 
-    print(vid)
-    print(aud)
-
-
-  menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'aud': aud,'vid':vid}
+  menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'videoURL': videoURL,'videoDescription':videoDescription,'audioURL':audioURL,'audioDescription':audioDescription}
   projectsDiv.append(f'<div class="project" id="{str(title)}">')
 
-#TODO: edit menu titles
-
-
+lenVideo = len(videoURL)
+lenAudio = len(audioURL)
 lenP=len(projects)
 lenV=len(vene)
 
@@ -98,7 +112,7 @@ app = Flask('app')
 # HOMEPAGE
 @app.route('/')
 def index():
-  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV)
+  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio)
 
 
 # INFO CONTACTS
@@ -112,28 +126,15 @@ def info():
 def form():
   return render_template('form.html')
 
+# OUTPUT FORM
 @app.route('/submitSubscription', methods=['POST','GET'])
 def out():
   if request.method == 'GET':
     return f'nope, go back to home'
   if request.method == 'POST':
-    form_data = request.form.getlist('setForm')
-    return render_template('out.html',form_data=form_data)
-
-# OUTPUT FORM
-@app.route('/allGood', methods=['POST', 'GET'])
-def formDone():
-  # if request.method == 'GET':
-  #  return f'nope, go back to home'
-  if request.method == 'POST':
-    name = request.form["fname"],request.form["lname"]
-    birth = request.form["birthplace"],request.form["birthday"]
-    address = request.form["addressStreet"],request.form["addressCity"], request.form["zip"]
-    email = request.form["email"]
-    city = request.form["city"]
-    # db[len(db)] = {'name':name,'birth':birth,'address':address,'email':email,'city':city}
-  return render_template('success.html', name,birth,address,email,city)
-
+    formData = request.form.getlist('setForm')
+    formLen = len(formData)
+    return render_template('out.html',formData=formData,formLen=formLen)
 
 
 app.run(host='0.0.0.0', port=8080, debug=True)

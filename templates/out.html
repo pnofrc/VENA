@@ -9,20 +9,72 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/static/style.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <!-- <script async  src="/static/app.js"></script> -->
         <style>
             body,html{
                 width: 100% !important;
                 height: 100% !important;
+                overflow: hidden;
+            }
+
+            div:nth-child(1){
+                margin: 0 10%;
+                width: 80%;
+                position: relative;
+                top: 20px;
+            }
+
+            div:nth-child(2){
+                width: 100%;
+                height: 10%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                top: 2rem;
+            }
+            
+
+             div:nth-child(2) div{
+                display: flex;
+                flex-direction: row;
+                height: min-content;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+             }
+
+            button{
+                position: relative;
+                border: solid;
+            }
+
+            a{
+                color: var(--text);
+                text-decoration: none;
             }
         </style>
     </head>
     <body>
 
-<!-- TODO: conferma bottone, al click salva in server e? -->
+            <div>
+                <h1 style="text-align: right">VENA</h1>
+                <h2>DATA:</h2><br>
+                <p><b>{{formData[0]}} {{formData[1]}}</b></p>
+                <p>Born in<br>&emsp;<b>{{formData[2]}}</b> the <b>{{formData[3]}}</b></p>
+                <p>Got its residence in<br>&emsp;<b>{{formData[4]}} - {{formData[6]}} {{formData[5]}} </b></p>
+                <p>Domiciled in<br>&emsp;<b>{{formData[7]}}</b></p>
+                <p>Possible to contact at <b>{{formData[8]}}</b></p>
+            </div>
+            <div>
+                <div><h2>CONFIRM?</h2></div>
+                <div>
+                    <button>YES</button>
+                    <button><a href="/form">NO</a></button>
+                </div>
+            </div>  
 
-<p>{{form_data}}</p>
+                <script async  src="../static/index.light.js"></script>
 
-        
     </body>
 </html>

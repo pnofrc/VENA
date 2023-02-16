@@ -2,6 +2,10 @@
   font-family: 'inter';
   src: url('./Inter-Thin.otf');
 }
+@font-face {
+  font-family: 'interBold';
+  src: url('./Inter-Bold.otf');
+}
 
 @font-face {
   font-family: 'futura';
@@ -12,7 +16,8 @@
   --size: 4000px;
   --text: white;
   --background: black;
-  --zoom: 1
+  --zoom: 1;
+  --input: rgba(255, 255, 255, 0.429);
 }
 
 *,
@@ -43,7 +48,9 @@ body {
   height: 100%;
 }
 
-
+b{
+  font-family: 'interBold';
+}
 
 #container{
   display: flex;
@@ -129,6 +136,13 @@ button {
   color: var(--text);
   top: 18px;
   left: 5px;
+  font-size: 2.5rem;
+}
+
+#changeTheme2{
+  color: var(--text);
+    font-size: 2.5rem;
+
 }
 
 #menuButton{
@@ -151,13 +165,18 @@ button {
 #menu{
   display: none;
   z-index: 100;
-  width: 30%;
+    width: max-content;
   position: fixed;
   bottom: 75px;
   right: 15px !important;
   -webkit-backface-visibility: hidden;
   text-align: right;
 }
+
+/* #menu hr{
+  width: 90%;
+  margin-right: 0;
+} */
 
 #menu a{
   color: var(--text);
@@ -179,18 +198,26 @@ button {
 
 .swiper {
   background-color: var(--background);
+  margin: 30px 0;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: var(--text)
+  background: var(--background)
 }
 
-.swiper-slide img {
+.swiper-slide img,.swiper-slide p,.swiper-slide audio,.swiper-slide video {
   display: block !important;
   object-fit: cover !important;
   width: 100%;
+  background: var(--background)
+}
+
+.swiper-slide p{
+  height: min-content;
+  margin: 30px 0;
+  text-align: left;
 }
 
 .swiper-pagination-bullet{
@@ -214,6 +241,11 @@ form {
   margin: 30px;
 }
 
+.title{
+      /* padding: 2rem 0; */
+          z-index: 99;
+    position: relative;
+}
 
 #info {
   display: none;
@@ -222,13 +254,14 @@ form {
 
 #info a{
     color: var(--text);
+    text-underline-offset: 3px;
 }
 
 form {
   justify-content: space-around;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
 }
 
 form div {
@@ -236,11 +269,11 @@ form div {
 }
 
 form input {
-  width: 90%;
+  width: 100%;
   background-color: transparent;
   font-size: 15px;
   border-radius: 10px;
-  padding: 2px;
+  padding: 5px;
   margin: 5% 0;
 }
 
@@ -259,11 +292,11 @@ h1{
 }
 #birthday {
   text-transform: none;
-  color: rgba(255, 255, 255, 0.429)
+  color: var(--input)
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.429)
+  color: var(--input)
 }
 
 #birthday::placeholder {
@@ -277,22 +310,57 @@ h1{
 #head{
   display: flex;
   align-items: center;
-  justify-content: space-around;
-}
-#head span{
-    font-size: 20px;
+  justify-content: space-around;;
 }
 
-#head a{
+/* #head span{
+    font-size: 20px;
+} */
+
+.infoButton a{
   color: var(--text);
-  text-decoration-line: overline;
+  text-decoration-line: overline !important;
 }
+
+#infoButton{
+    text-decoration-line: overline !important;
+
+}
+
 
 .bigger{
   font-size: 25px;
   
 }
 
+/* INFO PAGE */
+.info{
+  object-fit: fill;
+  padding: 25px;
+  display: flex;
+  gap:50px;
+  flex-direction: column;
+  position: absolute;
+  bottom: 3rem;
+}
+
+.info a{
+  color: var(--text);
+}
+
+.infoContents{
+  display: flex;
+  flex-direction: column;
+  line-height: 24px;}
+
+.headInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+a{text-underline-offset: 3px;}
 
 @media (min-width:641px)  { 
   #menu a{
@@ -313,19 +381,26 @@ h1{
     /* border: solid 1px red; */
   }
   
+#head{
+    justify-content: space-between;
 
+}
   #menu a{
-    font-size: 35px;
+    font-size: 20px;
   }
+
+  /* #menu hr{
+  width: 30vw;
+} */
 
   .project{
     width: 50%;
   }
 
 
-  form{
-    width: 50%;
-    margin-left: 25%;
+  form,#head{
+    width: 40%;
+    margin-left: 30%;
     gap: 0;
   }
 

@@ -43,9 +43,9 @@
        <div id="contents" class="animate__animated">
 
             <!-- Reticolato -->
-            <div id="vene">
+            <div  id="vene">
     <?xml version="1.0" encoding="utf-8"?>
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg data-depth="0.6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 6000.4 5999.3" style="enable-background:new 0 0 6000.4 5999.3;" xml:space="preserve">
     <polygon id="center" class="st0" points="3108.3,2999.7 3054.2,3093.3 2946.1,3093.3 2892.1,2999.7 2946.1,2906 3054.2,2906 "/>
     <path class="st0" d="M3173.6,2927.5c134.4-96.8,279.4-238.1,293.2-420.3c19.9-261.4-248.4-364.1-231.1-616.3
@@ -75,8 +75,9 @@
                 {%for i in range(0, lenP)%} 
                     {{projects[i]['menu'] | safe}}<br>
                 {%endfor%} 
-                <br>
-                <a href="/info">INFO & CONTACTS</a><br>
+                <hr>
+                <a href="/info">INFO & CONTACTS</a>
+                <hr>
                 <a href="/form">SUBSCRIBE</a><br>
             </div>
 
@@ -95,7 +96,30 @@
                             {%endfor%} 
                          </div>
                         <div class="swiper-pagination"></div>
-                    <!-- TODO: put media -->
+                    </div>
+
+                    <div class="audio swiper mySwiper">
+                         <div class="swiper-wrapper">
+                        {%for a in range(lenAudio)%} 
+                        <div class="swiper-slide">
+                             <audio controls>
+                                <source src="{{projects[i]['audioURL'][a]}}">
+                             </audio> 
+                             {{projects[i]['audioDescription'][a] | safe}}
+                             </div>
+                        {%endfor%} 
+                        </div>
+                        <div class="swiper-pagination"></div>
+
+                    </div>
+
+                    <div class="video">
+                        {%for a in range(lenVideo)%} 
+                             <video controls>
+                                <source src="{{projects[i]['videoURL'][a]}}">
+                             </video>
+                             {{projects[i]['videoDescription'][a] | safe}}
+                        {%endfor%} 
                     </div>
 
                 {{projects[i]['text'] | safe}}
@@ -104,7 +128,17 @@
             {%endfor%} 
 
         </div>
-
+    <script>
+        function closeMenu(){
+            if(menu.style.display === 'block'){
+                menu.style.display = 'none'
+                menuButton.src = "/static/assets/hamburger.svg"
+            } else {
+                menu.style.display = 'block'
+                menuButton.src = "/static/assets/deburger.svg"
+            }
+        }
+    </script>
     <script defer async src="../static/index.js"></script>
 </body>
 </html>

@@ -11,20 +11,32 @@
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <!-- <script async  src="/static/app.js"></script> -->
         <style>
-             body,html{
+              body,html{
                 width: 100% !important;
                 height: 100% !important;
+                margin: 0;
+                padding: 0;
+                position: static;
+                padding-top: 1.2rem !important;
+            }
+
+            #changeTheme2{
+                opacity: 1;
+                z-index: 109;
             }
         </style>
     </head>
     <body>
 
+        <button class="animate__animated" id="changeTheme2">☉</button>  <!-- Cambio Tema -->
+
+
         <div class="title" id="title">
-            <h1>Modulo di iscrizione</h1>
+            <h1>Registration Form</h1>
         <!-- <img id="vene" src="/static/assets/vena.svg" alt=""> -->
         </div>
 
-    <div id="head"><span class="infoButton"><a>INFO</a></span>
+    <div id="head"><span class="infoButton" id="infoButton"><a>INFO</a></span>
     <span class="infoButton"><a href="../">BACK HOME</a></span>
 </div>
         <div id="info" class="animate__animated">
@@ -62,93 +74,77 @@
         </div>
        
            
-<div class="form">
+        <div class="form" >
     <form action="/submitSubscription" method="POST">
         <div>
-        <label for="fname">Nome:</label><br>
-        <input type="text" id="fname" name="setForm" value="{{ request.form['fname'] }}" placeholder="Abigal">
+        <label for="fname">Name:</label><br>
+        <input  required type="text" id="fname" name="setForm"  placeholder="Abigal">
         </div>
         <div>
-        <label for="lname">Cognome:</label><br>
-        <input type="text" id="lname" name="setForm" value="{{ request.form['lname'] }}" placeholder="Lupemburx">
+        <label for="lname">Surname:</label><br>
+        <input required  type="text" id="lname" name="setForm" placeholder="Lupemburx">
         </div>
         <div>
-        <label for="birthplace">Luogo di nascita:</label><br>
-        <input type="text" id="birthplace" name="setForm" value="{{ request.form['birthplace'] }}" placeholder="Iceland">
+        <label for="birthplace">Birth Place:</label><br>
+        <input required  type="text" id="birthplace" name="setForm" placeholder="Iceland">
         </div>
         <div>
-        <label for="birthday">Data di nascita:</label><br>
-        <input type="date" id="birthday" name="setForm"  value="{{ request.form['birthday'] }}" placeholder="12-12-1999" min="1930-1-1" max="2004-1-1">
+        <label for="birthday">Birthday:</label><br>
+        <input required  type="date" id="birthday" name="setForm"   placeholder="12-12-1999" min="1930-1-1" max="2004-1-1">
         </div>
         <div>
-        <label for="addressCity">Comune di residenza:</label><br>
-        <input type="text" id="addressCity" name="setForm" value="{{ request.form['title'] }}" placeholder="Tangeri">
+        <label for="addressStreet">Address of Residence:</label><br>
+        <input required  type="text" id="addressStreet" name="setForm"  placeholder="Boulevard Corazòn">
         </div>
         <div>
-        <label for="addressStreet">Indirizzo e civico di residenza:</label><br>
-        <input type="text" id="addressStreet" name="setForm" value="{{ request.form['address'] }}" placeholder="Boulevard Corazòn">
+        <label for="addressCity">Municipality of Residence:</label><br>
+        <input required  type="text" id="addressCity" name="setForm"  placeholder="Tangeri">
         </div>
         <div>
-        <label for="zip">CAP di residenza:</label><br>
-        <input type="text" id="zip" name="setForm" value="{{ request.form['zip'] }}" placeholder="42666">
+        <label for="zip">ZIP of Residence:</label><br>
+        <input required  type="text" id="zip" name="setForm" placeholder="42666">
         </div>
         <div>
-        <label for="domicile">Città di domicilio:</label><br>
-        <input type="text" id="domicile" name="setForm" value="{{ request.form['domicile'] }}" placeholder="Milano">
+        <label for="domicile">City of Domicile:</label><br>
+        <input required  type="text" id="domicile" name="setForm"  placeholder="Milano">
         </div>
         <div>
-        <label for="email">email:</label><br>
-        <input type="text" id="email" name="setForm" value="{{ request.form['email'] }}" placeholder="abi_lupe@vena.org">
+        <label for="email">Email:</label><br>
+        <input required  type="text" id="email" name="setForm"  placeholder="abi_lupe@vena.org">
         </div>
         <div>
         <input id="submit" type="submit" value="Submit">
     </div>
     </form>
-    </div>
-        
-        <script >
-        
-function toggleDiv(bool,button,div){
-    let toOpen = document.getElementById(div)
-    document.getElementById(button).addEventListener('click', function(){
-        
-              if (bool == 0) {
-                toOpen.classList.remove("animate__slideOutUp");
-                toOpen.classList.add("animate__slideInDown");
-                toOpen.style.display = 'block'
-                document.getElementById('infoButton').innerHTML='ᗐ CLOSE INFO'
-                bool++
-            } else {
-                toOpen.classList.remove("animate__slideInDown");
-                 toOpen.classList.add("animate__slideOutUp");
-                setTimeout(() => {
-                     toOpen.style.display = 'none'
-                }, 1200);
-                 document.getElementById('infoButton').innerHTML='ᗒ INFO'
-                bool--
-               }
+        </div>
 
-      })
-}
+        <script>
+        function toggleDiv(bool,button,div){
+            let toOpen = document.getElementById(div)
+            document.getElementById(button).addEventListener('click', function(){
+                if (bool == 0) {
+                    toOpen.classList.remove("animate__slideOutUp");
+                    toOpen.classList.add("animate__slideInDown");
+                    toOpen.style.display = 'block'
+                    document.getElementById('infoButton').innerHTML='CLOSE INFO'
+                    bool++
+                } else {
+                    toOpen.classList.remove("animate__slideInDown");
+                    toOpen.classList.add("animate__slideOutUp");
+                    setTimeout(() => {
+                        toOpen.style.display = 'none'
+                    }, 1200);
+                    document.getElementById('infoButton').innerHTML='INFO'
+                    bool--
+                }
+            })
+        }
 
-
-let viewportHeight = window.innerHeight;
-document.querySelector('.title').addEventListener('click', function(){
-    window.scrollBy(0,viewportHeight)
-})
-
-
- 
-
-
-
-
-
-
-let toggleInfo = 0
-toggleDiv(toggleInfo,'infoButton','info')
-
+        let toggleInfo = 0
+        toggleDiv(toggleInfo,'infoButton','info')
 
         </script>
+
+        <script defer async src="../static/index.light.js"></script>
     </body>
 </html>
