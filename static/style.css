@@ -65,7 +65,7 @@ b{
 }
 
 #animatedLogo{
-  width: 100vw;
+  width: 90vw;
   position: relative;
   z-index: 5;
 }
@@ -100,9 +100,9 @@ polygon{
 }
 
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   opacity: 0;
-}
+} */
 
 
 button {
@@ -186,7 +186,7 @@ button {
   width: 100vw;
   height: max-content;
   overflow-y: scroll;
-  padding: 2rem;
+  padding: 5rem;
   z-index: 1;
 
 }
@@ -368,7 +368,7 @@ a{text-underline-offset: 3px;}
 @media (min-width:1000px) { 
 
   #animatedLogo{
-    width: 60vw;
+    width: 80vw;
   }
   
 #head{
@@ -381,7 +381,7 @@ a{text-underline-offset: 3px;}
 
 
   .project{
-    width: 50%;
+    width: 40%;
   }
 
 
