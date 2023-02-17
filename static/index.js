@@ -3,7 +3,11 @@ let menuButton = document.getElementById('menuButton')
 let changeTheme = document.getElementById('changeTheme')
 let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
-let zoomed = false
+let centeringButton = document.querySelector('#up')
+let spaceZoom = document.querySelector('#zooming')
+var container = document.querySelector('#animatedLogo')
+var links = document.querySelectorAll('a');
+links = Array.prototype.slice.call(links);
 
 
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
@@ -46,16 +50,15 @@ function dark(){
 
 
     if (localStorage.getItem("info")){
-        setTimeout(() => {
-        document.getElementById("loader-container").classList.add('animate__fadeIn')
-        document.getElementById("loader-text").classList.add('animate__flipOutX')
-        document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
-        document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
-        document.getElementById("loader-container").style.backgroundPosition ="center "
-        }, 1000);
+        // setTimeout(() => {
+            document.getElementById("loader-container").classList.add('animate__fadeIn')
+            document.getElementById("loader-text").style.display="none"
+            document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+            document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
+            document.getElementById("loader-container").style.backgroundPosition ="center "
+        // }, 1000);
     } else {
-            document.getElementById("loader-container").style.opacity = 1
-
+            document.getElementById("loader-container").style.display="flex"
     }
 
 
@@ -64,22 +67,26 @@ function dark(){
 window.addEventListener('load', 
   function() { 
 
-
     if (localStorage.getItem("info")){
-        document.getElementById("loader-container").style.display ="none"
-
-    }else{
-    document.getElementById("enter").style.display = 'block'
-    document.getElementById("enter").addEventListener('click',()=>{
-        document.getElementById("loader-container").classList.add('animate__fadeOut')
+        // document.getElementById("loader-container").style.display="none"
+    }else {
+        
+        document.getElementById("enter").classList.add('animate__flipInX')
         setTimeout(() => {
-        document.getElementById("loader-container").style.display ="none"
+            document.getElementById("enter").style.display="block"
         }, 1000);
-        document.getElementById("loader-container").classList.add('animate__fadeOut')
-        setTimeout(() => {
-            callLogo()
-        }, 30);
-        localStorage.setItem("info",'ok')
+        document.getElementById("enter").addEventListener('click',()=>{
+            document.getElementById("loader-container").classList.add('animate__fadeOut')
+            setTimeout(() => {
+                document.getElementById("loader-container").style.display ="none"
+            }, 1000);
+            document.getElementById("loader-container").classList.add('animate__fadeOut')
+            
+            setTimeout(() => {
+                callLogo()
+            }, 30);
+
+            localStorage.setItem("info",'ok')
     })}
 
 
@@ -125,40 +132,32 @@ window.addEventListener('load',
             }
         }
 
-    window.addEventListener('click',()=>{
-        // menuButton.style.opacity = '100%'
-        document.querySelector('#up').style.opacity = '100%'
-        document.querySelector('#changeTheme').style.opacity = '100%'
-        // document.querySelector('.anima').classList.add('animate__fadeIn')
-        // document.getElementById("contents").classList.add('animate__fadeIn')
-        if (window.matchMedia("only screen and (max-width: 760px)").matches){
-        fullscreen()
-        }
-    })
+
+    var anima = document.querySelectorAll('.anima');
+    anima = Array.prototype.slice.call(anima);
 
 
-    // // when move the mouse/touch the screen, appear contents
+        window.addEventListener('click',()=>{
+            anima.forEach(animo => {
+                animo.classList.add('animate__fadeIn')
+            });
+            if (window.matchMedia("only screen and (max-width: 760px)").matches){
+            fullscreen()
+            }
+        })
+
+    // when move the mouse/touch the screen, appear contents
     window.addEventListener('wheel', () =>{ 
-        menuButton.classList.add('animate__fadeIn')
-        // menuButton.style.opacity = '100%'
-        // document.querySelector('#up').style.opacity = '100%'
-        document.querySelector('#changeTheme').style.opacity = '100%'
-        document.querySelector('.anima').classList.add('animate__fadeIn')
-        document.getElementById("contents").classList.add('animate__fadeIn')
+       anima.forEach(animo => {
+            animo.classList.add('animate__fadeIn')
+        });
     })
 
-
-
-    // window.addEventListener('touchstart', () =>{
-    //     menuButton.classList.add('animate__fadeIn')
-    //     menuButton.style.opacity = '100%'
-    //     document.querySelector('#up').style.opacity = '100%'
-    //         document.querySelector('#changeTheme').style.opacity = '100%'
-
-    //     document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-    //     document.getElementById("contents").style.visibility = 'visible'
-
-    // })
+    window.addEventListener('touchstart', () =>{
+        anima.forEach(animo => {
+                animo.classList.add('animate__fadeIn')
+            });
+    })
 
     // toggle menu
 
@@ -183,20 +182,25 @@ window.addEventListener('load',
         callLogo()
     }, 10);
 
-    document.querySelector('#up').addEventListener('click', () =>{
-
-        if (zoomed == false){
-            cssRoot.style.setProperty('--zoom',.3)
-            zoomed=!zoomed
-        } else{
-            cssRoot.style.setProperty('--zoom',1)
-            zoomed=!zoomed
-        }
-
-        // this.document.getElementById("veneSegrete").style.display ='none'
-        
-
+    spaceZoom.addEventListener('mousedown',()=>{
         callLogo()
+            cssRoot.style.setProperty('--zoom',.3)
+            console.log('ca')
+            projects.forEach(project =>{
+            project.classList.add("animate__fadeOut")
+                })
+        })
+                spaceZoom.addEventListener('mouseup',()=>{
+            cssRoot.style.setProperty('--zoom',1)
+            projects.forEach(project =>{
+            project.classList.add("animate__fadeIn")
+                })
+    })
+
+
+    centeringButton.addEventListener('click', () =>{
+        callLogo()
+        fullscreen()
     })
 
 
@@ -205,9 +209,9 @@ window.addEventListener('load',
     })
 
 
+
     // parallax instance
-    var scene = document.querySelector('#container')
-    var parallaxInstance = new Parallax(scene);
+    var parallaxInstance = new Parallax(container);
     parallaxInstance.friction(0.8,0.8);
 
 
@@ -215,9 +219,6 @@ window.addEventListener('load',
 
 
     // center links
-
-    var links = document.querySelectorAll('a');
-    links = Array.prototype.slice.call(links);
 
         links.forEach(link => {
             

@@ -107,7 +107,7 @@ for x in range(len(data['contents'])):
 
   menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
   projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf}
-  projectsDiv.append(f'<div class="zoomSystem project"  id="{str(title)}">')
+  projectsDiv.append(f'<div class="animate__animated project"  id="{str(title)}">')
 
 lenVideo = len(video)
 lenAudio = len(audio)
