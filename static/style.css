@@ -54,8 +54,10 @@ body {
 
 
 #loader-container {
-    width: 100%;
-    height: 100vh;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
     position: fixed;
     background: var(--background);
     z-index: 10000;

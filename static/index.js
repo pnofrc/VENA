@@ -8,6 +8,8 @@ let spaceZoom = document.querySelector('#zooming')
 var container = document.querySelector('#animatedLogo')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
+var anima = document.querySelectorAll('.anima');
+anima = Array.prototype.slice.call(anima);
 
 
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
@@ -68,6 +70,12 @@ window.addEventListener('load',
   function() { 
 
     if (localStorage.getItem("info")){
+        setTimeout(() => {
+            callLogo()
+        }, 10);
+         
+        events()
+
         // document.getElementById("loader-container").style.display="none"
     }else {
         
@@ -87,12 +95,61 @@ window.addEventListener('load',
             }, 30);
 
             localStorage.setItem("info",'ok')
+
+            events()
     })}
+
+
+    
+
+
+    function events(){
+       
+        // when click the page appear buttons and full screen
+        window.addEventListener('click',()=>{
+            // anima.forEach(animo => {
+            //     animo.classList.add('animate__fadeIn')
+            // });
+            if (window.matchMedia("only screen and (max-width: 760px)").matches){
+                callLogo()
+                setTimeout(() => {
+                    fullscreen()
+                }, 200);
+            }
+        })
+
+        // when move the mouse/touch the screen, appear contents
+        window.addEventListener('wheel', () =>{ 
+        anima.forEach(animo => {
+                animo.classList.add('animate__fadeIn')
+            });
+        })
+
+        window.addEventListener('touchstart', () =>{
+            anima.forEach(animo => {
+                animo.classList.add('animate__fadeIn')
+            });
+        })
+    }
+
+     // Full screen
+
+    var elem = document.documentElement;
+
+    function fullscreen() {
+        if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+        }
+    }
+
 
 
 
    
-
     function getOffset(el) { // get bounbdaries svg
         const rect = el.getBoundingClientRect();
         return {
@@ -109,61 +166,17 @@ window.addEventListener('load',
         positions.push(getOffset(point))
     });
 
-
     let i = 0
     projects.forEach(project =>{
         project.style.top = positions[i].top
-            project.style.left = positions[i].left
-            i++
+        project.style.left = positions[i].left
+        i++
     })
 
 
-    // Full screen
-
-    var elem = document.documentElement;
-
-        function fullscreen() {
-            if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-            }
-        }
-
-
-    var anima = document.querySelectorAll('.anima');
-    anima = Array.prototype.slice.call(anima);
-
-
-        window.addEventListener('click',()=>{
-            anima.forEach(animo => {
-                animo.classList.add('animate__fadeIn')
-            });
-            if (window.matchMedia("only screen and (max-width: 760px)").matches){
-                callLogo()
-                setTimeout(() => {
-                    fullscreen()
-                }, 500);
-            }
-        })
-
-    // when move the mouse/touch the screen, appear contents
-    window.addEventListener('wheel', () =>{ 
-       anima.forEach(animo => {
-            animo.classList.add('animate__fadeIn')
-        });
-    })
-
-    window.addEventListener('touchstart', () =>{
-        anima.forEach(animo => {
-                animo.classList.add('animate__fadeIn')
-            });
-    })
+    
 
     // toggle menu
-
     menuButton.addEventListener('click', function(){
             // fullscreen()
             if(menu.style.display === 'block'){
@@ -181,51 +194,47 @@ window.addEventListener('load',
         document.getElementById("simulate").click
         document.getElementById("animatedLogo").scrollIntoView({block: "center", inline: "center"})
     }
-    setTimeout(() => {
-        callLogo()
-    }, 10);
 
+    // Zoom system
     spaceZoom.addEventListener('mousedown',()=>{
         callLogo()
-            cssRoot.style.setProperty('--zoom',.3)
-            // projects.forEach(project =>{
-            // project.classList.add("animate__fadeOut")
-            //     })
-        })
-                spaceZoom.addEventListener('mouseup',()=>{
-            cssRoot.style.setProperty('--zoom',1)
-            // projects.forEach(project =>{
-            // project.classList.add("animate__fadeIn")
-            //     })
+        spaceZoom.style.background = 'black'
+        cssRoot.style.setProperty('--zoom',.3)
     })
 
+    spaceZoom.addEventListener('mouseup',()=>{
+        cssRoot.style.setProperty('--zoom',1)
+        spaceZoom.style.background = 'white'
+    })
 
+    spaceZoom.addEventListener('touchstart',()=>{
+        callLogo()
+        spaceZoom.style.background = 'black'
+        cssRoot.style.setProperty('--zoom',.3)
+    })
+
+    spaceZoom.addEventListener('touchend',()=>{
+        cssRoot.style.setProperty('--zoom',1)
+        spaceZoom.style.background = 'white'
+    })
+
+    // center page with button bottom left
     centeringButton.addEventListener('click', () =>{
         callLogo()
-        // setTimeout(() => {
-        // fullscreen()
-        // }, 500);
     })
 
-
+    // change theme with button top left
     changeTheme.addEventListener('click', () =>{
         changeThemeFunction()
     })
-
-
 
     // parallax instance
     var parallaxInstance = new Parallax(container);
     parallaxInstance.friction(0.8,0.8);
 
 
-
-
-
     // center links
-
         links.forEach(link => {
-            
             var href = link.getAttribute('href');
             if(link.getAttribute('href').startsWith('#')){
                 link.addEventListener('click',function(e){
@@ -234,7 +243,6 @@ window.addEventListener('load',
                     dest.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
                 })
             }
-            
         });
     
 
