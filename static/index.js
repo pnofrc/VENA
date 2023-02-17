@@ -44,11 +44,35 @@ function dark(){
     }
 }
 
+setTimeout(() => {
+    if (localStorage.getItem("info")){
+        document.getElementById("loader-container").classList.add('animate__fadeIn')
+        document.getElementById("loader-text").style.display ="none"
+        document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+        document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
+        document.getElementById("loader-container").style.backgroundPosition ="center "
+    }
+}, 1000);
+
+
 
 window.addEventListener('load', 
   function() { 
 
-    alert('loaded')
+
+    if (localStorage.getItem("info")){
+        document.getElementById("loader-container").style.display ="none"
+
+    }else{
+    document.getElementById("enter").style.display = 'block'
+    document.getElementById("enter").addEventListener('click',()=>{
+        document.getElementById("loader-container").classList.add('animate__fadeOut')
+        setTimeout(() => {
+            callLogo()
+        }, 30);
+        localStorage.setItem("info",'ok')
+    })}
+
 
 
    
@@ -93,40 +117,39 @@ window.addEventListener('load',
         }
 
     window.addEventListener('click',()=>{
-          menuButton.classList.add('animate__fadeIn')
-        menuButton.style.opacity = '100%'
+        // menuButton.style.opacity = '100%'
         document.querySelector('#up').style.opacity = '100%'
         document.querySelector('#changeTheme').style.opacity = '100%'
-        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-        document.getElementById("contents").classList.add('animate__fadeIn')
+        // document.querySelector('.anima').classList.add('animate__fadeIn')
+        // document.getElementById("contents").classList.add('animate__fadeIn')
         if (window.matchMedia("only screen and (max-width: 760px)").matches){
         fullscreen()
         }
     })
 
 
-    // when move the mouse/touch the screen, appear contents
+    // // when move the mouse/touch the screen, appear contents
     window.addEventListener('wheel', () =>{ 
         menuButton.classList.add('animate__fadeIn')
-        menuButton.style.opacity = '100%'
-        document.querySelector('#up').style.opacity = '100%'
+        // menuButton.style.opacity = '100%'
+        // document.querySelector('#up').style.opacity = '100%'
         document.querySelector('#changeTheme').style.opacity = '100%'
-        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+        document.querySelector('.anima').classList.add('animate__fadeIn')
         document.getElementById("contents").classList.add('animate__fadeIn')
     })
 
 
 
-    window.addEventListener('touchstart', () =>{
-        menuButton.classList.add('animate__fadeIn')
-        menuButton.style.opacity = '100%'
-        document.querySelector('#up').style.opacity = '100%'
-            document.querySelector('#changeTheme').style.opacity = '100%'
+    // window.addEventListener('touchstart', () =>{
+    //     menuButton.classList.add('animate__fadeIn')
+    //     menuButton.style.opacity = '100%'
+    //     document.querySelector('#up').style.opacity = '100%'
+    //         document.querySelector('#changeTheme').style.opacity = '100%'
 
-        document.querySelector('.animate__animated').classList.add('animate__fadeIn')
-        document.getElementById("contents").style.visibility = 'visible'
+    //     document.querySelector('.animate__animated').classList.add('animate__fadeIn')
+    //     document.getElementById("contents").style.visibility = 'visible'
 
-    })
+    // })
 
     // toggle menu
 
