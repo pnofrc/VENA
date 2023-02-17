@@ -73,6 +73,10 @@ window.addEventListener('load',
     document.getElementById("enter").addEventListener('click',()=>{
         document.getElementById("loader-container").classList.add('animate__fadeOut')
         setTimeout(() => {
+        document.getElementById("loader-container").style.display ="none"
+        }, 1000);
+        document.getElementById("loader-container").classList.add('animate__fadeOut')
+        setTimeout(() => {
             callLogo()
         }, 30);
         localStorage.setItem("info",'ok')
@@ -181,13 +185,13 @@ window.addEventListener('load',
 
     document.querySelector('#up').addEventListener('click', () =>{
 
-        // if (zoomed == false){
-        //     cssRoot.style.setProperty('--zoom',.3)
-        //     zoomed=!zoomed
-        // } else{
-        //     cssRoot.style.setProperty('--zoom',1)
-        //     zoomed=!zoomed
-        // }
+        if (zoomed == false){
+            cssRoot.style.setProperty('--zoom',.3)
+            zoomed=!zoomed
+        } else{
+            cssRoot.style.setProperty('--zoom',1)
+            zoomed=!zoomed
+        }
 
         // this.document.getElementById("veneSegrete").style.display ='none'
         
