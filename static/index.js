@@ -185,16 +185,15 @@ window.addEventListener('load',
     spaceZoom.addEventListener('mousedown',()=>{
         callLogo()
             cssRoot.style.setProperty('--zoom',.3)
-            console.log('ca')
-            projects.forEach(project =>{
-            project.classList.add("animate__fadeOut")
-                })
+            // projects.forEach(project =>{
+            // project.classList.add("animate__fadeOut")
+            //     })
         })
                 spaceZoom.addEventListener('mouseup',()=>{
             cssRoot.style.setProperty('--zoom',1)
-            projects.forEach(project =>{
-            project.classList.add("animate__fadeIn")
-                })
+            // projects.forEach(project =>{
+            // project.classList.add("animate__fadeIn")
+            //     })
     })
 
 
