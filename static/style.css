@@ -152,8 +152,7 @@ circle{
 polygon{
   opacity: 0;
 }
-
-
+path{fill:none}
 /* ::-webkit-scrollbar {
   opacity: 0;
 } */
