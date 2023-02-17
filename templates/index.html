@@ -84,9 +84,6 @@
 
             </div>
 
-
-
-
              <!-- Progetti -->
 		    {%for i in range(0, lenP)%} 
                 {{projectsDiv[i] |safe}}
@@ -98,12 +95,7 @@
                         <div class="swiper-wrapper">
                             {%for p in projects[i]['pics']%} 
                                 <div class="swiper-slide" >
-                                    <img src="{{p[1]}}" loading="lazy">
-                                     <!-- <img class="lozad" data-src="{{p[1]}}"> -->
-                                     <!-- TODO: add description in json? -->
-
-                                    <!-- <img src="{{p[0]}}" srcset="{{p[1]}} 2x" loading="lazy"> -->
-                                    <!-- <div class="swiper-lazy-preloader"></div> -->
+                                    <img class="lazy" data-src="{{p[1]}}" loading="lazy">
                                 </div>
                             {%endfor%} 
                          </div>
@@ -149,15 +141,18 @@
 
         </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <script>
+    var lazyLoadInstance = new LazyLoad();
+    lazyLoadInstance.update();
 
-
-
-        // gallery
+    // gallery
     var swiper = new Swiper(".mySwiper", {
         preloadImages: false,
-         lazy: true,
-       
+       lazy: {
+            loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
+            loadPrevNextAmount: 2 //or, if you wish, preload the next 2 images
+        },
         slidesPerView: 1,
         spaceBetween: 30,
         mousewheel: true,
@@ -165,7 +160,6 @@
             el: ".swiper-pagination",
             clickable: true,
         },
-         
     });
 
 
