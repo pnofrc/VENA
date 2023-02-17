@@ -151,13 +151,13 @@ window.addEventListener('load',
 
     document.querySelector('#up').addEventListener('click', () =>{
 
-        if (zoomed == false){
-            cssRoot.style.setProperty('--zoom',.3)
-            zoomed=!zoomed
-        } else{
-            cssRoot.style.setProperty('--zoom',1)
-            zoomed=!zoomed
-        }
+        // if (zoomed == false){
+        //     cssRoot.style.setProperty('--zoom',.3)
+        //     zoomed=!zoomed
+        // } else{
+        //     cssRoot.style.setProperty('--zoom',1)
+        //     zoomed=!zoomed
+        // }
 
         // this.document.getElementById("veneSegrete").style.display ='none'
         
@@ -168,7 +168,6 @@ window.addEventListener('load',
 
     changeTheme.addEventListener('click', () =>{
         changeThemeFunction()
-        callLogo()
     })
 
 

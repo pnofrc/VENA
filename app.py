@@ -60,7 +60,11 @@ for x in range(len(data['contents'])):
   videoDescription = []
   videoURL = []
   videoTitle = []
+  pdfDescription = []
+  pdfURL = []
+  pdfTitle = []
 
+  print(project['contents'])
   for media in range(len(project['contents'])):
     description = project['contents'][media]['description_html']
     asset = project['contents'][media]['attachment']
@@ -81,6 +85,13 @@ for x in range(len(data['contents'])):
           videoDescription.append('')
         else:
           videoDescription.append(description)
+      if asset['extension'] == 'pdf':
+        pdfURL.append(asset['url'])
+        pdfTitle.append(tempTitle)
+        if(description == ''):
+          pdfDescription.append('')
+        else:
+          pdfDescription.append(description)  
     except:
       print()
 
@@ -88,16 +99,19 @@ for x in range(len(data['contents'])):
 
   audioTemp = list(zip(audioURL, audioDescription, audioTitle))
   videoTemp = list(zip(videoURL, videoDescription, videoTitle))
+  pdfTemp = list(zip(pdfURL, pdfDescription, pdfTitle))
   audio= [[*aa] for aa in audioTemp]
   video= [[*vv] for vv in videoTemp]
+  pdf = [[*pp] for pp in pdfTemp]
  
 
   menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio}
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf}
   projectsDiv.append(f'<div class="zoomSystem project"  id="{str(title)}">')
 
 lenVideo = len(video)
 lenAudio = len(audio)
+lenPdf = len(pdf)
 lenP=len(projects)
 lenV=len(vene)
 
@@ -111,7 +125,7 @@ app = Flask('app')
 # HOMEPAGE
 @app.route('/')
 def index():
-  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio)
+  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf)
 
 
 # INFO CONTACTS
