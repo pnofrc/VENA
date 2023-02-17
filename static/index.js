@@ -4,7 +4,7 @@ let changeTheme = document.getElementById('changeTheme')
 let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
 let centeringButton = document.querySelector('#up')
-let spaceZoom = document.querySelector('#zooming')
+// let spaceZoom = document.querySelector('#zooming')
 var container = document.querySelector('#animatedLogo')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
@@ -104,12 +104,11 @@ window.addEventListener('load',
 
 
     function events(){
-       
         // when click the page appear buttons and full screen
         window.addEventListener('click',()=>{
-            // anima.forEach(animo => {
-            //     animo.classList.add('animate__fadeIn')
-            // });
+            anima.forEach(animo => {
+                animo.classList.add('animate__fadeIn')
+            });
             if (window.matchMedia("only screen and (max-width: 760px)").matches){
                 callLogo()
                 setTimeout(() => {
@@ -120,7 +119,7 @@ window.addEventListener('load',
 
         // when move the mouse/touch the screen, appear contents
         window.addEventListener('wheel', () =>{ 
-        anima.forEach(animo => {
+            anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
         })
@@ -195,33 +194,22 @@ window.addEventListener('load',
         document.getElementById("animatedLogo").scrollIntoView({block: "center", inline: "center"})
     }
 
-    // Zoom system
-    spaceZoom.addEventListener('mousedown',()=>{
+    // Zoom system and centering
+    centeringButton.addEventListener('pointerdown',()=>{
         callLogo()
-        spaceZoom.style.background = 'black'
+        // spaceZoom.style.background = 'black'
         cssRoot.style.setProperty('--zoom',.3)
     })
 
-    spaceZoom.addEventListener('mouseup',()=>{
+    centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
-        spaceZoom.style.background = 'white'
-    })
-
-    spaceZoom.addEventListener('touchstart',()=>{
-        callLogo()
-        spaceZoom.style.background = 'black'
-        cssRoot.style.setProperty('--zoom',.3)
-    })
-
-    spaceZoom.addEventListener('touchend',()=>{
-        cssRoot.style.setProperty('--zoom',1)
-        spaceZoom.style.background = 'white'
+        // spaceZoom.style.background = 'white'
     })
 
     // center page with button bottom left
-    centeringButton.addEventListener('click', () =>{
-        callLogo()
-    })
+    // centeringButton.addEventListener('click', () =>{
+    //     callLogo()
+    // })
 
     // change theme with button top left
     changeTheme.addEventListener('click', () =>{
