@@ -3,6 +3,8 @@ let menuButton = document.getElementById('menuButton')
 let changeTheme = document.getElementById('changeTheme')
 let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
+let zoomed = false
+
 
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
@@ -148,6 +150,18 @@ window.addEventListener('load',
     }, 10);
 
     document.querySelector('#up').addEventListener('click', () =>{
+
+        if (zoomed == false){
+            cssRoot.style.setProperty('--zoom',.3)
+            zoomed=!zoomed
+        } else{
+            cssRoot.style.setProperty('--zoom',1)
+            zoomed=!zoomed
+        }
+
+        // this.document.getElementById("veneSegrete").style.display ='none'
+        
+
         callLogo()
     })
 
@@ -155,7 +169,6 @@ window.addEventListener('load',
     changeTheme.addEventListener('click', () =>{
         changeThemeFunction()
         callLogo()
- 
     })
 
 
@@ -167,7 +180,25 @@ window.addEventListener('load',
 
 
 
-    document.body.addEventListener("wheel",() =>{
-        // alert()
-    })
+
+    // center links
+
+    var links = document.querySelectorAll('a');
+    links = Array.prototype.slice.call(links);
+
+        links.forEach(link => {
+            
+            var href = link.getAttribute('href');
+            if(link.getAttribute('href').startsWith('#')){
+                link.addEventListener('click',function(e){
+                    e.preventDefault();
+                    var dest =  document.getElementById(href.substring(1));
+                    dest.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+                })
+            }
+            
+        });
+    
+
+
   }, false);

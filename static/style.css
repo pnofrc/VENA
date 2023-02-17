@@ -36,13 +36,11 @@ html{
   height: var(--size);
 
    overflow: -moz-scrollbars-vertical; 
-   
-    overflow-y: scroll;
+  overflow-y: scroll;
 
 }
 
 body {
-  transform: scale(--zoom);
   scroll-behavior: smooth;
   scrollbar-width: none;
   margin: 0;
@@ -59,6 +57,9 @@ b{
 }
 
 #container{
+  transform: scale(var(--zoom)) !important;
+  transition:1.4s;
+  transition-timing-function: ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,12 +70,18 @@ b{
 }
 
 #animatedLogo{
+  transform: scale(var(--zoom)) !important;
+  transition:1.4s;
+  transition-timing-function: ease;
   width: 90vw;
   position: relative;
   z-index: 5;
 }
 
 #vene{  
+  transform: scale(var(--zoom));
+  transition:1.4s;
+  transition-timing-function: ease;
   stroke: var(--text);
   display: flex;
   justify-content: center;
@@ -127,12 +134,9 @@ button {
 
 #menuButton,#up,#changeTheme,#zooming{
   position: fixed !important;
-  /* font-size: 35px; */
   opacity: 0;
   z-index: 10;
   text-shadow: 1px 1px var(--background);
-
-  touch-action: none;
 }
 
 #zooming{
@@ -172,7 +176,7 @@ button {
 #menu{
   display: none;
   z-index: 100;
-    width: max-content;
+  width: max-content;
   position: fixed;
   bottom: 75px;
   right: 15px !important;
@@ -194,7 +198,6 @@ button {
   overflow-y: scroll;
   padding: 5rem;
   z-index: 1;
-
 }
 
 /* Slide Show  */
@@ -374,7 +377,7 @@ a{text-underline-offset: 3px;}
 @media (min-width:1000px) { 
 
   #animatedLogo{
-    width: 80vw;
+    width: 60vw;
   }
   
 #head{

@@ -29,10 +29,27 @@
         <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-        <script src="/static/hammer.min.js"></script>
          <link rel="icon" type="image/x-icon" href="/static/assets/ico.png">
     </head>
     <body>
+
+        <!-- Bottoni -->
+        <button class="animate__animated  panzoom-exclude" id="changeTheme">☉</button>  <!-- Cambio Tema -->
+        <button id="up" class="animate__animated  panzoom-exclude"><span>➝ VENA</span></button> <!-- Ricentra -->
+        <img id="menuButton" class="animate__animated  panzoom-exclude" src="/static/assets/hamburger.svg" alt=""> <!-- Apertura Menu -->
+
+
+        <!-- Menu -->
+        <div id="menu">
+            {%for i in range(0, lenP)%} 
+                {{projects[i]['menu'] | safe}}<br>
+            {%endfor%} 
+            <hr>
+            <a href="/info">INFO & CONTACTS</a>
+            <hr>
+            <a href="/form">SUBSCRIBE</a><br>
+        </div>
+
 
         <a id="simulate" href="#animatedLogo"></a>
 
@@ -67,21 +84,7 @@
 
             </div>
 
-            <!-- Bottoni -->
-            <button class="animate__animated" id="changeTheme">☉</button>  <!-- Cambio Tema -->
-            <button id="up" class="animate__animated"><span>➝ VENA</span></button> <!-- Ricentra -->
-            <img id="menuButton" class="animate__animated" src="/static/assets/hamburger.svg" alt=""> <!-- Apertura Menu -->
 
-            <!-- Menu -->
-            <div id="menu">
-                {%for i in range(0, lenP)%} 
-                    {{projects[i]['menu'] | safe}}<br>
-                {%endfor%} 
-                <hr>
-                <a href="/info">INFO & CONTACTS</a>
-                <hr>
-                <a href="/form">SUBSCRIBE</a><br>
-            </div>
 
 
              <!-- Progetti -->
@@ -146,17 +149,7 @@
 
         </div>
 
-
     <script>
-
-        var myElement = document.getElementById('container');
-        var mc = new Hammer.Manager(myElement);
-        var pinch = new Hammer.Pinch();
-
-   // listen to events...
-    mc.on("press", function(ev) {
-       alert()
-    });
 
 
 
