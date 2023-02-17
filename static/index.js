@@ -48,7 +48,7 @@ function dark(){
     if (localStorage.getItem("info")){
         setTimeout(() => {
         document.getElementById("loader-container").classList.add('animate__fadeIn')
-        document.getElementById("loader-text").style.display ="none"
+        document.getElementById("loader-text").classList.add('animate__flipOutX')
         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
         document.getElementById("loader-container").style.backgroundPosition ="center "
