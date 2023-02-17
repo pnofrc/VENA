@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'futura';
-  src: url('./Futura.ttc');
+  src: url('./Futura-Medium.woff');
 }
 
 :root{
@@ -164,9 +164,10 @@ button {
 }
 
 #up{
-    left: 7px;
-    bottom: 20px;
-    font-size: 23px;
+  position: relative;
+  left: 7px;
+  bottom: 5px;
+  font-size: 50px;
 }
 
 #up span{
@@ -343,6 +344,11 @@ h1{
   position: absolute;
   bottom: 3rem;
 }
+ .backHome a{
+                font-size: 45px;
+                text-decoration: none;
+                color: var(--text);
+            }
 
 .info a{
   color: var(--text);
