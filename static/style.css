@@ -62,6 +62,7 @@ body {
     display: flex;
     opacity: 0;
     flex-direction: column;
+    justify-content: space-between;
     padding: 2rem;
 }
 
