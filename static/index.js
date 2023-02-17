@@ -110,7 +110,7 @@ window.addEventListener('load',
                 animo.classList.add('animate__fadeIn')
             });
             if (window.matchMedia("only screen and (max-width: 760px)").matches){
-                callLogo()
+                // callLogo()
                 setTimeout(() => {
                     fullscreen()
                 }, 200);
