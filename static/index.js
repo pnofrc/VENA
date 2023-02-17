@@ -51,6 +51,9 @@ setTimeout(() => {
         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
         document.getElementById("loader-container").style.backgroundPosition ="center "
+    } else {
+            document.getElementById("loader-container").classList.add('animate__fadeIn')
+
     }
 }, 1000);
 
