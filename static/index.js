@@ -207,10 +207,10 @@ window.addEventListener('load',
         }
         })
 
-        document.body.addEventListener('touchend',()=>{
-            alert()
-            document.body.style.zoom = '1.0'
-        })
+        // document.body.addEventListener('touchend',()=>{
+        //     alert()
+        //     document.body.style.zoom = '1.0'
+        // })
 
     // // Zoom system and centering
     // centeringButton.addEventListener('pointerdown',()=>{
