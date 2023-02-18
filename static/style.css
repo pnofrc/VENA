@@ -102,7 +102,7 @@ b{
 }
 
 #container{
-  transform: scale(var(--zoom));
+  transform: scale(var(--zoom)) !important;
   transition:1.4s;
   transition-timing-function: ease;
   display: flex;
@@ -115,7 +115,7 @@ b{
 }
 
 #animatedLogo{
-  transform: scale(var(--zoom));
+  transform: scale(var(--zoom)) !important;
   transition:1.4s;
   transition-timing-function: ease;
   width: 90vw;
@@ -124,7 +124,7 @@ b{
 }
 
 #vene{  
-  transform: scale(var(--zoom));
+  transform: scale(var(--zoom)) !important;
   transition:1.4s;
   transition-timing-function: ease;
   stroke: var(--text);
