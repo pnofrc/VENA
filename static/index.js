@@ -188,15 +188,24 @@ window.addEventListener('load',
          document.body.style.zoom = "1"
     })
 
+    // parallax instance
+    var container = document.querySelector('#container')
+    var parallaxInstance = new Parallax(container,{
+  relativeInput: true
+});
+    parallaxInstance.friction(0.5,0.5);
 
     // // Zoom system and centering
     centeringButton.addEventListener('pointerdown',()=>{
+         parallaxInstance.disable()
         callLogo()
         cssRoot.style.setProperty('--zoom',.2)})
     
 
     centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
+                 parallaxInstance.enable()
+
     })
 
 
