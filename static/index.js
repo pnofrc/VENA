@@ -5,7 +5,7 @@ let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
 let centeringButton = document.querySelector('#up')
 // let spaceZoom = document.querySelector('#zooming')
-var container = document.querySelector('#animatedLogo')
+var container = document.querySelector('#container')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
 var anima = document.querySelectorAll('.anima');
@@ -204,6 +204,21 @@ window.addEventListener('load',
     centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
         // spaceZoom.style.background = 'white'
+    })
+
+    var isTouchDevice = 'ontouchstart' in document.documentElement;
+
+        centeringButton.addEventListener('touchstart',()=>{
+             if (isTouchDevice)  {  
+        callLogo()
+        // spaceZoom.style.background = 'black'
+        cssRoot.style.setProperty('--zoom',.3)}
+    })
+
+    centeringButton.addEventListener('touchend',()=>{
+         if (isTouchDevice)  {  
+        cssRoot.style.setProperty('--zoom',1)}
+        // spaceZoom.style.background = 'white'}
     })
 
     // center page with button bottom left
