@@ -187,6 +187,7 @@ button {
 
 
 #changeTheme{
+    position: relative;
   color: var(--text);
   font-size: 3rem;
       top: 7px;
