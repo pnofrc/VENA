@@ -193,19 +193,19 @@ window.addEventListener('load',
         document.getElementById("animatedLogo").scrollIntoView({block: "center", inline: "center"})
     }
 
-    let zoomed = true
+    // let zoomed = true
 
-     centeringButton.addEventListener('click',()=>{
-        if(zoomed){
-            callLogo()
-        cssRoot.style.setProperty('--zoom',.3)
-        zoomed = !zoomed}
-        else{
-        cssRoot.style.setProperty('--zoom',1)
-        callLogo()
-        zoomed = !zoomed
-        }
-        })
+    //  centeringButton.addEventListener('click',()=>{
+    //     if(zoomed){
+    //         callLogo()
+    //     cssRoot.style.setProperty('--zoom',.3)
+    //     zoomed = !zoomed}
+    //     else{
+    //     cssRoot.style.setProperty('--zoom',1)
+    //     callLogo()
+    //     zoomed = !zoomed
+    //     }
+    //     })
 
         // document.body.addEventListener('touchend',()=>{
         //     alert()
@@ -213,16 +213,16 @@ window.addEventListener('load',
         // })
 
     // // Zoom system and centering
-    // centeringButton.addEventListener('pointerdown',()=>{
-    //     callLogo()
-    //     // spaceZoom.style.background = 'black'
-    //     cssRoot.style.setProperty('--zoom',.3)})
+    centeringButton.addEventListener('pointerdown',()=>{
+        callLogo()
+        // spaceZoom.style.background = 'black'
+        cssRoot.style.setProperty('--zoom',.3)})
     
 
-    // centeringButton.addEventListener('pointerup',()=>{
-    //     cssRoot.style.setProperty('--zoom',1)
-    //     // spaceZoom.style.background = 'white'
-    // })
+    centeringButton.addEventListener('pointerup',()=>{
+        cssRoot.style.setProperty('--zoom',1)
+        // spaceZoom.style.background = 'white'
+    })
 
 
     // center page with button bottom left
