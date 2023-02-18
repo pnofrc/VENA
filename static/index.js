@@ -1,10 +1,10 @@
+let logo = document.getElementById("animatedLogo")
 let menu = document.getElementById('menu')
 let menuButton = document.getElementById('menuButton')
 let changeTheme = document.getElementById('changeTheme')
 let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
 let centeringButton = document.querySelector('#up')
-// let spaceZoom = document.querySelector('#zooming')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
 var anima = document.querySelectorAll('.anima');
@@ -13,7 +13,8 @@ anima = Array.prototype.slice.call(anima);
 
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
-let logo = document.getElementById("animatedLogo")
+
+
 // check theme
 if (localStorage.length == 0) {
     localStorage.setItem("dark", "y")
@@ -23,7 +24,6 @@ dark()
 
 
 // change theme
-
 function changeThemeFunction(){
     if (localStorage.getItem("dark")) {
         localStorage.removeItem("dark")
@@ -49,34 +49,25 @@ function dark(){
     }
 }
 
-
-    if (localStorage.getItem("info")){
-        // setTimeout(() => {
-            document.getElementById("loader-container").classList.add('animate__fadeIn')
-            document.getElementById("loader-text").style.display="none"
-            document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
-            document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
-            document.getElementById("loader-container").style.backgroundPosition ="center "
-        // }, 1000);
-    } else {
-            document.getElementById("loader-container").style.display="flex"
-    }
-
-
+//  loading gif
+if (localStorage.getItem("info")){
+        document.getElementById("loader-container").classList.add('animate__fadeIn')
+        document.getElementById("loader-text").style.display="none"
+        document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+        document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
+        document.getElementById("loader-container").style.backgroundPosition ="center "
+} else {
+        document.getElementById("loader-container").style.display="flex"
+}
 
 
 window.addEventListener('load', 
   function() { 
 
     if (localStorage.getItem("info")){
-        setTimeout(() => {
-            callLogo()
-        }, 10);
-         
-        events()
         callLogo()
+        events()
     }else {
-        
         document.getElementById("enter").classList.add('animate__flipInX')
         setTimeout(() => {
             document.getElementById("enter").style.display="block"
@@ -91,7 +82,7 @@ window.addEventListener('load',
             setTimeout(() => {
                 callLogo()
             }, 300);
-            
+        
             localStorage.setItem("info",'ok')
 
             events()
@@ -110,7 +101,6 @@ window.addEventListener('load',
                 animo.classList.add('animate__fadeIn')
             });
             if (window.matchMedia("only screen and (max-width: 760px)").matches){
-                // callLogo()
                 setTimeout(() => {
                     fullscreen()
                 }, 200);
@@ -145,10 +135,9 @@ window.addEventListener('load',
         } else if (elem.msRequestFullscreen) { /* IE11 */
         elem.msRequestFullscreen();
         }
+        callLogo()
+
     }
-
-
-
 
    
     function getOffset(el) { // get bounbdaries svg
@@ -175,19 +164,9 @@ window.addEventListener('load',
     })
 
 
-        //     function closeMenu(){
-        //     if(menu.style.display === 'block'){
-        //         menu.style.display = 'none'
-        //         menuButton.src = "/static/assets/hamburger.svg"
-        //     } else {
-        //         menu.style.display = 'block'
-        //         menuButton.src = "/static/assets/deburger.svg"
-        //     }
-        // }
 
     // toggle menu
     menuButton.addEventListener('click', function(){
-            // fullscreen()
             if(menu.style.display === 'block'){
                 menu.style.display = 'none'
                 menuButton.src = "/static/assets/hamburger.svg"
@@ -209,42 +188,17 @@ window.addEventListener('load',
          document.body.style.zoom = "1"
     })
 
-    // let zoomed = true
-
-    //  centeringButton.addEventListener('click',()=>{
-    //     if(zoomed){
-    //         callLogo()
-    //     cssRoot.style.setProperty('--zoom',.3)
-    //     zoomed = !zoomed}
-    //     else{
-    //     cssRoot.style.setProperty('--zoom',1)
-    //     callLogo()
-    //     zoomed = !zoomed
-    //     }
-    //     })
-
-        // document.body.addEventListener('touchend',()=>{
-        //     alert()
-        //     document.body.style.zoom = '1.0'
-        // })
 
     // // Zoom system and centering
     centeringButton.addEventListener('pointerdown',()=>{
         callLogo()
-        // spaceZoom.style.background = 'black'
         cssRoot.style.setProperty('--zoom',.2)})
     
 
     centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
-        // spaceZoom.style.background = 'white'
     })
 
-
-    // center page with button bottom left
-    // centeringButton.addEventListener('click', () =>{
-    //     callLogo()
-    // })
 
     // change theme with button top left
     changeTheme.addEventListener('click', () =>{
@@ -253,17 +207,15 @@ window.addEventListener('load',
 
 
     // center links
-        links.forEach(link => {
-            var href = link.getAttribute('href');
-            if(link.getAttribute('href').startsWith('#')){
-                link.addEventListener('click',function(e){
-                    e.preventDefault();
-                    var dest =  document.getElementById(href.substring(1));
-                    dest.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
-                })
-            }
-        });
+    links.forEach(link => {
+        var href = link.getAttribute('href');
+        if(link.getAttribute('href').startsWith('#')){
+            link.addEventListener('click',function(e){
+                e.preventDefault();
+                var dest =  document.getElementById(href.substring(1));
+                dest.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+            })
+        }
+    });
     
-
-
   }, false);

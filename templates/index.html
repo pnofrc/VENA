@@ -34,17 +34,19 @@
     <body>
 
         <div id="loader-container" class="animate__animated">
-            
             <div>
-                <p id="loader-text">In this way you navigate....
-            gif di freccia 4 lati che va in giro</p>
+                <p id="loader-text">
+                    <h1>VENA</h1>
+                    Welcome. Feel free to navigate following the venous web or use the bottom right menu. 
+                    <br>Please wait a few instants the page to load.
+                </p>
             </div>
             <div><button id="enter" class="animate__animated">Enter</button></div>
         </div>
 
         <!-- Bottoni -->
         <!-- <div id="buttonsTop" class="animate__animated  anima"> -->
-        <button class="animate__animated  anima" id="changeTheme">d✵</button>  <!-- Cambio Tema -->
+        <button class="animate__animated  anima" id="changeTheme">✵</button>  <!-- Cambio Tema -->
         <!-- <button class="animate__animated  anima" id="zooming"></button></div> -->
         <button id="up" class="animate__animated  anima"><span>☉</span></button> <!-- Ricentra -->
         <img id="menuButton" class="animate__animated  anima" src="/static/assets/hamburger.svg" alt=""> <!-- Apertura Menu -->
@@ -67,7 +69,7 @@
 
         <!-- Logo Animato -->
         <div id="container"> 
-            <img id="animatedLogo" data-depth="0.2" src="../static/assets/blackLogo.gif"  alt="">
+            <img id="animatedLogo" data-depth="0.1" src="../static/assets/blackLogo.gif"  alt="">
        </div>
 
        <div id="contents" class="animate__animated anima">
@@ -223,7 +225,7 @@
     // parallax instance
     var container = document.querySelector('#container')
     var parallaxInstance = new Parallax(container);
-    parallaxInstance.friction(0.8,0.8);
+    parallaxInstance.friction(0.5,0.5);
 
     var lazyLoadInstance = new LazyLoad();
     lazyLoadInstance.update();
