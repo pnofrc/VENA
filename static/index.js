@@ -207,6 +207,11 @@ window.addEventListener('load',
         }
         })
 
+        this.window.addEventListener('touchend',()=>{
+
+            this.document.body.style.zoom = '1.0'
+        })
+
     // // Zoom system and centering
     // centeringButton.addEventListener('pointerdown',()=>{
     //     callLogo()
