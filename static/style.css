@@ -124,7 +124,7 @@ b{
 }
 
 #vene{  
-  transform: scale(var(--zoom));
+  /* transform: scale(var(--zoom)); */
   transition:1.4s;
   transition-timing-function: ease;
   stroke: var(--text);
