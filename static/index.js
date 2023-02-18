@@ -50,17 +50,17 @@ function dark(){
 }
 
 
-    // if (localStorage.getItem("info")){
-    //     // setTimeout(() => {
-    //         document.getElementById("loader-container").classList.add('animate__fadeIn')
-    //         document.getElementById("loader-text").style.display="none"
-    //         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
-    //         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
-    //         document.getElementById("loader-container").style.backgroundPosition ="center "
-    //     // }, 1000);
-    // } else {
+    if (localStorage.getItem("info")){
+        // setTimeout(() => {
+            document.getElementById("loader-container").classList.add('animate__fadeIn')
+            document.getElementById("loader-text").style.display="none"
+            document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+            document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
+            document.getElementById("loader-container").style.backgroundPosition ="center "
+        // }, 1000);
+    } else {
             document.getElementById("loader-container").style.display="flex"
-    // }
+    }
 
 
 
@@ -68,15 +68,15 @@ function dark(){
 window.addEventListener('load', 
   function() { 
 
-    // if (localStorage.getItem("info")){
-    //     setTimeout(() => {
-    //         callLogo()
-    //     }, 10);
+    if (localStorage.getItem("info")){
+        setTimeout(() => {
+            callLogo()
+        }, 10);
          
-    //     events()
+        events()
 
         // document.getElementById("loader-container").style.display="none"
-    // }else {
+    }else {
         
         document.getElementById("enter").classList.add('animate__flipInX')
         setTimeout(() => {
@@ -91,14 +91,12 @@ window.addEventListener('load',
             
             setTimeout(() => {
                 callLogo()
-                fullscreen()
             }, 30);
             callLogo()
-            // localStorage.setItem("info",'ok')
+            localStorage.setItem("info",'ok')
 
             events()
-    })
-// }
+    })}
 
 
     
