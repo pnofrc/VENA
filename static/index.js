@@ -195,7 +195,7 @@ window.addEventListener('load',
 
     let zoomed = true
 
-     centeringButton.addEventListener('pointerdown',()=>{
+     centeringButton.addEventListener('click',()=>{
         if(zoomed){
             callLogo()
         cssRoot.style.setProperty('--zoom',.3)
@@ -206,32 +206,19 @@ window.addEventListener('load',
         zoomed = !zoomed
         }
         })
+
     // // Zoom system and centering
     // centeringButton.addEventListener('pointerdown',()=>{
     //     callLogo()
     //     // spaceZoom.style.background = 'black'
-    //     cssRoot.style.setProperty('--zoom',.3)
-    // 
+    //     cssRoot.style.setProperty('--zoom',.3)})
+    
 
     // centeringButton.addEventListener('pointerup',()=>{
     //     cssRoot.style.setProperty('--zoom',1)
     //     // spaceZoom.style.background = 'white'
     // })
 
-    var isTouchDevice = 'ontouchstart' in document.documentElement;
-
-        centeringButton.addEventListener('touchstart',()=>{
-             if (isTouchDevice)  {  
-        callLogo()
-        // spaceZoom.style.background = 'black'
-        cssRoot.style.setProperty('--zoom',.3)}
-    })
-
-    centeringButton.addEventListener('touchend',()=>{
-         if (isTouchDevice)  {  
-        cssRoot.style.setProperty('--zoom',1)}
-        // spaceZoom.style.background = 'white'}
-    })
 
     // center page with button bottom left
     // centeringButton.addEventListener('click', () =>{
