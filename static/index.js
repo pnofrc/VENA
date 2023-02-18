@@ -118,12 +118,14 @@ window.addEventListener('load',
 
         // when move the mouse/touch the screen, appear contents
         window.addEventListener('wheel', () =>{ 
+             fullscreen()
             anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
         })
 
         window.addEventListener('touchstart', () =>{
+             fullscreen()
             anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
