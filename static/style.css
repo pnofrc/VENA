@@ -102,7 +102,7 @@ b{
 }
 
 #container{
-  transform: scale(var(--zoom)) !important;
+  transform: scale(var(--zoom));
   transition:1.4s;
   transition-timing-function: ease;
   display: flex;
