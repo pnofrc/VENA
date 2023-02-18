@@ -188,7 +188,7 @@ button {
 
 #changeTheme{
   color: var(--text);
-  font-size:50px;
+  font-size:3vw;
       top: 18px;
     left: 5px;
 }
@@ -210,7 +210,7 @@ button {
   position: relative;
   left: 7px;
   bottom: 5px;
-  font-size: 50px;
+  font-size: 3vw;
       -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -222,7 +222,7 @@ button {
 
 #up span{
   font-family: 'futura';
-  font-size: 50px;
+  font-size: 3vw;
 }
 
 #menu{
