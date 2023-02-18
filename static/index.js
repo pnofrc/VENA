@@ -5,6 +5,7 @@ let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
 let centeringButton = document.querySelector('#up')
 // let spaceZoom = document.querySelector('#zooming')
+var container = document.querySelector('#animatedLogo')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
 var anima = document.querySelectorAll('.anima');
@@ -69,12 +70,13 @@ window.addEventListener('load',
   function() { 
 
     if (localStorage.getItem("info")){
-
         setTimeout(() => {
             callLogo()
         }, 10);
+         
         events()
 
+        // document.getElementById("loader-container").style.display="none"
     }else {
         
         document.getElementById("enter").classList.add('animate__flipInX')
@@ -123,7 +125,6 @@ window.addEventListener('load',
         })
 
         window.addEventListener('touchstart', () =>{
-            
             anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
@@ -194,25 +195,13 @@ window.addEventListener('load',
     }
 
     // Zoom system and centering
-    centeringButton.addEventListener('mousedown',()=>{
-        // alert()
+    centeringButton.addEventListener('pointerdown',()=>{
         callLogo()
         // spaceZoom.style.background = 'black'
         cssRoot.style.setProperty('--zoom',.3)
     })
 
-    centeringButton.addEventListener('mouseup',()=>{
-        cssRoot.style.setProperty('--zoom',1)
-        // spaceZoom.style.background = 'white'
-    })
-
-        centeringButton.addEventListener('touchstart',()=>{
-        callLogo()
-        // spaceZoom.style.background = 'black'
-        cssRoot.style.setProperty('--zoom',.3)
-    })
-
-    centeringButton.addEventListener('touchend',()=>{
+    centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
         // spaceZoom.style.background = 'white'
     })
@@ -227,7 +216,9 @@ window.addEventListener('load',
         changeThemeFunction()
     })
 
-  
+    // parallax instance
+    var parallaxInstance = new Parallax(container);
+    parallaxInstance.friction(0.8,0.8);
 
 
     // center links
