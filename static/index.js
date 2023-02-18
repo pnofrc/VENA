@@ -70,13 +70,12 @@ window.addEventListener('load',
   function() { 
 
     if (localStorage.getItem("info")){
+
         setTimeout(() => {
             callLogo()
         }, 10);
-         
         events()
 
-        // document.getElementById("loader-container").style.display="none"
     }else {
         
         document.getElementById("enter").classList.add('animate__flipInX')
@@ -202,6 +201,17 @@ window.addEventListener('load',
     })
 
     centeringButton.addEventListener('pointerup',()=>{
+        cssRoot.style.setProperty('--zoom',1)
+        // spaceZoom.style.background = 'white'
+    })
+
+        centeringButton.addEventListener('touchstart',()=>{
+        callLogo()
+        // spaceZoom.style.background = 'black'
+        cssRoot.style.setProperty('--zoom',.3)
+    })
+
+    centeringButton.addEventListener('touchend',()=>{
         cssRoot.style.setProperty('--zoom',1)
         // spaceZoom.style.background = 'white'
     })
