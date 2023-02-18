@@ -218,20 +218,20 @@ window.addEventListener('load',
     //     // spaceZoom.style.background = 'white'
     // })
 
-    // var isTouchDevice = 'ontouchstart' in document.documentElement;
+    var isTouchDevice = 'ontouchstart' in document.documentElement;
 
-    //     centeringButton.addEventListener('touchstart',()=>{
-    //          if (isTouchDevice)  {  
-    //     callLogo()
-    //     // spaceZoom.style.background = 'black'
-    //     cssRoot.style.setProperty('--zoom',.3)}
-    // })
+        centeringButton.addEventListener('touchstart',()=>{
+             if (isTouchDevice)  {  
+        callLogo()
+        // spaceZoom.style.background = 'black'
+        cssRoot.style.setProperty('--zoom',.3)}
+    })
 
-    // centeringButton.addEventListener('touchend',()=>{
-    //      if (isTouchDevice)  {  
-    //     cssRoot.style.setProperty('--zoom',1)}
-    //     // spaceZoom.style.background = 'white'}
-    // })
+    centeringButton.addEventListener('touchend',()=>{
+         if (isTouchDevice)  {  
+        cssRoot.style.setProperty('--zoom',1)}
+        // spaceZoom.style.background = 'white'}
+    })
 
     // center page with button bottom left
     // centeringButton.addEventListener('click', () =>{
