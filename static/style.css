@@ -250,6 +250,7 @@ button {
   overflow-y: scroll;
   padding: 5rem;
   z-index: 1;
+  /* scale: var(--zoom); */
 }
 
 /* Slide Show  */

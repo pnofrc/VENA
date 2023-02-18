@@ -203,6 +203,11 @@ window.addEventListener('load',
         document.getElementById("animatedLogo").scrollIntoView({block: "center", inline: "center"})
     }
 
+    // Reset position when dezooming?
+    window.addEventListener('click', () =>{
+         document.body.style.zoom = "1"
+    })
+
     // let zoomed = true
 
     //  centeringButton.addEventListener('click',()=>{
@@ -226,7 +231,7 @@ window.addEventListener('load',
     centeringButton.addEventListener('pointerdown',()=>{
         callLogo()
         // spaceZoom.style.background = 'black'
-        cssRoot.style.setProperty('--zoom',.3)})
+        cssRoot.style.setProperty('--zoom',.2)})
     
 
     centeringButton.addEventListener('pointerup',()=>{
