@@ -123,6 +123,7 @@ window.addEventListener('load',
         })
 
         window.addEventListener('touchstart', () =>{
+            
             anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
@@ -193,13 +194,14 @@ window.addEventListener('load',
     }
 
     // Zoom system and centering
-    centeringButton.addEventListener('pointerdown',()=>{
+    centeringButton.addEventListener('mousedown',()=>{
+        // alert()
         callLogo()
         // spaceZoom.style.background = 'black'
         cssRoot.style.setProperty('--zoom',.3)
     })
 
-    centeringButton.addEventListener('pointerup',()=>{
+    centeringButton.addEventListener('mouseup',()=>{
         cssRoot.style.setProperty('--zoom',1)
         // spaceZoom.style.background = 'white'
     })
