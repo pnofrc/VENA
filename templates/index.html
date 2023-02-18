@@ -222,7 +222,12 @@
 
     <script src="/static/script/lazyload.min.js"></script>
     <script>
-
+    // parallax instance
+    var container = document.querySelector('#container')
+    var parallaxInstance = new Parallax(container,{
+  relativeInput: true
+});
+    parallaxInstance.friction(0.5,0.5);
 
     var lazyLoadInstance = new LazyLoad();
     lazyLoadInstance.update();
