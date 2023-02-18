@@ -92,7 +92,7 @@ window.addEventListener('load',
             setTimeout(() => {
                 callLogo()
             }, 30);
-
+            callLogo()
             localStorage.setItem("info",'ok')
 
             events()
@@ -172,7 +172,15 @@ window.addEventListener('load',
     })
 
 
-    
+        //     function closeMenu(){
+        //     if(menu.style.display === 'block'){
+        //         menu.style.display = 'none'
+        //         menuButton.src = "/static/assets/hamburger.svg"
+        //     } else {
+        //         menu.style.display = 'block'
+        //         menuButton.src = "/static/assets/deburger.svg"
+        //     }
+        // }
 
     // toggle menu
     menuButton.addEventListener('click', function(){
@@ -235,10 +243,6 @@ window.addEventListener('load',
         changeThemeFunction()
     })
 
-          // parallax instance
-    var container = document.querySelector('#container')
-    var parallaxInstance = new Parallax(container);
-    parallaxInstance.friction(0.8,0.8);
 
     // center links
         links.forEach(link => {

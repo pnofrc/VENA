@@ -44,7 +44,7 @@
 
         <!-- Bottoni -->
         <!-- <div id="buttonsTop" class="animate__animated  anima"> -->
-        <button class="animate__animated  anima" id="changeTheme">✵9</button>  <!-- Cambio Tema -->
+        <button class="animate__animated  anima" id="changeTheme">✵</button>  <!-- Cambio Tema -->
         <!-- <button class="animate__animated  anima" id="zooming"></button></div> -->
         <button id="up" class="animate__animated  anima"><span>☉</span></button> <!-- Ricentra -->
         <img id="menuButton" class="animate__animated  anima" src="/static/assets/hamburger.svg" alt=""> <!-- Apertura Menu -->
@@ -220,11 +220,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <script>
-
-  
-
-
-
+    // parallax instance
+    var container = document.querySelector('#container')
+    var parallaxInstance = new Parallax(container);
+    parallaxInstance.friction(0.8,0.8);
 
     var lazyLoadInstance = new LazyLoad();
     lazyLoadInstance.update();
@@ -232,10 +231,10 @@
     // gallery
     var swiper = new Swiper(".mySwiper", {
         preloadImages: false,
-       lazy: {
-            loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
-            loadPrevNextAmount: 2 //or, if you wish, preload the next 2 images
-        },
+       //lazy: {
+       //     loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
+       //    loadPrevNextAmount: 2 //or, if you wish, preload the next 2 images
+       // },
         slidesPerView: 1,
         spaceBetween: 30,
         mousewheel: true,
@@ -245,16 +244,6 @@
         },
     });
 
-
-        function closeMenu(){
-            if(menu.style.display === 'block'){
-                menu.style.display = 'none'
-                menuButton.src = "/static/assets/hamburger.svg"
-            } else {
-                menu.style.display = 'block'
-                menuButton.src = "/static/assets/deburger.svg"
-            }
-        }
     </script>
     <script defer async src="../static/index.js"></script>
 </body>
