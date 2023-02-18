@@ -223,6 +223,13 @@
     var lazyLoadInstance = new LazyLoad();
     lazyLoadInstance.update();
 
+  // parallax instance
+
+    var parallaxInstance = new Parallax( document.querySelector('#container'));
+    parallaxInstance.friction(0.8,0.8);
+
+
+
     // gallery
     var swiper = new Swiper(".mySwiper", {
         preloadImages: false,

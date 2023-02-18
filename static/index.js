@@ -5,7 +5,6 @@ let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
 let centeringButton = document.querySelector('#up')
 // let spaceZoom = document.querySelector('#zooming')
-var container = document.querySelector('#animatedLogo')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
 var anima = document.querySelectorAll('.anima');
@@ -226,9 +225,7 @@ window.addEventListener('load',
         changeThemeFunction()
     })
 
-    // parallax instance
-    var parallaxInstance = new Parallax(container);
-    parallaxInstance.friction(0.8,0.8);
+  
 
 
     // center links
