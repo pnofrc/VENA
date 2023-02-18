@@ -67,7 +67,7 @@
 
         <!-- Logo Animato -->
         <div id="container"> 
-            <img id="animatedLogo" data-depth="0.05" src="../static/assets/blackLogo.gif"  alt="">
+            <img id="animatedLogo" data-depth="1.05" src="../static/assets/blackLogo.gif"  alt="">
        </div>
 
        <div id="contents" class="animate__animated anima">
@@ -222,8 +222,10 @@
     <script>
     // parallax instance
     var container = document.querySelector('#container')
-    var parallaxInstance = new Parallax(container);
-    parallaxInstance.friction(0.8,0.8);
+    var parallaxInstance = new Parallax(container,{
+  relativeInput: true
+});
+    // parallaxInstance.friction(0.8,0.8);
 
     var lazyLoadInstance = new LazyLoad();
     lazyLoadInstance.update();

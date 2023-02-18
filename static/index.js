@@ -74,8 +74,7 @@ window.addEventListener('load',
         }, 10);
          
         events()
-
-        // document.getElementById("loader-container").style.display="none"
+        callLogo()
     }else {
         
         document.getElementById("enter").classList.add('animate__flipInX')
@@ -91,18 +90,20 @@ window.addEventListener('load',
             
             setTimeout(() => {
                 callLogo()
-            }, 30);
-            callLogo()
+            }, 300);
+            
             localStorage.setItem("info",'ok')
 
             events()
     })}
 
 
-    
+    callLogo()
+
 
 
     function events(){
+        callLogo()
         // when click the page appear buttons and full screen
         window.addEventListener('click',()=>{
             anima.forEach(animo => {
