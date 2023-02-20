@@ -11,7 +11,7 @@ var anima = document.querySelectorAll('.anima');
 anima = Array.prototype.slice.call(anima);
 
 
-history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
+// history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
 
 
