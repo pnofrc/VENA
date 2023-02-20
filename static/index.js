@@ -184,9 +184,9 @@ window.addEventListener('load',
     }
 
     // Reset position when dezooming?
-    window.addEventListener('click', () =>{
-         document.body.style.zoom = "1"
-    })
+    // window.addEventListener('click', () =>{
+    //      document.body.style.zoom = "1"
+    // })
 
 
 
