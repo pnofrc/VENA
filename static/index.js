@@ -11,7 +11,7 @@ var anima = document.querySelectorAll('.anima');
 anima = Array.prototype.slice.call(anima);
 
 
-// history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
+history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
 
 
@@ -100,11 +100,11 @@ window.addEventListener('load',
             anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
-            if (window.matchMedia("only screen and (max-width: 760px)").matches){
+            // if (window.matchMedia("only screen and (max-width: 760px)").matches){
                 setTimeout(() => {
                     fullscreen()
                 }, 200);
-            }
+            // }
         })
 
         // when move the mouse/touch the screen, appear contents
