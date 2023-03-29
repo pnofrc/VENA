@@ -9,7 +9,8 @@ var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
 var anima = document.querySelectorAll('.anima');
 anima = Array.prototype.slice.call(anima);
-
+let eventContainer = document.querySelector('#container')
+let trigger = false
 
 history.replaceState({},'',location.pathname); // at refresh/enter clean the url path
 
@@ -53,6 +54,8 @@ function dark(){
 if (localStorage.getItem("info")){
         document.getElementById("loader-container").classList.add('animate__fadeIn')
         document.getElementById("loader-text").style.display="none"
+                document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+
         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
         document.getElementById("loader-container").style.backgroundPosition ="center "
@@ -67,21 +70,22 @@ window.addEventListener('load',
     if (localStorage.getItem("info")){
         callLogo()
         events()
+        trigger = true
     }else {
         document.getElementById("enter").classList.add('animate__flipInX')
         setTimeout(() => {
             document.getElementById("enter").style.display="block"
         }, 1000);
         document.getElementById("enter").addEventListener('click',()=>{
+            
             document.getElementById("loader-container").classList.add('animate__fadeOut')
             setTimeout(() => {
                 document.getElementById("loader-container").style.display ="none"
+                 trigger = true
             }, 1000);
             document.getElementById("loader-container").classList.add('animate__fadeOut')
             
-            setTimeout(() => {
-                callLogo()
-            }, 300);
+          
         
             localStorage.setItem("info",'ok')
 
@@ -95,16 +99,17 @@ window.addEventListener('load',
 
     function events(){
         callLogo()
+
+
         // when click the page appear buttons and full screen
         window.addEventListener('click',()=>{
+            if(trigger){
             anima.forEach(animo => {
                 animo.classList.add('animate__fadeIn')
             });
-            // if (window.matchMedia("only screen and (max-width: 760px)").matches){
                 setTimeout(() => {
                     fullscreen()
-                }, 200);
-            // }
+                }, 500);}
         })
 
         // when move the mouse/touch the screen, appear contents
@@ -135,7 +140,6 @@ window.addEventListener('load',
         } else if (elem.msRequestFullscreen) { /* IE11 */
         elem.msRequestFullscreen();
         }
-
     }
 
    
@@ -183,7 +187,7 @@ window.addEventListener('load',
     }
 
     // Reset position when dezooming?
-    window.addEventListener('click', () =>{
+    eventContainer.addEventListener('click', () =>{
         fullscreen()
     })
 
@@ -203,7 +207,7 @@ window.addEventListener('load',
     })
 
 
-    // change theme with button top left
+    // change theme
     changeTheme.addEventListener('click', () =>{
         changeThemeFunction()
     })

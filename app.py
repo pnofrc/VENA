@@ -1,11 +1,15 @@
-from flask import Flask, render_template, jsonify, request
-import random
+from flask import Flask, render_template, jsonify, request,send_file
 import json
 import requests
+import csv
+from multiprocessing import Value
+
 
 # export FLASK_APP=app
 # export FLASK_ENV=development
 # flask run
+
+
 
 baseURL = 'http://api.are.na/v2/channels/'
 
@@ -13,6 +17,7 @@ db = {} # database x form
 projects = {}
 projectsDiv = []
 vene = []
+formData = []
 
 extension = 'website-assets-dkje44dpzvc'
 
@@ -47,12 +52,11 @@ for x in range(len(data['contents'])):
       picsHigh.append(project['contents'][pic]['image']['display']['url'])   
       picsLow.append(project['contents'][pic]['image']['thumb']['url'])   
     except:
-      print('SBATTIMENTO')
+      print('')
   
   picsTemp = list(zip(picsLow,picsHigh))
   pics = [list(p) for p in picsTemp]
-  print(len(picsHigh))
-  print(len(picsLow))
+
 
   audioDescription = []
   audioURL = []
@@ -64,7 +68,7 @@ for x in range(len(data['contents'])):
   pdfURL = []
   pdfTitle = []
 
-  print(project['contents'])
+
   for media in range(len(project['contents'])):
     description = project['contents'][media]['description_html']
     asset = project['contents'][media]['attachment']
@@ -103,11 +107,18 @@ for x in range(len(data['contents'])):
   audio= [[*aa] for aa in audioTemp]
   video= [[*vv] for vv in videoTemp]
   pdf = [[*pp] for pp in pdfTemp]
+  if title.endswith('--'):
+    menuQuest = True
+    title = title.replace('--','')
+    print(title)
+  else:
+    menuQuest = False
  
 
   menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf}
+  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf,'menuQuest': menuQuest}
   projectsDiv.append(f'<div class="animate__animated project"  id="{str(title)}">')
+
 
 lenVideo = len(video)
 lenAudio = len(audio)
@@ -125,6 +136,15 @@ app = Flask('app')
 # HOMEPAGE
 @app.route('/')
 def index():
+  counter = Value('i',0)
+  with counter.get_lock():
+    with open('./static/data/visits.txt', "r") as counterValue:
+      previousValue = counterValue.read()
+    counter.value += 1
+    out = int(counter.value) + int(previousValue)
+    with open('./static/data/visits.txt', "w") as counterValue:
+     counterValue.write(str(out))
+
   return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf)
 
 
@@ -132,6 +152,11 @@ def index():
 @app.route('/info')
 def info():
   return render_template('info.html')
+
+# bio
+@app.route('/bio')
+def bio():
+  return render_template('bio.html')
 
 
 # FORM
@@ -147,6 +172,9 @@ def out():
   if request.method == 'POST':
     formData = request.form.getlist('setForm')
     formLen = len(formData)
+    with open('./static/data/people.csv', "a", newline='') as csvfile:
+      filewriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
+      filewriter.writerow(formData)
     return render_template('out.html',formData=formData,formLen=formLen)
 
 

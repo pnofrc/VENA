@@ -62,7 +62,7 @@ body {
     background: var(--background);
     z-index: 10000;
     display: none;
-    /* opacity: 0; */
+    font-family: 'inter';
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem;
@@ -116,7 +116,7 @@ b{
 }
 
 #animatedLogo{
-  transform: scale(var(--zoom)) !important;
+  transform: scale(calc(var(--zoom)-.2)) !important;
   transition:1.4s;
   transition-timing-function: ease;
   width: 90vw;
@@ -178,57 +178,83 @@ button {
 
 
 
-#menuButton,#up,#changeTheme{
-  position: fixed !important;
-  opacity: 0;
-  z-index: 10;
-  text-shadow: 1px 1px var(--background);
+/* #menuButton,#up,#changeTheme{ */
+  #buttons{
+      position: fixed !important;
+    opacity: 0;
+    z-index: 10;
+    text-shadow: 1px 1px var(--background);
+    bottom: 0;
+    justify-content: space-between;
+    width: 90%;
+    display: flex;
+    margin: 0 5%;
 
-}
-
-
-
-#changeTheme{
-  color: var(--text);
-  font-size:50px;
-      top: 18px;
-    left: 5px;
-    float:left;
-}
-
-#changeTheme2{
-  color: var(--text);
-    font-size: 2.5rem;
-
-}
-
-#menuButton{
-  filter: invert();
-  width: 60px;
-  bottom: 10px;
-  right: 5px;
-  float:right;
-}
-
-#up{
-  position: relative;
-  left: -7px;
-  bottom: 5px;
-  font-size: 50px;
-      -webkit-touch-callout: none;
+    
+        -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-    float:left;
+}
+#buttons button,#buttons img{ 
+  width: 50px;
+    font-family: 'futura';
+  font-size: 50px;
+    color: var(--text);
 }
 
-#up span{
+
+/* #changeTheme{
+  color: var(--text);
+  font-size:50px;
+      /* top: 18px;
+    left: 5px;
+    float:left; 
+} */
+
+#changeTheme2{
+  color: var(--text);
+    font-size: 2.5rem;
+}
+
+#menuButton{
+  filter: invert();
+  width: 60px;
+  /* bottom: 10px;
+  right: 5px; */
+  /* float:right; */
+  /* background-image: url('/static/assets/hamburger.svg');
+  background-position: center center;
+  background-repeat: no-repeat; */
+}
+
+#up{
+      display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* #up{ */
+  /* position: relative;
+  left: -7px;
+  bottom: 5px; */
+  /* font-size: 50px; */
+      /* -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none; */
+    /* float:left; */
+/* } */
+
+/* #up span{
   font-family: 'futura';
   font-size: 50px;
-}
+} */
 
 #menu{
   display: none;
@@ -399,10 +425,10 @@ h1{
   gap:50px;
   flex-direction: column;
   position: absolute;
-  bottom: 3rem;
-}
+    bottom: 0;
+  }
  .backHome a{
-                font-size: 45px;
+                font-size: 25px;
                 text-decoration: none;
                 color: var(--text);
             }
@@ -425,7 +451,19 @@ h1{
 
 a{text-underline-offset: 3px;}
 
+.bio{
+  width: 100%;
+}
+.bio a, .loader-text span{
+  font-family: 'futura';
+  text-decoration: none;
+}
+
 @media (min-width:641px)  { 
+  .bio{
+  width: 50%;
+}
+
   #menu a{
     font-size: 30px;
   }
@@ -448,6 +486,10 @@ a{text-underline-offset: 3px;}
     width: 70%;
 }
 
+#buttons{
+  width: 100%;
+  margin: 0;
+}
 
 
   #animatedLogo{
@@ -477,3 +519,9 @@ a{text-underline-offset: 3px;}
   
 
  }
+
+
+
+ ::-webkit-scrollbar {
+    display: none !important;
+}
