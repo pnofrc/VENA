@@ -82,10 +82,11 @@ window.addEventListener('load',
         setTimeout(() => {
             document.getElementById("enter").style.display="block"
         }, 300);
-
+        callLogo()
         document.getElementById("enter").addEventListener('click',()=>{
             fullscreen()
             document.getElementById("loader-container").classList.add('animate__fadeOut')
+             callLogo()
             setTimeout(() => {
                 document.getElementById("loader-container").style.display ="none"
                  callLogo()
