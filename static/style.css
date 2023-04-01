@@ -77,11 +77,15 @@ body {
     width: 100%;
     /* opacity: 0; */
 }
+#loader-container div button{
+   width: 40%;
+       text-align: center;
+}
 
-#loader-container div p{
+/* #loader-container div p{
 
     width: 70%;
-}
+} */
 
 /* #loader-container div:nth-child(1){
   width: 40%;
@@ -93,7 +97,6 @@ body {
 } */
 #enter{
   display: none;
-  width: 60%;
   background-color: var(--text);
   color: var(--background);
 }
@@ -370,10 +373,11 @@ input {
   color: var(--text);
   color-scheme: var(--scheme);
 }
+h1, #menu a{
+  text-transform: uppercase;
+}
 h1{
-    text-transform: uppercase;
-      font-family: 'futura';
-
+  font-family: 'futura';
 }
 #title h1{
     text-align: center;
@@ -449,19 +453,40 @@ h1{
   margin: 30px;
 }
 
-a{text-underline-offset: 3px;}
+a{text-underline-offset: 9px; color: var(--text);}
 
-.bio{
-  width: 100%;
+#bio{
+  width: 60%;
 }
-.bio a, .loader-text span{
+
+.loader-text p, #enter{
+  width: 80%;
+   text-align: justify;
+  text-justify: inter-word; 
+}
+
+#bio a, .loader-text h1{
   font-family: 'futura';
   text-decoration: none;
+  color: var(--text);
+}
+
+.loader-text h1{
+  text-align: center;
 }
 
 @media (min-width:641px)  { 
   .bio{
-  width: 50%;
+  width: 80%;
+}
+
+  .loader-text p,#enter{
+  width: 90%; 
+}
+
+#buttons{
+  width: 90%;
+  margin: 0 5% ;
 }
 
   #menu a{
@@ -473,9 +498,19 @@ a{text-underline-offset: 3px;}
   p{
       font-size: 20px;
   }
+
+
  }
 
+ @media (min-width:375px) { 
+    .loader-text p, #enter{
+  width: 80%
+}
+ }
 @media (min-width:1000px) { 
+    .loader-text p,#enter{
+  width: 30% !important
+}
 #enter{
   display: none;
   width: 20%;

@@ -4,25 +4,25 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>VENA</title>
-        <link rel="canonical" href="https://www.">
+        <link rel="canonical" href="https://vena.webssite">
         <meta property="og:locale" content="en_IT">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="">
-        <meta property="og:description" content="">
-        <meta property="og:url" content="https://www.">
+        <meta property="og:title" content="VENA">
+        <meta property="og:description" content="VENA is a non-profit association established in 2019 after two years of work as cultural circle rooted within an old ceramics factory on the outskirts of East Milan, contributing actively to the development of the underground framework via Tucidide.
+        Growing like the veins of a multidisciplinary organism, it ramifies through various interests and projections of the natures of its participants; relying on independent projects it aims at pursuing a common goal: a sprawling culture characterized by a strong desire to represent a multifaceted spirit of disciplinary commitment and constructive fun.">
+        <meta property="og:url" content="https://vena.website">
         <meta property="og:site_name" content="VENA">
-        <meta property="og:image" content="">
-        <meta property="og:image:secure_url" content="https://">
+        <meta property="og:image" content="https://www.vena.website/static/assets/blackLogo.gif">
+        <meta property="og:image:secure_url" content="https://vena.website">
         <meta property="og:image:width" content="400">
         <meta property="og:image:height" content="400">
 
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+        <meta name="description"  content="VENA is a non-profit association established in 2019 after two years of work as cultural circle rooted within an old ceramics factory on the outskirts of East Milan, contributing actively to the development of the underground framework via Tucidide.
+        Growing like the veins of a multidisciplinary organism, it ramifies through various interests and projections of the natures of its participants; relying on independent projects it aims at pursuing a common goal: a sprawling culture characterized by a strong desire to represent a multifaceted spirit of disciplinary commitment and constructive fun.">
+        <meta name="keywords" content="cultura, associazione, culturale, arte, festa, club, milano, marocco, tangeri">
         <meta name="author" content="Federico Poni">
-        <!-- TODO: ADD META -->
         <meta name=”robots” content=”index, follow, max-snippet:-1, max-image-preview:large>
 
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;  user-scalable=0;"/>
         <link rel="stylesheet" href="/static/style.css">
         <script src="/static/script/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -34,15 +34,17 @@
     <body>
 
         <div id="loader-container" class="animate__animated">
-            <div>
-                <p id="loader-text">
-                    <span>VENA</span>
-                    Welcome. Feel free to navigate following the venous web or use the bottom right menu. 
-                    <br>Please wait a few instants the page to load.
-                    <br>☉ → press once to get back & keep pressed for the view :)
-                </p>
+            <div class="loader-text">
+                <!-- <span class="loader-text"> -->
+                    <h1>VENA</h1>
+                    <p>Welcome. Feel free to navigate following the venous web or use the bottom right menu. 
+                    <br>Please wait a few instants the page to load.<br><br>
+                    <br>☉ → press once to get back & keep pressed for the view :)</p>
+                    <!-- </span> -->
             </div>
-            <div><button id="enter" class="animate__animated">Enter</button></div>
+            <div>
+                <button id="enter" class="animate__animated">Enter</button>
+            </div>
         </div>
 
         <!-- Bottoni -->
@@ -59,10 +61,11 @@
                     {{projects[i]['menu'] | safe}}<br>
                 {% endif %}
             {%endfor%} 
-           
             <hr>
-            <a href="/bio">BIO</a><br>
+            <a onclick="closeMenu()" href=#bio>BIO</a>
             <hr>
+            <!-- <a href="/bio">BIO</a><br>
+            <hr> -->
             <a href="/form">SUBSCRIBE</a><br>
              <hr>
             <a href="/info">CONTACTS</a>
@@ -294,13 +297,37 @@
 
             </div>
 
+            <!-- BIO -->
+            <div class="animate__animated project"  id="bio">
+                <p>
+                    <a href="#">VENA</a>
+        is a non-profit association established in 2019 after two years of work
+        as cultural circle rooted within an old ceramics factory on the
+        outskirts of East Milan, contributing actively to the development of the
+        underground framework
+        <i>via Tucidide.</i>
+        <br />
+        Growing like the veins of a multidisciplinary organism, it ramifies
+        through various interests and projections of the natures of its
+        participants;
+        <br />
+        relying on independent projects it aims at pursuing a common goal: a
+        sprawling culture characterized by a strong desire to represent a
+        multifaceted spirit of disciplinary commitment and constructive fun.
+      </p>
+                </p>
+            </div>
              <!-- Progetti -->
 		    {%for i in range(0, lenP)%} 
                 {{projectsDiv[i] |safe}}
-                    <h1>{{projects[i]['title'] | safe}}</h1>
+                    <h1>{{projects[i]['title'].replace('_',' ') | safe}}</h1>
+
+                    {% if projects[i]['description'] %}
                     <h2>{{projects[i]['description'] | safe}}</h2>
-                
+                    {% endif %}
+
                     <!-- Galleria -->
+                    {% if projects[i]['pics'] %}
                     <div class="pictures swiper mySwiper">
                         <div class="swiper-wrapper">
                             {%for p in projects[i]['pics']%} 
@@ -311,7 +338,9 @@
                          </div>
                         <div class="swiper-pagination"></div>
                     </div>
+                    {% endif %}
 
+                    {% if projects[i]['audio'] %}
                     <div class="audio swiper mySwiper">
                         <div class="swiper-wrapper">
                             {%for audio in projects[i]['audio']%}   
@@ -326,7 +355,9 @@
                         </div>
                          <div class="swiper-pagination"></div>
                     </div>
+                    {% endif %}
 
+                    {% if projects[i]['video'] %}
                     <div class="video swiper mySwiper">
                         <div class="swiper-wrapper">
                             {%for video in projects[i]['video']%}   
@@ -341,6 +372,7 @@
                         </div>
                          <div class="swiper-pagination"></div>
                     </div>
+                    {% endif %}
 
                     <!-- <div class="pdf swiper mySwiper">
                         <div class="swiper-wrapper">

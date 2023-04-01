@@ -53,8 +53,8 @@ function dark(){
 //  loading gif
 if (localStorage.getItem("info")){
         document.getElementById("loader-container").classList.add('animate__fadeIn')
-        document.getElementById("loader-text").style.display="none"
-                document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+        // document.getElementById("loader-text").style.display="none"
+        document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
 
         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
@@ -68,39 +68,48 @@ window.addEventListener('load',
   function() { 
 
     if (localStorage.getItem("info")){
-        callLogo()
-        events()
+        
+       
         trigger = true
+         events()
+           callLogo()
+         eventContainer.style.display = 'flex'
+        setTimeout(() => {
+             callLogo()
+        }, 100);
     }else {
         document.getElementById("enter").classList.add('animate__flipInX')
         setTimeout(() => {
             document.getElementById("enter").style.display="block"
-        }, 1000);
+        }, 300);
+
         document.getElementById("enter").addEventListener('click',()=>{
-            
+            fullscreen()
             document.getElementById("loader-container").classList.add('animate__fadeOut')
             setTimeout(() => {
                 document.getElementById("loader-container").style.display ="none"
+                 callLogo()
                  trigger = true
+                 events()
+                 setTimeout(() => {
+                    eventContainer.style.display = 'flex'
+                    callLogo()
+                }, 200);
             }, 1000);
-            document.getElementById("loader-container").classList.add('animate__fadeOut')
-            
-          
-        
-            localStorage.setItem("info",'ok')
 
-            events()
+              
+          
+            localStorage.setItem("info",'ok')
+            
     })}
 
 
-    callLogo()
+    // callLogo()
 
 
 
     function events(){
         callLogo()
-
-
         // when click the page appear buttons and full screen
         window.addEventListener('click',()=>{
             if(trigger){
@@ -183,7 +192,7 @@ window.addEventListener('load',
     // center page, focus on logo
     function callLogo(){
         document.getElementById("simulate").click
-        document.getElementById("animatedLogo").scrollIntoView({block: "center", inline: "center"})
+        logo.scrollIntoView({block: "center", inline: "center"})
     }
 
     // Reset position when dezooming?

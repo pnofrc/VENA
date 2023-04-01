@@ -34,7 +34,8 @@ data = json.loads(Jresponse)
 for x in range(len(data['contents'])):
   id = data['contents'][x]['id']
   title = data['contents'][x]['title']
-  title = title.replace(' ','_')
+  print(title)
+  titleURL = title.replace(' ','_').replace('--','')
   uri = baseURL + str(id)
   try:
     uResponse = requests.get(uri)
@@ -42,7 +43,6 @@ for x in range(len(data['contents'])):
     print('error')
   Jresponse = uResponse.text
   project = json.loads(Jresponse)
-
 
   picsHigh = []
   picsLow = []
@@ -110,14 +110,13 @@ for x in range(len(data['contents'])):
   if title.endswith('--'):
     menuQuest = True
     title = title.replace('--','')
-    print(title)
   else:
     menuQuest = False
  
 
-  menu = f'<a onclick="closeMenu()" href=#'+str(title)+'>'+title.replace("_",' ')+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':project['title'],'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf,'menuQuest': menuQuest}
-  projectsDiv.append(f'<div class="animate__animated project"  id="{str(title)}">')
+  menu = f'<a onclick="closeMenu()" href=#'+str(titleURL)+'>'+title+'</a>'
+  projects[x] = {'id':project['id'],'menu':menu,'title':title,'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf,'menuQuest': menuQuest}
+  projectsDiv.append(f'<div class="animate__animated project"  id="{str(titleURL)}">')
 
 
 lenVideo = len(video)
