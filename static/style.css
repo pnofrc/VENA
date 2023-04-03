@@ -475,6 +475,12 @@ a{text-underline-offset: 9px; color: var(--text);}
   text-align: center;
 }
 
+#buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+  }
+
 @media (min-width:641px)  { 
   .bio{
   width: 80%;
@@ -499,13 +505,33 @@ a{text-underline-offset: 9px; color: var(--text);}
       font-size: 20px;
   }
 
-
  }
 
  @media (min-width:375px) { 
-    .loader-text p, #enter{
-  width: 80%
+   
+
+  #menuButton{
+    /* position: absolute; */
+    right: 0;
+    height: -webkit-fill-available;
+  }
+
+  #up{
+    height: initial;
+    /* position: relative; */
+    /* right: 45%; */
+  }
+
+  #changeTheme{
+  height: initial;
+  /* position: relative; */
 }
+
+  .loader-text p, #enter{
+    width: 80%
+  }
+
+
  }
 @media (min-width:1000px) { 
     .loader-text p,#enter{
