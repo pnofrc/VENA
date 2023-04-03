@@ -5,6 +5,7 @@ let changeTheme = document.getElementById('changeTheme')
 let cssRoot = document.querySelector(':root');
 let projects = document.querySelectorAll('.project')
 let centeringButton = document.querySelector('#up')
+let buttons = document.querySelector('#buttons')
 var links = document.querySelectorAll('a');
 links = Array.prototype.slice.call(links);
 var anima = document.querySelectorAll('.anima');
@@ -204,15 +205,37 @@ window.addEventListener('load',
 
 
     // // Zoom system and centering
-    centeringButton.addEventListener('pointerdown',()=>{
+    centeringButton.addEventListener('pointerdown',(event)=>{
+        event.preventDefault();
          parallaxInstance.disable()
         callLogo()
-        cssRoot.style.setProperty('--zoom',.2)})
+        document.body.classList.add("zoomed")
+        
+        // anima.forEach(animo => {
+        //         animo.classList.add('animate__fadeIn')
+        //     });      
+            
+            cssRoot.style.setProperty('--zoom',.2)})
+
+        var zoomValue= getComputedStyle(document.documentElement).getPropertyValue('--zoom')
+        if(zoomValue <= 1){
+            this.document.body.addEventListener("click", () =>{
+                   cssRoot.style.setProperty('--zoom',1)
+                   setTimeout(() => {
+                   document.body.classList.remove("zoomed")
+                   }, 1000);
+             })
+                
+            }
+                      
+
+        
     
 
     centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
-                 parallaxInstance.enable()
+        parallaxInstance.enable()
+        document.body.classList.remove("zoomed")
 
     })
 
@@ -236,3 +259,4 @@ window.addEventListener('load',
     });
     
   }, false);
+

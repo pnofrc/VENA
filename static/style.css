@@ -35,9 +35,16 @@ html{
   width: var(--size);
   height: var(--size);
 
+
    overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
 
+}
+
+.zoomed{
+      transform: scale(var(--zoom));
+transition:1.4s;
+  transition-timing-function: ease;
 }
 
 body {
@@ -106,7 +113,7 @@ b{
 }
 
 #container{
-  transform: scale(var(--zoom)) !important;
+  /* transform: scale(var(--zoom)) !important; */
   transition:1.4s;
   transition-timing-function: ease;
   display: flex;
@@ -119,7 +126,7 @@ b{
 }
 
 #animatedLogo{
-  transform: scale(calc(var(--zoom)-.2)) !important;
+  /* transform: scale(calc(var(--zoom)-.2)) !important; */
   transition:1.4s;
   transition-timing-function: ease;
   width: 90vw;
@@ -128,7 +135,7 @@ b{
 }
 
 #vene{  
-  transform: scale(var(--zoom)) !important;
+  /* transform: scale(var(--zoom)) !important; */
   transition:1.4s;
   transition-timing-function: ease;
   stroke: var(--text);
@@ -182,31 +189,41 @@ button {
 
 
 /* #menuButton,#up,#changeTheme{ */
-  #buttons{
+  #buttons, #changeTheme{
       position: fixed !important;
     opacity: 0;
     z-index: 10;
     text-shadow: 1px 1px var(--background);
     bottom: 0;
     justify-content: space-between;
-    width: 90%;
     display: flex;
     margin: 0 5%;
 
     
-        -webkit-touch-callout: none;
+    -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+
+    right: 0 !important;
+    width: 50%;
 }
+
+#changeTheme{
+    right: 0;
+    width: max-content;
+ top: 0;
+  font-size: 50px;}
+
 #buttons button,#buttons img{ 
   width: 50px;
     font-family: 'futura';
   font-size: 50px;
     color: var(--text);
+      transform: 1 !important;
 }
 
 
@@ -284,7 +301,7 @@ button {
   overflow-y: scroll;
   padding: 5rem;
   z-index: 1;
-  /* scale: var(--zoom); */
+  /* scale: calc(var(--zoom)); */
 }
 
 /* Slide Show  */
@@ -482,7 +499,7 @@ a{text-underline-offset: 9px; color: var(--text);}
   }
 
 @media (min-width:641px)  { 
-  .bio{
+  #bio{
   width: 80%;
 }
 
@@ -508,7 +525,9 @@ a{text-underline-offset: 9px; color: var(--text);}
  }
 
  @media (min-width:375px) { 
-   
+    #bio{
+  width: 100%;
+}
 
   #menuButton{
     /* position: absolute; */
