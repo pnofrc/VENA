@@ -56,7 +56,6 @@ function dark(){
 //  loading gif
 if (localStorage.getItem("info")){
         document.getElementById("loader-container").classList.add('animate__fadeIn')
-        // document.getElementById("loader-text").style.display="none"
         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
 
         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
@@ -203,6 +202,9 @@ window.addEventListener('load',
         fullscreen()
     })
 
+        centeringButton.addEventListener('pointerdown',(event)=>{
+              callLogo()
+        })
 
 
     // // Zoom system and centering
@@ -211,11 +213,7 @@ window.addEventListener('load',
         //  parallaxInstance.disable()
         callLogo()
         document.body.classList.add("zoomed")
-        
-        // anima.forEach(animo => {
-        //         animo.classList.add('animate__fadeIn')
-        //     });      
-            
+
             cssRoot.style.setProperty('--zoom',.2)})
 
         var zoomValue= getComputedStyle(document.documentElement).getPropertyValue('--zoom')
