@@ -8,8 +8,7 @@
         <meta property="og:locale" content="en_IT">
         <meta property="og:type" content="website">
         <meta property="og:title" content="VENA">
-        <meta property="og:description" content="VENA is a non-profit association established in 2019 after two years of work as cultural circle rooted within an old ceramics factory on the outskirts of East Milan, contributing actively to the development of the underground framework via Tucidide.
-        Growing like the veins of a multidisciplinary organism, it ramifies through various interests and projections of the natures of its participants; relying on independent projects it aims at pursuing a common goal: a sprawling culture characterized by a strong desire to represent a multifaceted spirit of disciplinary commitment and constructive fun.">
+        <meta property="og:description" content="VENA is a non profit cultural association, its fields are music, philosophy and sharing.">
         <meta property="og:url" content="https://vena.website">
         <meta property="og:site_name" content="VENA">
         <meta property="og:image" content="https://www.vena.website/static/assets/blackLogo.gif">
@@ -17,15 +16,14 @@
         <meta property="og:image:width" content="400">
         <meta property="og:image:height" content="400">
 
-        <meta name="description"  content="VENA is a non-profit association established in 2019 after two years of work as cultural circle rooted within an old ceramics factory on the outskirts of East Milan, contributing actively to the development of the underground framework via Tucidide.
-        Growing like the veins of a multidisciplinary organism, it ramifies through various interests and projections of the natures of its participants; relying on independent projects it aims at pursuing a common goal: a sprawling culture characterized by a strong desire to represent a multifaceted spirit of disciplinary commitment and constructive fun.">
-        <meta name="keywords" content="cultura, associazione, culturale, arte, festa, club, milano, marocco, tangeri">
+        <meta name="description"  content="VENA is a non profit cultural association, its fields are music, philosophy and sharing.">
+        <meta name="keywords" content="Cultural association, music, festival, musica, elettronica, filosofia, teatro">
         <meta name="author" content="Federico Poni">
         <meta name=”robots” content=”index, follow, max-snippet:-1, max-image-preview:large>
 
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;  user-scalable=0;"/>
         <link rel="stylesheet" href="/static/style.css">
-        <script src="/static/script/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- <script src="/static/script/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
         <link rel=" stylesheet" href="/static/script/animate.min.css" />
         <script src="/static/script/swiper-bundle.min.js"></script>
         <link rel="stylesheet" href="/static/script/swiper-bundle.min.css" />
@@ -35,13 +33,11 @@
 
         <div id="loader-container" class="animate__animated">
             <div class="loader-text">
-                <!-- <span class="loader-text"> -->
-                    <h1>VENA</h1>
+                    <p class="loader-title">VENA</p>
                     <p>Welcome. Feel free to navigate following the venous web or use the bottom right menu. 
                     <br>Please wait a few instants the page to load.<br><br>
                     <br>☉ → press once to get back & keep pressed for the view :)<br>
                     <br>We suggest you to use Chrome to surf our website.</p>
-                    <!-- </span> -->
             </div>
             <div>
                 <button id="enter" class="animate__animated">Enter</button>
@@ -49,10 +45,10 @@
         </div>
 
         
-        <button class="left animate__animated  anima" id="changeTheme">✵</button>  <!-- Cambio Tema -->
 
         <!-- Bottoni -->
-            <div id="buttons" class="anima animate__animated">
+        <div id="buttons" class="anima animate__animated">
+            <button class="left animate__animated  anima" id="changeTheme">✵</button>  <!-- Cambio Tema -->   
             <button id="up" class="left animate__animated  anima">☉</button> <!-- Ricentra -->
             <img id="menuButton" class="animate__animated  anima" src="/static/assets/hamburger.svg" alt=""> 
         </div>
@@ -80,7 +76,7 @@
 
         <!-- Logo Animato -->
         <div id="container"> 
-            <img id="animatedLogo" data-depth="0.3" src="../static/assets/blackLogo.gif"  alt="">
+            <img id="animatedLogo" data-depth="0.05" src="../static/assets/blackLogo.gif"  alt="">
        </div>
 
        <div id="contents" class="animate__animated anima">
@@ -402,22 +398,16 @@
     <script src="/static/script/lazyload.min.js"></script>
     <script>
     // parallax instance
-    var container = document.querySelector('#container')
-    var parallaxInstance = new Parallax(container,{
-  relativeInput: true
-});
-    parallaxInstance.friction(0.9,0.9);
+    // var container = document.querySelector('#container')
+    // var parallaxInstance = new Parallax(container,{ relativeInput: true });
+     //parallaxInstance.friction(0.9,0.9);
 
-    var lazyLoadInstance = new LazyLoad();
+     var lazyLoadInstance = new LazyLoad();
     lazyLoadInstance.update();
 
     // gallery
     var swiper = new Swiper(".mySwiper", {
         preloadImages: false,
-       //lazy: {
-       //     loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
-       //    loadPrevNextAmount: 2 //or, if you wish, preload the next 2 images
-       // },
         slidesPerView: 1,
         spaceBetween: 30,
         mousewheel: true,

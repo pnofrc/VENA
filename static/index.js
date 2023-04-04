@@ -41,36 +41,36 @@ function dark(){
     if (localStorage.getItem("dark")) {
             logo.src="../static/assets/whiteLogo.gif"
             cssRoot.style.setProperty('--text','white')
+            cssRoot.style.setProperty('--bckBlurred','rgba(38, 40, 41, 0.388)')
             cssRoot.style.setProperty('--background','black')
             document.getElementById('menuButton').style.filter="invert()"
     } else {
             logo.src="../static/assets/blackLogo.gif"
             document.getElementById('menuButton').style.filter="none"
             cssRoot.style.setProperty('--text','black')
+            cssRoot.style.setProperty('--bckBlurred','rgba(240, 248, 255, 0.388)')
             cssRoot.style.setProperty('--background','white')
     }
 }
 
 //  loading gif
-// if (localStorage.getItem("info")){
-//         document.getElementById("loader-container").classList.add('animate__fadeIn')
-//         // document.getElementById("loader-text").style.display="none"
-//         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+if (localStorage.getItem("info")){
+        document.getElementById("loader-container").classList.add('animate__fadeIn')
+        // document.getElementById("loader-text").style.display="none"
+        document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
 
-//         document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
-//         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
-//         document.getElementById("loader-container").style.backgroundPosition ="center "
-// } else {
+        document.getElementById("loader-container").style.backgroundImage ="url(https://shortpixel.com/img/spinner2.gif) "
+        document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
+        document.getElementById("loader-container").style.backgroundPosition ="center "
+} else {
         document.getElementById("loader-container").style.display="flex"
-// }
+}
 
 
 window.addEventListener('load', 
   function() { 
 
     if (localStorage.getItem("info")){
-        
-       
         trigger = true
          events()
            callLogo()
@@ -82,18 +82,21 @@ window.addEventListener('load',
         document.getElementById("enter").classList.add('animate__flipInX')
         setTimeout(() => {
             document.getElementById("enter").style.display="block"
-        }, 300);
-        callLogo()
+        }, 100);
+
+        
         document.getElementById("enter").addEventListener('click',()=>{
-            fullscreen()
-            document.getElementById("loader-container").classList.add('animate__fadeOut')
-             callLogo()
+            // fullscreen()
+            document.getElementById("loader-container").style.display = 'none'
+            // document.getElementById("loader-container").classList.add('animate__fadeOut')
+
             setTimeout(() => {
                 document.getElementById("loader-container").style.display ="none"
-                 callLogo()
                  trigger = true
                  events()
+                callLogo()
                  setTimeout(() => {
+                     callLogo()
                     eventContainer.style.display = 'flex'
                     callLogo()
                 }, 200);
@@ -105,8 +108,6 @@ window.addEventListener('load',
             
     })}
 
-
-    // callLogo()
 
 
 
@@ -194,7 +195,7 @@ window.addEventListener('load',
     // center page, focus on logo
     function callLogo(){
         document.getElementById("simulate").click
-        logo.scrollIntoView({block: "center", inline: "center"})
+        logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
     }
 
     // Reset position when dezooming?
@@ -207,7 +208,7 @@ window.addEventListener('load',
     // // Zoom system and centering
     centeringButton.addEventListener('pointerdown',(event)=>{
         event.preventDefault();
-         parallaxInstance.disable()
+        //  parallaxInstance.disable()
         callLogo()
         document.body.classList.add("zoomed")
         
@@ -234,7 +235,7 @@ window.addEventListener('load',
 
     centeringButton.addEventListener('pointerup',()=>{
         cssRoot.style.setProperty('--zoom',1)
-        parallaxInstance.enable()
+        // parallaxInstance.enable()
         document.body.classList.remove("zoomed")
 
     })

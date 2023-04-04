@@ -47,6 +47,7 @@ for x in range(len(data['contents'])):
   picsHigh = []
   picsLow = []
 
+  
   for pic in range(len(project['contents'])):
     try:
       picsHigh.append(project['contents'][pic]['image']['display']['url'])   

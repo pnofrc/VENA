@@ -16,8 +16,9 @@
   --size: 9000px;
   --text: white;
   --background: black;
+  --bckBlurred: rgba(32, 33, 34, 0.14);
   --zoom: 1;
-  --input: rgba(255, 255, 255, 0.429);
+  --input: rgba(38, 40, 41, 0.388);
   --scheme: dark;
 }
 
@@ -70,38 +71,25 @@ body {
     z-index: 10000;
     display: none;
     font-family: 'inter';
-    flex-direction: column;
+  
     justify-content: space-between;
     padding: 2rem;
 }
 
 #loader-container div{
-    display: flex;
+  display: flex;
   align-items: center;
-      flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   overflow: hidden;
-    width: 100%;
-    /* opacity: 0; */
+   width: 100%;
 }
+
 #loader-container div button{
    width: 40%;
-       text-align: center;
+  text-align: center;
 }
 
-/* #loader-container div p{
-
-    width: 70%;
-} */
-
-/* #loader-container div:nth-child(1){
-  width: 40%;
-}
-#loader-container div:nth-child(2){
-
-  height: 20%;
-
-} */
 #enter{
   display: none;
   background-color: var(--text);
@@ -113,7 +101,6 @@ b{
 }
 
 #container{
-  /* transform: scale(var(--zoom)) !important; */
   transition:1.4s;
   transition-timing-function: ease;
   display: flex;
@@ -126,7 +113,6 @@ b{
 }
 
 #animatedLogo{
-  /* transform: scale(calc(var(--zoom)-.2)) !important; */
   transition:1.4s;
   transition-timing-function: ease;
   width: 90vw;
@@ -135,7 +121,6 @@ b{
 }
 
 #vene{  
-  /* transform: scale(var(--zoom)) !important; */
   transition:1.4s;
   transition-timing-function: ease;
   stroke: var(--text);
@@ -167,10 +152,6 @@ polygon{
 }
 path{fill:none;  stroke:var(--text);
 }
-/* ::-webkit-scrollbar {
-  opacity: 0;
-} */
-
 
 button {
   border: .3px solid;
@@ -186,10 +167,7 @@ button {
   opacity: 0;
 }
 
-
-
-/* #menuButton,#up,#changeTheme{ */
-  #buttons, #changeTheme{
+  #buttons{
       position: fixed !important;
     opacity: 0;
     z-index: 10;
@@ -197,9 +175,7 @@ button {
     bottom: 0;
     justify-content: space-between;
     display: flex;
-    margin: 0 5%;
-
-    
+  
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -209,31 +185,23 @@ button {
     user-select: none;
 
     right: 0 !important;
-    width: 50%;
+
+    width: 100%;
+   margin: 0 5%;
+    
 }
 
 #changeTheme{
-    right: 0;
-    width: max-content;
- top: 0;
+  width: max-content;
   font-size: 50px;}
 
 #buttons button,#buttons img{ 
-  width: 50px;
-    font-family: 'futura';
+  font-family: 'futura';
   font-size: 50px;
-    color: var(--text);
-      transform: 1 !important;
+  color: var(--text);
+  transform: 1 !important;
 }
 
-
-/* #changeTheme{
-  color: var(--text);
-  font-size:50px;
-      /* top: 18px;
-    left: 5px;
-    float:left; 
-} */
 
 #changeTheme2{
   color: var(--text);
@@ -243,48 +211,20 @@ button {
 #menuButton{
   filter: invert();
   width: 60px;
-  /* bottom: 10px;
-  right: 5px; */
-  /* float:right; */
-  /* background-image: url('/static/assets/hamburger.svg');
-  background-position: center center;
-  background-repeat: no-repeat; */
 }
 
-#up{
-      display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* #up{ */
-  /* position: relative;
-  left: -7px;
-  bottom: 5px; */
-  /* font-size: 50px; */
-      /* -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none; */
-    /* float:left; */
-/* } */
-
-/* #up span{
-  font-family: 'futura';
-  font-size: 50px;
-} */
 
 #menu{
   display: none;
   z-index: 100;
   width: max-content;
   position: fixed;
-  bottom: 75px;
-  right: 15px !important;
+ bottom: 10px;
+    right: 64px !important;
   -webkit-backface-visibility: hidden;
   text-align: right;
+  /* background-color: var(--bckBlurred); */
+  border-radius: 20px;
 }
 
 
@@ -473,8 +413,10 @@ h1{
 a{text-underline-offset: 9px; color: var(--text);}
 
 #bio{
-  width: 60%;
+  width: 400px;
 }
+
+
 
 .loader-text p, #enter{
   width: 80%;
@@ -482,10 +424,16 @@ a{text-underline-offset: 9px; color: var(--text);}
   text-justify: inter-word; 
 }
 
-#bio a, .loader-text h1{
-  font-family: 'futura';
+#bio a{
   text-decoration: none;
   color: var(--text);
+}
+
+.loader-title{
+  font-size: 50px;
+    font-family: 'futura' !important;
+ color: var(--text);
+ text-align: center !important ;
 }
 
 .loader-text h1{
@@ -494,8 +442,10 @@ a{text-underline-offset: 9px; color: var(--text);}
 
 #buttons{
     display: flex;
-    align-items: center;
-    justify-content: space-between;    
+    flex-direction: column;
+align-items: flex-end;
+    justify-content: space-between;   
+    height: inherit; 
   }
 
 @media (min-width:641px)  { 
@@ -526,49 +476,38 @@ a{text-underline-offset: 9px; color: var(--text);}
 
  @media (min-width:375px) { 
     #bio{
-  width: 100%;
-}
-
-  #menuButton{
-    /* position: absolute; */
-    right: 0;
-    height: -webkit-fill-available;
+    width: 100%;
   }
 
-  #up{
-    height: initial;
-    /* position: relative; */
-    /* right: 45%; */
-  }
 
   #changeTheme{
   height: initial;
-  /* position: relative; */
 }
 
   .loader-text p, #enter{
     width: 80%
   }
 
+  #buttons{
+  flex-direction: column;
+  width: unset;
+  margin: unset;
+  }
 
- }
+}
+
 @media (min-width:1000px) { 
     .loader-text p,#enter{
   width: 30% !important
 }
 #enter{
-  display: none;
+  /* display: none; */
   width: 20%;
 }
 
 #loader-container div p{
 
     width: 70%;
-}
-
-#buttons{
-  width: 100%;
-  margin: 0;
 }
 
 
