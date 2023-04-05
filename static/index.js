@@ -93,11 +93,14 @@ window.addEventListener('load',
                 document.getElementById("loader-container").style.display ="none"
                  trigger = true
                  events()
-                callLogo()
+                 document.getElementById("simulate").click
+                logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
                  setTimeout(() => {
-                     callLogo()
+                      document.getElementById("simulate").click
+        logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
                     eventContainer.style.display = 'flex'
-                    callLogo()
+                    document.getElementById("simulate").click
+        logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
                 }, 200);
             }, 1000);
 
@@ -194,7 +197,7 @@ window.addEventListener('load',
     // center page, focus on logo
     function callLogo(){
         document.getElementById("simulate").click
-        logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
+        logo.scrollIntoView({block: "center", inline: "center",behavior:"smooth"})
     }
 
     // Reset position when dezooming?
