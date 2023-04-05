@@ -34,7 +34,7 @@ data = json.loads(Jresponse)
 for x in range(len(data['contents'])):
   id = data['contents'][x]['id']
   title = data['contents'][x]['title']
-  print(title)
+  print(id)
   titleURL = title.replace(' ','_').replace('--','')
   uri = baseURL + str(id)
   try:
@@ -73,9 +73,16 @@ for x in range(len(data['contents'])):
   for media in range(len(project['contents'])):
     description = project['contents'][media]['description_html']
     asset = project['contents'][media]['attachment']
+    embed = project['contents'][media]['embed']
     tempTitle = project['contents'][media]['title']
 
     try:
+  
+      if (embed):
+        # print(embed['html'])
+        # TODO: osdfbdendfjoeginks
+        videoURL.append(embed['html'])
+        videoTitle.append(tempTitle)
       if asset['extension'] == 'mp3' or asset['extension'] == 'wav':
         audioURL.append(asset['url'])
         audioTitle.append(tempTitle)
