@@ -53,12 +53,15 @@ for x in range(len(data['contents'])):
       picsHigh.append(project['contents'][pic]['image']['display']['url'])   
       picsLow.append(project['contents'][pic]['image']['thumb']['url'])   
     except:
-      print('')
+      print()
   
   picsTemp = list(zip(picsLow,picsHigh))
   pics = [list(p) for p in picsTemp]
 
 
+  embeddedURL = []
+  embeddedTitle = []
+  embeddedDescription = []
   audioDescription = []
   audioURL = []
   audioTitle = []
@@ -79,10 +82,14 @@ for x in range(len(data['contents'])):
     try:
   
       if (embed):
-        # print(embed['html'])
-        # TODO: osdfbdendfjoeginks
-        videoURL.append(embed['html'])
-        videoTitle.append(tempTitle)
+        print(embed['html'])
+        embeddedURL.append(embed['html'].replace('iframe', 'iframe loading="lazy"'))
+        #print(embeddedURL)
+        embeddedTitle.append(tempTitle)
+        if(description == ''):
+          embeddedDescription.append('')
+        else:
+          embeddedDescription.append(description)
       if asset['extension'] == 'mp3' or asset['extension'] == 'wav':
         audioURL.append(asset['url'])
         audioTitle.append(tempTitle)
@@ -111,9 +118,13 @@ for x in range(len(data['contents'])):
 
   audioTemp = list(zip(audioURL, audioDescription, audioTitle))
   videoTemp = list(zip(videoURL, videoDescription, videoTitle))
+  embeddedTemp = list(zip(embeddedURL, embeddedDescription, embeddedTitle))
+
   pdfTemp = list(zip(pdfURL, pdfDescription, pdfTitle))
   audio= [[*aa] for aa in audioTemp]
   video= [[*vv] for vv in videoTemp]
+  embedded= [[*ee] for ee in embeddedTemp]
+  print(embedded)
   pdf = [[*pp] for pp in pdfTemp]
   if title.endswith('--'):
     menuQuest = True
@@ -123,11 +134,12 @@ for x in range(len(data['contents'])):
  
 
   menu = f'<a onclick="closeMenu()" href=#'+str(titleURL)+'>'+title+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':title,'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'pdf':pdf,'menuQuest': menuQuest}
+  projects[x] = {'id':project['id'],'menu':menu,'title':title,'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'embedded':embedded,'pdf':pdf,'menuQuest': menuQuest}
   projectsDiv.append(f'<div class="animate__animated project"  id="{str(titleURL)}">')
 
 
 lenVideo = len(video)
+lenEmbed=len(embedded)
 lenAudio = len(audio)
 lenPdf = len(pdf)
 lenP=len(projects)
@@ -137,6 +149,8 @@ lenV=len(vene)
 
 with open('projects.json', 'w') as f:
     json.dump(projects, f)
+
+
 
 app = Flask('app')
 
@@ -152,7 +166,7 @@ def index():
     with open('./static/data/visits.txt', "w") as counterValue:
      counterValue.write(str(out))
 
-  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf)
+  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf,lenEmbed=lenEmbed)
 
 
 # INFO CONTACTS

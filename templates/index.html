@@ -325,13 +325,29 @@
                     <h2>{{projects[i]['description'] | safe}}</h2>
                     {% endif %}
 
+                    
+
+
+                    {% if projects[i]['embedded'] %}
+                    <div class="audio swiper mySwiper">
+                        <!-- <div class="swiper-wrapper"> -->
+                            {%for emb in projects[i]['embedded']%}   
+                                <!-- <div class="swiper-slide">   -->
+                                       {{emb[0]|safe}}
+                                <!-- </div> -->
+                            {%endfor%}
+                        <!-- </div> -->
+                         <!-- <div class="swiper-pagination"></div> -->
+                    </div>
                     <!-- Galleria -->
-                    {% if projects[i]['pics'] %}
+                    {% elif projects[i]['pics']%}
                     <div class="pictures swiper mySwiper">
                         <div class="swiper-wrapper">
                             {%for p in projects[i]['pics']%} 
                                 <div class="swiper-slide" >
-                                    <img class="lazy" data-src="{{p[1]}}" loading="lazy">
+                                    <a target="_blank" href="{{p[1]}}">
+                                        <img class="lazy" data-src="{{p[1]}}" loading="lazy">
+                                    </a>
                                 </div>
                             {%endfor%} 
                          </div>
@@ -373,22 +389,9 @@
                     </div>
                     {% endif %}
 
-                    <!-- <div class="pdf swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            {%for pdf in projects[i]['pdf']%}   
-                                <div class="swiper-slide">  
-                                    <h2>{{pdf[2] | safe}}</h2>
-                                    <iframe src="{{pdf[0]}}"></iframe>
-                                    {{pdf[1] | safe}}
-                                </div>
-                            {%endfor%}
-                        </div>
-                         <div class="swiper-pagination"></div>
-                    </div> -->
+                   
 
-                    
-
-                {{projects[i]['text'] | safe}}
+                <p>{{projects[i]['text'] }} khasvcuagdsvuqfiqyd</p>
             
                 </div>
             {%endfor%} 
@@ -411,6 +414,7 @@
         slidesPerView: 1,
         spaceBetween: 30,
         mousewheel: true,
+        
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
