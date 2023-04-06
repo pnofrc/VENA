@@ -248,6 +248,10 @@ button {
 
 .iframe{
   width: 300px;
+      display: flex;
+    scale: .6;
+    right: 202px;
+    position: relative;
 }
 
 /* Slide Show  */
