@@ -248,11 +248,12 @@ button {
 
 .iframe{
   width: 300px;
-      display: flex;
+      /* display: flex;
     scale: .6;
     right: 202px;
-    position: relative;
+    position: relative; */
 }
+
 
 /* Slide Show  */
 
