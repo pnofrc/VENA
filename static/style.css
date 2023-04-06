@@ -201,6 +201,8 @@ button {
   font-size: 50px;
   color: var(--text);
   transform: 1 !important;
+      right: 0 !important;
+    position: relative;
 }
 
 
@@ -269,7 +271,7 @@ button {
   background: var(--background);
 }
 
-.swiper-slide img,.swiper-slide p,.swiper-slide audio,.swiper-slide video {
+.swiper-slide img,.swiper-slide p,.swiper-slide audio,.swiper-slide video, .swiper-slide embed {
   display: block !important;
   object-fit: cover !important;
   width: 100%;
@@ -279,6 +281,13 @@ button {
 .audio .swiper-wrapper{
       margin: 0 0 30px 0;
 }
+
+.embed{
+display: flex;}
+.pdf{
+  width: 200px
+}
+
 
 .swiper-pagination-bullet{
   background-color: var(--text) !important;

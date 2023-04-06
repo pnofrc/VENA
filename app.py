@@ -124,7 +124,6 @@ for x in range(len(data['contents'])):
   audio= [[*aa] for aa in audioTemp]
   video= [[*vv] for vv in videoTemp]
   embedded= [[*ee] for ee in embeddedTemp]
-  print(embedded)
   pdf = [[*pp] for pp in pdfTemp]
   if title.endswith('--'):
     menuQuest = True
