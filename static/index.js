@@ -62,7 +62,7 @@ if (localStorage.getItem("info")){
         document.getElementById("loader-container").style.backgroundRepeat ="no-repeat "
         document.getElementById("loader-container").style.backgroundPosition ="center "
 } else {
-        document.getElementById("loader-container").style.display="flex"
+        document.getElementById("loader-container").style.display="block"
 }
 
 
@@ -79,15 +79,15 @@ window.addEventListener('load',
         }, 100);
     }else {
         document.getElementById("enter").classList.add('animate__flipInX')
+                document.getElementById("cookie").classList.add('animate__fadeIn')
+
         setTimeout(() => {
             document.getElementById("enter").style.display="block"
-        }, 100);
+               document.getElementById("cookie").style.display="block"
+        }, 1000);
 
-        
         document.getElementById("enter").addEventListener('click',()=>{
-            // fullscreen()
             document.getElementById("loader-container").style.display = 'none'
-            // document.getElementById("loader-container").classList.add('animate__fadeOut')
 
             setTimeout(() => {
                 document.getElementById("loader-container").style.display ="none"
@@ -95,13 +95,17 @@ window.addEventListener('load',
                  events()
                  document.getElementById("simulate").click
                 logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
-                 setTimeout(() => {
-                      document.getElementById("simulate").click
-        logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
-                    eventContainer.style.display = 'flex'
+                
+                setTimeout(() => {
                     document.getElementById("simulate").click
-        logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
+                    logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
+
+                    eventContainer.style.display = 'flex'
+
+                    document.getElementById("simulate").click
+                    logo.scrollIntoView({block: "center", inline: "center",behavior:"instant"})
                 }, 200);
+
             }, 1000);
 
               

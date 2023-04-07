@@ -33,6 +33,13 @@
             #TANGIER_06-23 h1{
                 display: none
             }
+
+            #cookie{
+                display: none;
+            }
+            .loader-text{
+                overflow-y: scroll;
+            }
         </style>
     </head>
     <body>
@@ -43,9 +50,38 @@
                     <p>Welcome. Feel free to navigate following the venous web or use the bottom right menu. 
                     <br>Please wait a few instants the page to load.<br><br>
                     <br>☉ → press once to get back & keep pressed for the view :)<br>
-                    <br>We suggest you to use Chrome to surf our website.</p>
+                    <br>We suggest you to use Chrome to surf our website.<br><br>Enjoy the poem first.</p>
+                    <br><br>
+                    <p class="poesia">
+                      (...) E aver raccolto il deserto nel cavo della gola Aver nutrito col sangue<br>
+                        l'indifferenza delle pietre<br>
+                        Aver assunto la leggerezza della nebbia<br>
+                        Per confondere ciò che l'assenza ha<br>
+                        lasciato<br>
+                        nei miei occhi<br>
+                        Aver piegato parole come ginocchia<br>
+                        Per colmare lo scarto esiguo tra<br>
+                        due onde<br>
+                        Aver fissato parole di una solitudine nuda<br>
+                        Come un cuscino sgualcito<br>
+                        dall'assenza<br>
+                        Aver scavato parole per alimentare le vene<br>
+                        e disciolto ogni vena per<br>
+                        ricomporla in parola<br>
+                        e da labbra umane essere<br>
+                        dissolto in suono.<br>
+                        Questo intendevo dire.<br><br><br>
+     
+                        <i>Franco Ferrara - Questo intendevo dire, 1989-1990</i>
+
+                    </p>
+                <br>
+                <p id="cookie" class="animate__animated">We do not use cookies, therefore we do not collect any kind of personal data.
+                    <br>We use <a href="https://are.na">are.na</a> as Content Manage System and their <a href="https://www.are.na/privacy">privacy policy can be found here.</a> (They don't collect personal data either)
+                </p>
             </div>
             <div>
+                
                 <button id="enter" class="animate__animated">Enter</button>
             </div>
         </div>
@@ -82,7 +118,7 @@
 
         <!-- Logo Animato -->
         <div id="container"> 
-            <img id="animatedLogo" data-depth="0.05" src="../static/assets/blackLogo.gif"  alt="">
+            <img id="animatedLogo" src="../static/assets/blackLogo.gif"  alt="">
        </div>
 
        <div id="contents" class="animate__animated anima">
@@ -388,13 +424,16 @@
             </div>
              <!-- Progetti -->
 		    {%for i in range(0, lenP)%} 
-                {{projectsDiv[i] |safe}}
+                <!-- {{projectsDiv[i] |safe}} -->
+                {{projects[i]['div'] |safe}}
+
+                <!-- <div  class="animate__animated project"  id="{{projects[i]['title']}}"></div> -->
                      {% if projects[i]['description'] %}
-                        <h1>{{projects[i]['title'].replace('_',' ') | safe}}</h1>
+                        <p class="titleProj">{{projects[i]['title'].replace('_',' ') | safe}}</p>
                     {% endif %}
 
                     {% if projects[i]['description'] %}
-                         <h2>{{projects[i]['description'] | safe}}</h2>
+                         <p class="subtitleProj">{{projects[i]['description'] | safe}}</p>
                     {% endif %}
 
                     

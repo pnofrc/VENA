@@ -16,7 +16,7 @@ baseURL = 'http://api.are.na/v2/channels/'
 db = {} # database x form
 projects = {}
 projectsDiv = []
-vene = []
+# vene = []
 formData = []
 
 extension = 'website-assets-dkje44dpzvc'
@@ -133,8 +133,8 @@ for x in range(len(data['contents'])):
  
 
   menu = f'<a onclick="closeMenu()" href=#'+str(titleURL)+'>'+title+'</a>'
-  projects[x] = {'id':project['id'],'menu':menu,'title':title,'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'embedded':embedded,'pdf':pdf,'menuQuest': menuQuest}
-  projectsDiv.append(f'<div class="animate__animated project"  id="{str(titleURL)}">')
+  projects[x] = {'id':project['id'],'div':f"<div class='animate__animated project'  id='{str(titleURL)}'>" ,'menu':menu,'title':title,'description':project['metadata']['description'],'text':project['contents'][-1]['content_html'], 'pics': pics,'video':video,'audio':audio,'embedded':embedded,'pdf':pdf,'menuQuest': menuQuest}
+  # projectsDiv.append(f'<div class="animate__animated project"  id="{str(titleURL)}">')
 
 
 lenVideo = len(video)
@@ -142,12 +142,15 @@ lenEmbed=len(embedded)
 lenAudio = len(audio)
 lenPdf = len(pdf)
 lenP=len(projects)
-lenV=len(vene)
+# lenV=len(vene)
 
 
 
 with open('projects.json', 'w') as f:
     json.dump(projects, f)
+
+with open('projects.json', 'r') as db:
+    db = db.read()
 
 
 
@@ -165,8 +168,8 @@ def index():
     with open('./static/data/visits.txt', "w") as counterValue:
      counterValue.write(str(out))
 
-  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,vene=vene,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf,lenEmbed=lenEmbed)
-
+  # return render_template('index.html',lenP=lenP,projects=projects,lenV=lenV,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf,lenEmbed=lenEmbed)
+  return render_template('index.html',lenP=lenP,projects=projects,projectsDiv=projectsDiv,lenVideo=lenVideo,lenAudio=lenAudio,lenPdf=lenPdf,lenEmbed=lenEmbed)
 
 # INFO CONTACTS
 @app.route('/info')
