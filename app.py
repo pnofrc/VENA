@@ -156,8 +156,14 @@ with open('projects.json', 'r') as db:
 
 app = Flask('app')
 
-# HOMEPAGE
+# NEW EVENT
 @app.route('/')
+def new():
+  return render_template('new.html')
+
+
+# HOMEPAGE
+@app.route('/board')
 def index():
   counter = Value('i',0)
   with counter.get_lock():
