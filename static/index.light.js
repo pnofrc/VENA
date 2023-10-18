@@ -4,7 +4,7 @@ let changeTheme = document.getElementById('changeTheme2')
 let cssRoot = document.querySelector(':root');
 
 if (localStorage.length == 0) {
-    localStorage.setItem("lig", "y")
+    localStorage.setItem("dark", "y")
 }
 
 dark()

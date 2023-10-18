@@ -19,7 +19,7 @@ history.replaceState({},'',location.pathname); // at refresh/enter clean the url
 
 // check theme
 if (localStorage.length == 0) {
-    localStorage.setItem("lig", "y")
+    localStorage.setItem("dark", "y")
 }
 
 dark()
